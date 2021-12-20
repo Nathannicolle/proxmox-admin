@@ -55,8 +55,7 @@ return array(
 	"part2"=>[
 			"themes",
 			"maintenance",
-			"composer",
-			"security"
+			"composer"
 			],
 	"style"=>"inverted"
 	);

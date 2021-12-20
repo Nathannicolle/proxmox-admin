@@ -1,7 +1,9 @@
 <?php
 namespace controllers;
+use models\User;
 use Ubiquity\attributes\items\router\Post;
 use Ubiquity\attributes\items\router\Route;
+use Ubiquity\orm\DAO;
 use Ubiquity\utils\flash\FlashMessage;
 use Ubiquity\utils\http\UResponse;
 use Ubiquity\utils\http\USession;
@@ -14,7 +16,7 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
     protected $footerView = "@activeTheme/main/vFooter.html";
 
     #[Route(path: "/signin", name: "auth.login")]
-    public  function getConnectFrom() {
+    public function getConnectFrom() {
         $this->loadView("MyAuth/index.html");
     }
 
@@ -43,12 +45,6 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
         }
     }
 
-    protected function noAccessMessage(FlashMessage $fMessage){
-        $fMessage->setTitle('Accès refusé !');
-        $fMessage->setContent('Vous n\'êtes pas authentifié');
-        $fMessage->setIcon('warning sign');
-    }
-
 
     protected function onConnect($connected) {
         $urlParts=$this->getOriginalURL();
@@ -72,7 +68,7 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
             }
             return $user;
         }
-        return ;
+        return;
     }
 
     /**
@@ -84,7 +80,7 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
     }
 
     public function _getBaseRoute() {
-        return '/login';
+        return '/login/signin';
     }
 	
 

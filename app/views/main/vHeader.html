@@ -13,14 +13,14 @@
 {% endblock %}
 </head>
 <body>
-<div class="container">
+<div class="main_container">
 	{%  block menu %}
 		<div class="ui basic inverted segment">
 			<div class="ui container">
 				<div class="ui inverted secondary menu">
 					<a href="{{ path('home')}}"><img src="assets/img/Proxmox_pannel_V7.2_full.png" class="logo"></a>
 					<a href="{{ path('home') }}" class="item">Accueil</a>
-					<div class="item">{{ _userInfo|raw }}</div>
+					<div class="item" id="link_connection">{{ _userInfo|raw }}</div>
 				</div>
 			</div>
 		</div>

@@ -1,0 +1,16 @@
+<!--View associated to index action of MyAuth controller -->
+<div class="page_form">
+    <div class="form_container">
+        <form class="ui form ui inverted form form_connect" action="{{path('myAuth.connect')}}" method="post">
+            <label>Email :</label>
+            <input type="email" name="email" placeholder="Email">
+            <label>Mot de passe :</label>
+            <input type="password" name="password" placeholder="Votre mot de passe">
+            <button>Connexion</button>
+        </form>
+        <div class="other_action_form">
+            <p>ou <a href="#">inscrivez-vous</a></p>
+        </div>
+    </div>
+
+</div>
