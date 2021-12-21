@@ -82,7 +82,4 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
     public function _getBaseRoute() {
         return '/login/signin';
     }
-	
-
-
 }
