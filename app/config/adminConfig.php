@@ -55,7 +55,12 @@ return array(
 	"part2"=>[
 			"themes",
 			"maintenance",
-			"composer"
+			"composer",
+			"security",
+			"logs"
 			],
-	"style"=>"inverted"
+	"style"=>"inverted",
+	"selected-acl-providers"=>[
+			"Ubiquity\\security\\acl\\persistence\\AclCacheProvider"
+			]
 	);
