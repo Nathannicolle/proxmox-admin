@@ -9,3 +9,7 @@ window.addEventListener("load", () => {
         }
     });
 });
+
+$('.ui.fluid.dropdown')
+    .dropdown({
+    });
