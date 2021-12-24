@@ -1,6 +1,7 @@
 <?php
 namespace controllers;
 use Ajax\php\ubiquity\JsUtils;
+use Ubiquity\attributes\items\acl\Allow;
 use Ubiquity\attributes\items\acl\Resource;
 use \Ubiquity\attributes\items\router\Route;
 use Ubiquity\controllers\auth\AuthController;
@@ -13,13 +14,19 @@ use Ubiquity\utils\http\USession;
   * Controller MainController
   * @property JsUtils $jquery
   */
-class MainController extends \controllers\ControllerBase{
+#[Resource('Main')]
+class MainController extends ControllerBase {
+    public function isValid($action){
+        return parent::isValid($action) && $this->isValidAcl($action);
+    }
+
     use AclControllerTrait, WithAuthTrait {
         WithAuthTrait::isValid insteadof AclControllerTrait;
         AclControllerTrait::isValid as isValidAcl;
     }
 
     #[Route("_default", name: "index.home")]
+    #[Allow("@ALL", "Main")]
 	public function index(){
         $this->jquery->renderView('MainController/index.html');
 	}
@@ -30,6 +37,6 @@ class MainController extends \controllers\ControllerBase{
 
     public function _getRole()
     {
-        return USession::get('activeUser', '@NOBODY');
+        return USession::get('activeUser', '@ALL');
     }
 }
