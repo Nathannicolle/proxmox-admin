@@ -1,6 +1,7 @@
 <?php
 namespace controllers;
 use models\User;
+use models\User_;
 use Ubiquity\attributes\items\router\Post;
 use Ubiquity\attributes\items\router\Route;
 use Ubiquity\orm\DAO;
@@ -60,11 +61,12 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
     #[Post(path:"/connect/", name:"myAuth.connect")]
     protected function _connect() {
         if(URequest::isPost()){
-            $email=URequest::post($this->_getLoginInputName());
+            $login=URequest::post($this->_getLoginInputName());
             $password=URequest::post($this->_getPasswordInputName());
-            $user=DAO::getOne(User::class,'email= :email',false,['email'=>$email]);
+            $user=DAO::getOne(User_::class,'login= :login',false,['login'=>$login]);
             if(isset($user)) {
-                USession::set('idOrga', $user->getOrganization());
+                USession::set('idUser', $user->getLogin());
+                USession::set('role', $user->getRole());
             }
             return $user;
         }

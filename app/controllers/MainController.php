@@ -27,7 +27,10 @@ class MainController extends ControllerBase {
 
     #[Route("_default", name: "index.home")]
     #[Allow("@ALL", "Main")]
+    #[Allow("Etudiant", "Main")]
 	public function index(){
+        $userId = USession::get('idUser');
+        echo $userId;
         $this->jquery->renderView('MainController/index.html');
 	}
 
