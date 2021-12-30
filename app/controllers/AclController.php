@@ -4,6 +4,7 @@ namespace controllers;
 
 use Ubiquity\controllers\Controller;
 use Ubiquity\security\acl\controllers\AclControllerTrait;
+use Ubiquity\utils\http\USession;
 
 
 class AclController extends Controller {
@@ -24,6 +25,5 @@ class AclController extends Controller {
 	public function onInvalidControl() {
 		echo $this->_getRole() . ' is not allowed!';
 	}
-
 }
 

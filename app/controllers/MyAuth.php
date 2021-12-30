@@ -60,13 +60,14 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
 
     #[Post(path:"/connect/", name:"myAuth.connect")]
     protected function _connect() {
-        if(URequest::isPost()){
+        if(URequest::isPost()){ // Si la requête de connexion se fait bien avec POST
             $login=URequest::post($this->_getLoginInputName());
-            $password=URequest::post($this->_getPasswordInputName());
-            $user=DAO::getOne(User_::class,'login= :login',false,['login'=>$login]);
+            // $password=URequest::post($this->_getPasswordInputName());
+            $user=DAO::getOne(User_::class,'login= :login',false,['login'=>$login]); // On récupère l'utilisateur dont le login correspond à celui entré dans le formulaire
             if(isset($user)) {
-                USession::set('idUser', $user->getLogin());
-                USession::set('role', $user->getRole());
+                foreach ($user as $oneUser) {
+                    USession::set('role', $oneUser['role']); // On met en session le role de l'utilisateur que l'on a récupéré en BDD
+                }
             }
             return $user;
         }

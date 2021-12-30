@@ -29,8 +29,7 @@ class MainController extends ControllerBase {
     #[Allow("@ALL", "Main")]
     #[Allow("Etudiant", "Main")]
 	public function index(){
-        $userId = USession::get('idUser');
-        echo $userId;
+        $this->jquery->html("Role =" . USession::get('role'));
         $this->jquery->renderView('MainController/index.html');
 	}
 
@@ -40,6 +39,6 @@ class MainController extends ControllerBase {
 
     public function _getRole()
     {
-        return USession::get('activeUser', '@ALL');
+        return USession::get('role', '@ALL');
     }
 }
