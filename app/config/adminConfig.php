@@ -2,7 +2,8 @@
 return array(
 	"devtools-path"=>"Ubiquity",
 	"info"=>[
-			"routes"
+			"routes",
+			"controllers"
 			],
 	"display-cache-types"=>[
 			"controllers",

@@ -66,6 +66,7 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
             $user=DAO::getOne(User_::class,'login= :login',false,['login'=>$login]); // On récupère l'utilisateur dont le login correspond à celui entré dans le formulaire
             if(isset($user)) {
                 foreach ($user as $oneUser) {
+                    USession::set('name', $oneUser['login']);
                     USession::set('role', $oneUser['role']); // On met en session le role de l'utilisateur que l'on a récupéré en BDD
                 }
             }

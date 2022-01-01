@@ -14,7 +14,6 @@ use Ubiquity\utils\http\USession;
   * Controller MainController
   * @property JsUtils $jquery
   */
-#[Resource('Main')]
 class MainController extends ControllerBase {
     public function isValid($action){
         return parent::isValid($action) && $this->isValidAcl($action);
@@ -26,12 +25,22 @@ class MainController extends ControllerBase {
     }
 
     #[Route("_default", name: "index.home")]
-    #[Allow("@ALL", "Main")]
-    #[Allow("Etudiant", "Main")]
+    #[Allow("@ALL")]
+    #[Allow("@ETUDIANT")]
+    #[Allow("@PROF")]
+    #[Allow("@ADMIN")]
 	public function index(){
-        $this->jquery->html("Role =" . USession::get('role'));
         $this->jquery->renderView('MainController/index.html');
 	}
+
+    #[Route("dashboard", name: "dashboard.home")]
+    #[Allow("@ETUDIANT")]
+    #[Allow("@PROF")]
+    #[Allow("@ADMIN")]
+    public function dashboard() {
+        echo "<h1>Bonjour " . USession::get('name') . "<br></h1> <h2>Vous disposez du rôle : " . USession::get('role') . "</h2>";
+        $this->jquery->renderView('DashboardController/index.html');
+    }
 
     protected function getAuthController(): AuthController {
         return new MyAuth($this);
