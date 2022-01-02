@@ -26,19 +26,14 @@ class MainController extends ControllerBase {
 
     #[Route("_default", name: "index.home")]
     #[Allow("@ALL")]
-    #[Allow("@ETUDIANT")]
-    #[Allow("@PROF")]
-    #[Allow("@ADMIN")]
 	public function index(){
         $this->jquery->renderView('MainController/index.html');
 	}
 
     #[Route("dashboard", name: "dashboard.home")]
-    #[Allow("@ETUDIANT")]
-    #[Allow("@PROF")]
-    #[Allow("@ADMIN")]
+    #[Allow(['@ETUDIANT','@PROF','@ADMIN'])]
     public function dashboard() {
-        echo "<h1>Bonjour " . USession::get('name') . "<br></h1> <h2>Vous disposez du rôle : " . USession::get('role') . "</h2>";
+        echo "<div class='user_infos'><h1>Bonjour " . USession::get('name') . "<br></h1> <h2>Vous disposez du rôle : " . USession::get('role') . "</h2></div>";
         $this->jquery->renderView('DashboardController/index.html');
     }
 
@@ -50,4 +45,6 @@ class MainController extends ControllerBase {
     {
         return USession::get('role', '@ALL');
     }
+
+
 }

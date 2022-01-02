@@ -9,6 +9,9 @@ window.addEventListener("load", () => {
                 document.querySelector(".logo").style = "height: 200px;";
             }
         });
+    } else if(window.location.pathname == "/dashboard/") {
+        document.querySelector(".ui.basic.inverted.segment.main_menu").style = "display: none !important;";
+        document.querySelector(".page_container").style = "margin-top: 0; padding-bottom:0;";
     } else {
         document.querySelector(".logo").style = "height: 100px;";
         document.querySelector(".logo").src = "assets/img/Proxmox_pannel_V7.2_light.png";

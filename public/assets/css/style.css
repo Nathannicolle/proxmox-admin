@@ -1,6 +1,6 @@
 body{
-	background: rgb(79,160,174);
-	background: center / cover linear-gradient(45deg, rgba(79,160,174,1) 0%, rgba(210,157,56,1) 100%);
+	background-color: #0093E9;
+	background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
 }
 .head{
 	background-color: #1f1f1f;
@@ -208,6 +208,89 @@ body{
 	background-color: white;
 }
 
+/* Style du dashboard */
+.secondary_menu {
+	box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.secondary_menu ul {
+	display: flex;
+	margin-top: 0;
+	list-style-type: none;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	margin-left: 12vw;
+}
+
+.secondary_menu ul li:first-child {
+	margin-right: 2%;
+}
+
+.secondary_menu ul li a {
+	display: block;
+	color: white;
+	transition: 0.2s ease-in-out;
+}
+
+.secondary_menu ul li a:hover {
+	background: rgba(255,255,255,.15);
+}
+
+.dashboard_container {
+	background-color: #272B30 !important;
+}
+
+.user_infos {
+	position: absolute;
+	left: 50%;
+	transform: translateX(calc(-50% + 12vw));
+	margin-top: 6%;
+}
+
+aside.dashboard_menu {
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	background-color: #3083DC;
+	height: 100%;
+	z-index: 4;
+	width: 12vw;
+	box-shadow: black 0px 10px 10px, black 0px 6px 6px;
+	color: white;
+	top:0;
+}
+
+aside.dashboard_menu img {
+	background-color: white;
+	width: 100%;
+	transition: 0.5s ease-in-out;
+}
+
+aside.dashboard_menu img:hover {
+	transform: scale(0.8);
+}
+
+aside.dashboard_menu li {
+	list-style-type: none;
+}
+
+aside.dashboard_menu a {
+	display: block;
+	color: white;
+	padding: 6%;
+	padding-left: 10%;
+	font-size: 1.4em;
+}
+
+aside.dashboard_menu a.link_active {
+	background-color: white;
+	color: #707070;
+	border-radius: 30px 0px 0px 30px;
+}
+
+aside.dashboard_menu i {
+	margin-right: 1%;
+}
 
 /* Responsive zone */
 @media screen and (max-width: 1700px) {

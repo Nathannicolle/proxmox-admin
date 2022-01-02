@@ -6,16 +6,18 @@
 	<meta charset="UTF-8">
 	<link rel="icon" href="data:;base64,iVBORw0KGgo=">
 	<title>proxmox-admin</title>
+
 {% endblock %}
 {% block css %}
 	{{css('https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.css') }}
 	{{css('css/style.css')}}
+	{{css('css/all.css')}}
 {% endblock %}
 </head>
 <body>
 <div class="main_container">
 	{%  block menu %}
-		<div class="ui basic inverted segment">
+		<div class="ui basic inverted segment main_menu">
 			<div class="ui container">
 				<div class="ui inverted secondary menu">
 					<a href="{{ path('home')}}"><img src="assets/img/Proxmox_pannel_V7.2_full.png" class="logo"></a>
