@@ -33,8 +33,7 @@ class MainController extends ControllerBase {
     #[Route("dashboard", name: "dashboard.home")]
     #[Allow(['@ETUDIANT','@PROF','@ADMIN'])]
     public function dashboard() {
-        echo "<div class='user_infos'><h1>Bonjour " . USession::get('name') . "<br></h1> <h2>Vous disposez du rôle : " . USession::get('role') . "</h2></div>";
-        $this->jquery->renderView('DashboardController/index.html');
+        $this->jquery->renderView('DashboardController/index.html', ['name' => USession::get('name'), 'role' => USession::get('role')]);
     }
 
     protected function getAuthController(): AuthController {

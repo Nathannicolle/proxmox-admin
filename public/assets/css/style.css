@@ -228,16 +228,24 @@ body{
 
 .secondary_menu ul li a {
 	display: block;
-	color: white;
+	color: gray;
 	transition: 0.2s ease-in-out;
 }
 
 .secondary_menu ul li a:hover {
 	background: rgba(255,255,255,.15);
+	color: white;
 }
 
 .dashboard_container {
 	background-color: #272B30 !important;
+	padding-bottom: 1%;
+	color: gray;
+	height: 100vh;
+}
+
+.dashboard_content {
+	margin-left: 13vw;
 }
 
 .user_infos {
@@ -280,12 +288,21 @@ aside.dashboard_menu a {
 	padding: 6%;
 	padding-left: 10%;
 	font-size: 1.4em;
+	transition: 0.5s ease-in-out;
 }
 
 aside.dashboard_menu a.link_active {
 	background-color: white;
 	color: #707070;
 	border-radius: 30px 0px 0px 30px;
+	box-shadow: inset 0px 0px 2px black;
+}
+
+aside.dashboard_menu a:hover {
+	background-color: #707070;
+	color: white;
+	border-radius: 30px 0px 0px 30px;
+	box-shadow: inset 0px 0px 2px black;
 }
 
 aside.dashboard_menu i {
