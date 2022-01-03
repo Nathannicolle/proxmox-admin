@@ -36,6 +36,12 @@ class MainController extends ControllerBase {
         $this->jquery->renderView('DashboardController/index.html', ['name' => USession::get('name'), 'role' => USession::get('role')]);
     }
 
+    #[Route("dashboard_VM", name: "dashboard.VM")]
+    #[Allow(['@ETUDIANT','@PROF','@ADMIN'])]
+    public function listVM() {
+        $this->jquery->renderView('DashboardController/VM.html');
+    }
+
     protected function getAuthController(): AuthController {
         return new MyAuth($this);
     }
