@@ -298,7 +298,7 @@ aside.dashboard_menu a.link_active {
 	box-shadow: inset 0px 0px 2px black;
 }
 
-aside.dashboard_menu a:hover {
+aside.dashboard_menu li a:hover {
 	background-color: #707070;
 	color: white;
 	border-radius: 30px 0px 0px 30px;
@@ -307,6 +307,14 @@ aside.dashboard_menu a:hover {
 
 aside.dashboard_menu i {
 	margin-right: 1%;
+}
+
+.time {
+	text-align: center;
+}
+
+span {
+	color: white;
 }
 
 /* Responsive zone */

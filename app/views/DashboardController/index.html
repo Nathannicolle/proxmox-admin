@@ -14,7 +14,31 @@
         </ul>
     </aside>
     <div class="dashboard_content">
-        <h1>Bonjour {{name}}</h1>
-        <h2>Votre rôle est : {{role}}</h2>
+        <h1 class="time"></h1>
+        <h2>Votre rôle est : <span> {{role}} </span></h2>
     </div>
 </div>
+<script>
+    let now = new Date();
+    let i = document.querySelector("i");
+    let time = document.querySelector(".time");
+    if(i.classList.contains("fa-question")) {
+        setTimeout(function() {
+            i.classList.remove("fas");
+            i.classList.remove("fa-question");
+            i.classList.add("far");
+            i.classList.add("fa-frown");
+        }, 2000);
+    }
+
+    var heure   = now.getHours();
+    if(heure >= 2 && heure <= 6) {
+        time.innerHTML = "Bonne nuit <span> {{name}} </span>";
+    } else if(heure >= 7 && heure <= 12) {
+        time.innerHTML = "Bonjour <span> {{name}} </span>";
+    } else if(heure >= 13 && heure <= 18) {
+        time.innerHTML = "Bonne après-midi <span> {{name}} </span>";
+    } else if(heure >= 19 || heure <= 1) {
+        time.innerHTML = "Bonsoir <span> {{name}} </span>";
+    }
+</script>
