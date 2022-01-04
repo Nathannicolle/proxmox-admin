@@ -9,7 +9,7 @@ window.addEventListener("load", () => {
                 document.querySelector(".logo").style = "height: 200px;";
             }
         });
-    } else if(window.location.pathname == "/dashboard/") {
+    } else if(window.location.pathname == "/dashboard/" || window.location.pathname == "/dashboard_VM/") {
         document.querySelector(".ui.basic.inverted.segment.main_menu").style = "display: none !important;";
         document.querySelector(".page_container").style = "margin-top: 0; padding-bottom:0;";
     } else {

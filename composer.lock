@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2b63d195f0f56b5b38c0c2c60533fbbe",
+    "content-hash": "40480b8a712c5caeb531e9a4971fe699",
     "packages": [
         {
             "name": "frameworks/jquery",
@@ -162,16 +162,16 @@
         },
         {
             "name": "phpmv/ubiquity-acl",
-            "version": "0.0.11",
+            "version": "0.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpMv/ubiquity-acl.git",
-                "reference": "1eab9baf4974c25a22ed05dcf86dd9ce924cae66"
+                "reference": "d585add085b4f76fbe80fcfca2c8563541502d03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpMv/ubiquity-acl/zipball/1eab9baf4974c25a22ed05dcf86dd9ce924cae66",
-                "reference": "1eab9baf4974c25a22ed05dcf86dd9ce924cae66",
+                "url": "https://api.github.com/repos/phpMv/ubiquity-acl/zipball/d585add085b4f76fbe80fcfca2c8563541502d03",
+                "reference": "d585add085b4f76fbe80fcfca2c8563541502d03",
                 "shasum": ""
             },
             "require": {
@@ -217,22 +217,22 @@
             ],
             "support": {
                 "issues": "https://github.com/phpMv/ubiquity-acl/issues",
-                "source": "https://github.com/phpMv/ubiquity-acl/tree/0.0.11"
+                "source": "https://github.com/phpMv/ubiquity-acl/tree/0.0.12"
             },
-            "time": "2021-11-02T19:20:42+00:00"
+            "time": "2021-12-26T03:33:27+00:00"
         },
         {
             "name": "phpmv/ubiquity-security",
-            "version": "0.0.2",
+            "version": "0.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpMv/ubiquity-security.git",
-                "reference": "d186bd411cb98d16807d433e91f2a640e7befca6"
+                "reference": "b02c1342a07b24db9d5c19351c7e5dec1e0a946c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpMv/ubiquity-security/zipball/d186bd411cb98d16807d433e91f2a640e7befca6",
-                "reference": "d186bd411cb98d16807d433e91f2a640e7befca6",
+                "url": "https://api.github.com/repos/phpMv/ubiquity-security/zipball/b02c1342a07b24db9d5c19351c7e5dec1e0a946c",
+                "reference": "b02c1342a07b24db9d5c19351c7e5dec1e0a946c",
                 "shasum": ""
             },
             "require": {
@@ -271,9 +271,9 @@
             ],
             "support": {
                 "issues": "https://github.com/phpMv/ubiquity-security/issues",
-                "source": "https://github.com/phpMv/ubiquity-security/tree/0.0.2"
+                "source": "https://github.com/phpMv/ubiquity-security/tree/0.0.5"
             },
-            "time": "2021-01-03T18:43:54+00:00"
+            "time": "2022-01-01T14:34:20+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -436,16 +436,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v3.3.6",
+            "version": "v3.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "bb07a776206c245bc9cbde8e1cfcd47ffa298c23"
+                "reference": "8f168c6ffa3ce76d1786b3cd52275424a3fc675b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/bb07a776206c245bc9cbde8e1cfcd47ffa298c23",
-                "reference": "bb07a776206c245bc9cbde8e1cfcd47ffa298c23",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/8f168c6ffa3ce76d1786b3cd52275424a3fc675b",
+                "reference": "8f168c6ffa3ce76d1786b3cd52275424a3fc675b",
                 "shasum": ""
             },
             "require": {
@@ -496,7 +496,7 @@
             ],
             "support": {
                 "issues": "https://github.com/twigphp/Twig/issues",
-                "source": "https://github.com/twigphp/Twig/tree/v3.3.6"
+                "source": "https://github.com/twigphp/Twig/tree/v3.3.7"
             },
             "funding": [
                 {
@@ -508,7 +508,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-01-03T14:27:01+00:00"
+            "time": "2022-01-03T21:15:37+00:00"
         }
     ],
     "packages-dev": [
