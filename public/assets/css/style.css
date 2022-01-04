@@ -292,7 +292,7 @@ body{
 }
 
 aside.dashboard_menu {
-	display: none;
+	display: flex;
 	flex-direction: column;
 	position: fixed;
 	background-color: #3083DC;

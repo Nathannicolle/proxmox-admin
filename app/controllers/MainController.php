@@ -1,9 +1,11 @@
 <?php
 namespace controllers;
 use Ajax\php\ubiquity\JsUtils;
+use http\Client\Curl\User;
 use models\Vm;
 use Ubiquity\attributes\items\acl\Allow;
 use Ubiquity\attributes\items\acl\Resource;
+use Ubiquity\attributes\items\router\Get;
 use \Ubiquity\attributes\items\router\Route;
 use Ubiquity\controllers\auth\AuthController;
 use Ubiquity\controllers\auth\WithAuthTrait;
@@ -44,6 +46,13 @@ class MainController extends ControllerBase {
         $user_id = USession::get('user_id');
         $vm = DAO::getAll(Vm::class, 'idUser = :idUser', false, ['idUser' => $user_id]);
         $this->jquery->renderView('DashboardController/VM.html'); // ['VM_Number' => $vm->getNumber(), 'VM_name' => $vm->getName(), 'VM_IP' => $vm->getIp()]
+    }
+
+    #[Get("oneVM/{id}", name: "dashboard.oneVM")]
+    #[Allow(['@ETUDIANT','@PROF','@ADMIN'])]
+    public function oneVM($id) {
+        $oneVM = DAO::getById(Vm::class, $id);
+        $this->jquery->renderView('DashboardController/oneVM.html', ['VM_Number' => $oneVM->getNumber(), 'VM_Name' => $oneVM->getName(), 'VM_IP' => $oneVM->getIp()]);
     }
 
     protected function getAuthController(): AuthController {
