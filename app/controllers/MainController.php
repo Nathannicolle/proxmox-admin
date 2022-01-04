@@ -45,7 +45,7 @@ class MainController extends ControllerBase {
     public function listVM() {
         $user_id = USession::get('user_id');
         $vm = DAO::getAll(Vm::class, 'idUser = :idUser', false, ['idUser' => $user_id]);
-        $this->jquery->renderView('DashboardController/VM.html'); // ['VM_Number' => $vm->getNumber(), 'VM_name' => $vm->getName(), 'VM_IP' => $vm->getIp()]
+        $this->jquery->renderView('DashboardController/VM.html', ['vms' => $vm]);
     }
 
     #[Get("oneVM/{id}", name: "dashboard.oneVM")]

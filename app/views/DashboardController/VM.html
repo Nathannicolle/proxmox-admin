@@ -16,9 +16,13 @@
     <div class="dashboard_content">
         <h1>Liste des VM</h1>
         <ul>
-            <li>{{VM_Number}}</li>
-            <li>{{VM_name}}</li>
-            <li>{{VM_IP}}</li>
+            {% for vm in vms %}
+                <li>{{ vm.number }}</li>
+                <li>{{ vm.name }}</li>
+                <li>{{ vm.ip }}</li>
+                <br>
+                <br>
+            {% endfor %}
         </ul>
     </div>
 </div>
