@@ -52,7 +52,7 @@ class MainController extends ControllerBase {
     #[Allow(['@ETUDIANT','@PROF','@ADMIN'])]
     public function oneVM($id) {
         $oneVM = DAO::getById(Vm::class, $id);
-        $this->jquery->renderView('DashboardController/oneVM.html', ['VM_Number' => $oneVM->getNumber(), 'VM_Name' => $oneVM->getName(), 'VM_IP' => $oneVM->getIp()]);
+        $this->jquery->renderView('DashboardController/oneVM.html', ['VM_Number' => $oneVM->getNumber(), 'VM_Name' => $oneVM->getName(), 'VM_IP' => $oneVM->getIp(), 'Port_SSH' => $oneVM->getSshPort(), 'OS' => $oneVM->getOs()]);
     }
 
     protected function getAuthController(): AuthController {

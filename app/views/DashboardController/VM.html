@@ -9,21 +9,23 @@
         <a href="{{path('home')}}"><img src="assets/img/Proxmox_pannel_V7.2_light.png" alt="logo proxmox pannel"/></a>
         <ul>
             <li><a href="{{path('dashboard.home')}}"><i class="fas fa-home"></i> Accueil</a></li>
-            <li><a href="#" class="link_active"><i class="fas fa-laptop"></i> Mes VM</a></li>
+            <li><a href="{{path('dashboard.VM')}}" class="link_active"><i class="fas fa-laptop"></i> Mes VM</a></li>
             <li><a href="#"><i class="fas fa-users"></i> Mes groupes</a></li>
         </ul>
     </aside>
     <div class="dashboard_content">
         <h1>Liste des VM</h1>
-        <ul>
+        <div class="card_container">
             {% for vm in vms %}
-                <li>{{ vm.number }}</li>
-                <li>{{ vm.name }}</li>
-                <li>{{ vm.ip }}</li>
-                <br>
-                <br>
+                <div class="card_VM">
+                    <h1><i class="fas fa-desktop"></i></h1>
+                    <p><b>Numéro de VM :</b> {{ vm.number }}</p>
+                    <p><b>Nom :</b> {{ vm.name }}</p>
+                    <p><b>Adresse IP :</b> {{ vm.ip }}</p>
+                    <a href="{{path('dashboard.oneVM', [vm.id])}}" class="link_vm">+ Plus d'infos</a>
+                </div>
             {% endfor %}
-        </ul>
+        </div>
     </div>
 </div>
 {{ script_foot|raw }}

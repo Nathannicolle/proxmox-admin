@@ -353,6 +353,52 @@ span {
 	color: white;
 }
 
+/* card VM */
+.card_container {
+	display: grid;
+	grid-template-columns: repeat(4, 25%);
+	grid-row-gap: 20px;
+	grid-column-gap: 20px;
+}
+
+.card_VM {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #495057;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	border-radius: 10px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	color: black;
+}
+
+.card_VM p {
+	font-size: 1.2em;
+}
+
+.card_VM i {
+	font-size: 1.4em;
+}
+
+.link_vm {
+	display: block;
+	color: white;
+	border: 1px solid white;
+	padding: 4%;
+	transition: 0.6s ease-in-out;
+	font-size: 1.2em;
+	border-radius: 10px;
+	width: 50%;
+	text-align: center;
+}
+
+.link_vm:hover {
+	background-color: #272b30;
+	box-shadow: inset 1px 1px 1px black;
+}
+
 /* Responsive zone */
 @media screen and (max-width: 1700px) {
 	.form_container {
