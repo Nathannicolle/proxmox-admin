@@ -37,7 +37,9 @@ class MainController extends ControllerBase {
     #[Route("dashboard", name: "dashboard.home")]
     #[Allow(['@ETUDIANT','@PROF','@ADMIN'])]
     public function dashboard() {
-        $this->jquery->renderView('DashboardController/index.html', ['name' => USession::get('name'), 'role' => USession::get('role')]);
+        $user_id = USession::get('user_id');
+        $vm = DAO::getAll(Vm::class, 'idUser = :idUser', false, ['idUser' => $user_id]);
+        $this->jquery->renderView('DashboardController/index.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'vms' => $vm]);
     }
 
     #[Route("dashboard_VM", name: "dashboard.VM")]

@@ -12,6 +12,16 @@ window.addEventListener("load", () => {
     } else if(window.location.pathname == "/dashboard/" || window.location.pathname == "/dashboard_VM/" || window.location.pathname.match("/oneVM/")) {
         document.querySelector(".ui.basic.inverted.segment.main_menu").style = "display: none !important;";
         document.querySelector(".page_container").style = "margin-top: 0; padding-bottom:0;";
+        $(".subcategory").click(function () {
+            $(".home_card_container").toggle();
+            if(document.querySelector("#showbtn").classList.contains("fa-chevron-down")) {
+                document.querySelector("#showbtn").classList.remove("fa-chevron-down");
+                document.querySelector("#showbtn").classList.add("fa-chevron-right");
+            } else {
+                document.querySelector("#showbtn").classList.add("fa-chevron-down");
+                document.querySelector("#showbtn").classList.remove("fa-chevron-right");
+            }
+        });
     } else {
         document.querySelector(".logo").style = "height: 100px;";
         document.querySelector(".logo").src = "assets/img/Proxmox_pannel_V7.2_light.png";

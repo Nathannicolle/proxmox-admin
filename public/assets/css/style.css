@@ -399,6 +399,21 @@ span {
 	box-shadow: inset 1px 1px 1px black;
 }
 
+.subcategory {
+	border-bottom: 1px solid gray;
+	background-color: #495057;
+	padding: 1%;
+	width: 95%;
+}
+
+.subcategory:hover {
+	cursor: pointer;
+}
+
+.subcategory i {
+	margin-left: 1%;
+}
+
 /* Responsive zone */
 @media screen and (max-width: 1700px) {
 	.form_container {
