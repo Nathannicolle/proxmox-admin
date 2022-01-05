@@ -3,6 +3,10 @@
         <ul>
             <li><a href="{{path('home')}}">Accueil</a></li>
             <li><a href="#">Tableau de bord</a></li>
+            <li class="header_info"><i class="fas fa-user"></i> {{name}}</li>
+            <div class="dropdown">
+                <span>Rôle : {{role}}</span>
+            </div>
         </ul>
     </div>
     <aside class="dashboard_menu">
@@ -10,7 +14,7 @@
         <ul>
             <li><a href="{{path('dashboard.home')}}"><i class="fas fa-home"></i> Accueil</a></li>
             <li><a href="{{path('dashboard.VM')}}" class="link_active"><i class="fas fa-laptop"></i> Mes VM</a></li>
-            <li><a href="#"><i class="fas fa-users"></i> Mes groupes</a></li>
+            <li><a href="{{path('dashboard.groups')}}"><i class="fas fa-users"></i> Mes groupes</a></li>
         </ul>
     </aside>
     <div class="dashboard_content">

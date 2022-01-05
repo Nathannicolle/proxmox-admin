@@ -71,6 +71,7 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
                     USession::set('user_id', $id);
                     USession::set('name', $name);
                     USession::set('role', $role); // On met en session le role de l'utilisateur que l'on a récupéré en BDD
+                    USession::set('user', $user);
             }
             return $user;
         }

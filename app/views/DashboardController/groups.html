@@ -18,14 +18,15 @@
         </ul>
     </aside>
     <div class="dashboard_content">
-        <div class="card_VM">
-            <h1><i class="fas fa-desktop"></i></h1>
-            <h1>VM N°{{VM_Number}}</h1>
-            <p><b>Numéro de VM : </b> {{VM_Number}}</p>
-            <p><b>Nom : </b>{{VM_Name}}</p>
-            <p><b>Adresse IP : </b>{{VM_IP}}</p>
-            <p><b>Port SSH : </b>{{Port_SSH}}</p>
-            <p><b>OS : </b>{{OS}}</p>
+        <h1>Liste de vos Groupes</h1>
+        <div class="card_container">
+            {% for group in groups %}
+                <div class="card_VM">
+                    <h1><i class="fas fa-users"></i></h1>
+                    <p><b>Nom du groupe :</b> {{ group.name }}</p>
+                </div>
+            {% endfor %}
         </div>
     </div>
 </div>
+{{ script_foot|raw }}

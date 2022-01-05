@@ -12,9 +12,9 @@
     <aside class="dashboard_menu">
         <a href="{{path('home')}}"><img src="assets/img/Proxmox_pannel_V7.2_light.png" alt="logo proxmox pannel"/></a>
         <ul>
-            <li><a href="#" class="link_active"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="{{path('dashboard.home')}}" class="link_active"><i class="fas fa-home"></i> Accueil</a></li>
             <li><a href="{{path('dashboard.VM')}}"><i class="fas fa-laptop"></i> Mes VM</a></li>
-            <li><a href="#"><i class="fas fa-users"></i> Mes groupes</a></li>
+            <li><a href="{{path('dashboard.groups')}}"><i class="fas fa-users"></i> Mes groupes</a></li>
         </ul>
     </aside>
     <div class="dashboard_content">
