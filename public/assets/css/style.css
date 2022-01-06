@@ -293,7 +293,7 @@ body{
 	background-color: #272B30 !important;
 	padding-bottom: 1%;
 	color: gray;
-	height: 100vh;
+	min-height: 120vh;
 }
 
 .dashboard_content {
@@ -427,6 +427,36 @@ span {
 }
 
 .subcategory i {
+	margin-left: 1%;
+}
+
+.subcategory_2 {
+	border-bottom: 1px solid gray;
+	background-color: #495057;
+	padding: 1%;
+	width: 95%;
+}
+
+.subcategory_2:hover {
+	cursor: pointer;
+}
+
+.subcategory_2 i {
+	margin-left: 1%;
+}
+
+.subcategory_3 {
+	border-bottom: 1px solid gray;
+	background-color: #495057;
+	padding: 1%;
+	width: 95%;
+}
+
+.subcategory_3:hover {
+	cursor: pointer;
+}
+
+.subcategory_3 i {
 	margin-left: 1%;
 }
 

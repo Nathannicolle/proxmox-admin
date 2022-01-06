@@ -3,6 +3,7 @@ namespace controllers;
 use Ajax\php\ubiquity\JsUtils;
 use http\Client\Curl\User;
 use models\Groupe;
+use models\Serveur;
 use models\Vm;
 use Ubiquity\attributes\items\acl\Allow;
 use Ubiquity\attributes\items\acl\Resource;
@@ -40,7 +41,9 @@ class MainController extends ControllerBase {
     public function dashboard() {
         $user_id = USession::get('user_id');
         $vm = DAO::getAll(Vm::class, 'idUser = :idUser', false, ['idUser' => $user_id]);
-        $this->jquery->renderView('DashboardController/index.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'vms' => $vm]);
+        $groups = DAO::getAll(Groupe::class);
+        $servers = DAO::getAll(Serveur::class);
+        $this->jquery->renderView('DashboardController/index.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'vms' => $vm, 'groups' => $groups, 'serveurs' => $servers]);
     }
 
     #[Route("dashboard_VM", name: "dashboard.VM")]
@@ -65,6 +68,20 @@ class MainController extends ControllerBase {
         $user_id = USession::get('user_id');
         $group = DAO::getAll(Groupe::class); // 'user_s = :user', false, ['user' => $user]
         $this->jquery->renderView('DashboardController/groups.html', ['groups' => $group, 'name' => USession::get('name'), 'role' => USession::get('role')]);
+    }
+
+    #[Route("dashboard_servers", name: "dashboard.servers")]
+    #[Allow(['@ADMIN'])]
+    public function listServers() {
+        $servers = DAO::getAll(Serveur::class);
+        $this->jquery->renderView('DashboardController/serveurs.html', ['serveurs' => $servers, 'name' => USession::get('name'), 'role' => USession::get('role')]);
+    }
+
+    #[Get("oneServer/{id}", name: "dashboard.oneServer")]
+    #[Allow(['@ADMIN'])]
+    public function oneServer($id) {
+        $oneServer = DAO::getById(Serveur::class, $id);
+        $this->jquery->renderView('DashboardController/oneServer.html', ['id_server' => $oneServer->getId(), 'ipAddress' => $oneServer->getIpAddress(), 'DnsName' => $oneServer->getDnsName(), 'name' => USession::get('name'), 'role' => USession::get('role')]);
     }
 
     protected function getAuthController(): AuthController {
