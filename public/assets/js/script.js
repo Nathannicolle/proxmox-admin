@@ -1,5 +1,12 @@
 window.addEventListener("load", () => {
     if(window.location.pathname == "/") {
+        // ----Liens Smooth vers les différentes parties----
+        // Lien vers la partie à propos
+        document.querySelector(".see_more").addEventListener("click", () => {
+            document.getElementById("other_content").scrollIntoView({
+                behavior: "smooth",
+            });
+        });
         window.addEventListener("scroll", () => {
             if (window.scrollY > document.querySelector(".banner").clientHeight) {
                 document.querySelector(".logo").style = "height: 100px;";
