@@ -14,6 +14,8 @@ window.addEventListener("load", () => {
             });
         });
 
+        document.querySelector("footer").style.display = "block";
+
         window.addEventListener("scroll", () => {
             if (window.scrollY > document.querySelector(".banner").clientHeight) {
                 document.querySelector(".logo").style = "height: 100px;";

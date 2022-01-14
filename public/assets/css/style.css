@@ -542,6 +542,7 @@ span {
 }
 
 footer {
+	display: none;
 	background-color: #3D3D3D;
 	text-align: center;
 	padding-top: 2%;
@@ -567,6 +568,12 @@ footer a {
 
 .powered_by img {
 	height: 80px;
+	transition: 0.5s ease-in-out;
+}
+
+.powered_by img:hover {
+	cursor: pointer;
+	transform: scale(0.8);
 }
 
 .powered_by p {
