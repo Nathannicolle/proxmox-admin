@@ -198,6 +198,10 @@ body{
 	color: #1e70bf;
 }
 
+#next_2 {
+	margin-bottom: 15vh;
+}
+
 .schema_acc {
 	display: flex;
 	flex-direction: column;
@@ -216,6 +220,31 @@ body{
 	text-align: center;
 	align-items: center;
 	background-color: #495057;
+}
+
+.app_content h2 {
+	color: gray;
+}
+
+#app_content_title {
+	transform: translateY(-10vh);
+}
+
+.cards_content {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+	transform: translateY(-10vh);
+}
+
+.card_content {
+	background-color: #3D3D3D;
+	color: gray;
+	padding: 2%;
+	font-size: 1.3em;
+	border-radius: 20px;
+	width: 15%;
+	box-shadow: 0px 3px 6px rgba(0, 0,0, 0.16);
 }
 
 .ui.button.ajax {

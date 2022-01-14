@@ -9,7 +9,7 @@ window.addEventListener("load", () => {
         });
 
         document.querySelector("#next_2").addEventListener("click", () => {
-            document.getElementById("app_content").scrollIntoView({
+            document.getElementById("app_content_title").scrollIntoView({
                 behavior: "smooth",
             });
         });
