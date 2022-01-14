@@ -38,7 +38,6 @@ body{
 
 .page_container {
 	margin-top: 200px;
-	padding-bottom: 2%;
 }
 
 .form_container {
@@ -220,6 +219,7 @@ body{
 	text-align: center;
 	align-items: center;
 	background-color: #495057;
+	box-shadow:inset 0 -15px 5px -16px #111;
 }
 
 .app_content h2 {
@@ -245,6 +245,10 @@ body{
 	border-radius: 20px;
 	width: 15%;
 	box-shadow: 0px 3px 6px rgba(0, 0,0, 0.16);
+}
+
+.slider img {
+	width: 50%;
 }
 
 .ui.button.ajax {
@@ -535,6 +539,38 @@ span {
 
 .subcategory_3 i {
 	margin-left: 1%;
+}
+
+footer {
+	background-color: #3D3D3D;
+	text-align: center;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	color: gray;
+	font-weight: bold;
+	position: relative;
+	min-height: 130px;
+}
+
+footer a {
+	color: gray;
+	font-size: 1.4em;
+	transition: 0.4s ease-in-out;
+}
+
+.powered_by {
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin-right: 1%;
+}
+
+.powered_by img {
+	height: 80px;
+}
+
+.powered_by p {
+	margin-bottom: 1px;
 }
 
 /* Responsive zone */
