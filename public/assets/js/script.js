@@ -1,6 +1,11 @@
 window.addEventListener("load", () => {
     if(window.location.pathname == "/") {
-        let compteur = 0;
+        const items = $(".slider > img");
+        const nbslides = items.length;
+        const suivant = $(".next_img");
+        const precedent = $(".previous_img");
+        let count = 0;
+
         // ----Liens Smooth vers les différentes parties----
         // Lien vers la partie à propos
         document.querySelector("#next_1").addEventListener("click", () => {
@@ -15,14 +20,36 @@ window.addEventListener("load", () => {
             });
         });
 
-        switch (compteur) {
-            case 1:
-                $(".img_acc").src = "/assets/img/dashboard_home_part2_screenshot.jpg";
-                break;
-            case 2:
-                $(".img_acc").src = "/assets/img/dashboard_VM_List.jpg";
-                break;
+        // ---- Slider ----
+        function slideSuivante() {
+            items[count].classList.remove('active');
+            if(count < nbslides - 1) {
+                count++;
+            } else {
+                count=0;
+            }
+
+            items[count].classList.add('active');
         }
+
+        suivant.click(function () {
+            slideSuivante();
+        });
+
+        function slidePrecedente() {
+            items[count].classList.remove('active');
+            if(count > 0) {
+                count--;
+            } else {
+                count = nbslides - 1;
+            }
+
+            items[count].classList.add('active');
+        }
+
+        precedent.click(function () {
+            slidePrecedente();
+        });
 
         document.querySelector("footer").style.display = "block";
 

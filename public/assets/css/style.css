@@ -254,7 +254,23 @@ body{
 }
 
 .slider img {
-	width: 50%;
+	display: none;
+	max-width: 50%;
+}
+
+.slider img.active {
+	display: block;
+	animation: fade 0.8s;
+}
+
+@keyframes fade {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
 }
 
 .slider i {
@@ -269,7 +285,7 @@ body{
 	margin-left: 1%;
 }
 
-.slider p:hover {
+.slider div:hover {
 	cursor: pointer;
 }
 
