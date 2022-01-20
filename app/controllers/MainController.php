@@ -84,6 +84,13 @@ class MainController extends ControllerBase {
         $this->jquery->renderView('DashboardController/oneServer.html', ['id_server' => $oneServer->getId(), 'ipAddress' => $oneServer->getIpAddress(), 'DnsName' => $oneServer->getDnsName(), 'name' => USession::get('name'), 'role' => USession::get('role')]);
     }
 
+    #[Route("dashboard", name: "dashboard.profile")]
+    #[Allow(['@ETUDIANT','@PROF','@ADMIN'])]
+    public function dashboardProfile() {
+        $user_id = USession::get('user_id');
+        $this->jquery->renderView('DashboardController/user_profile.html', ['name' => USession::get('name'), 'role' => USession::get('role')]);
+    }
+
     protected function getAuthController(): AuthController {
         return new MyAuth($this);
     }

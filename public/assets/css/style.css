@@ -534,6 +534,16 @@ span {
 	box-shadow: inset 1px 1px 1px black;
 }
 
+.user_picture {
+	margin-left: 1%;
+}
+
+.p_profile {
+	color: gray;
+	margin-left: 1%;
+	font-size: 1.4em;
+}
+
 .subcategory {
 	border-bottom: 1px solid gray;
 	background-color: #495057;
