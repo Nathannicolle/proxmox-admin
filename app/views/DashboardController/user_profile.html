@@ -3,7 +3,7 @@
         <ul>
             <li><a href="{{path('home')}}">Accueil</a></li>
             <li><a href="#">Tableau de bord</a></li>
-            <li class="header_info"><i class="fas fa-user"></i> {{name}}</li>
+            <li class="header_info"><a href="{{path('dashboard.profile')}}" class="active_secondary"><i class="fas fa-user"></i> {{name}}</a></li>
             <div class="dropdown">
                 <span>Rôle : {{role}}</span>
             </div>
@@ -15,7 +15,7 @@
         <ul>
             <li><a href="{{path('dashboard.home')}}"><i class="fas fa-home"></i> Accueil</a></li>
             <li><a href="{{path('dashboard.VM')}}"><i class="fas fa-laptop"></i> Mes VM</a></li>
-            <li><a href="{{path('dashboard.groups')}}" class="link_active"><i class="fas fa-users"></i> Mes groupes</a></li>
+            <li><a href="{{path('dashboard.groups')}}"><i class="fas fa-users"></i> Mes groupes</a></li>
             <li><a href="{{path('dashboard.servers')}}"><i class="fas fa-server"></i> Les serveurs</a></li>
         </ul>
     </aside>
@@ -32,8 +32,14 @@
     <div class="dashboard_content">
         <h1>Votre profil - {{name}}</h1>
         <h2 class="user_picture"><i class="fas fa-user"></i></h2>
-        <p class="p_profile"><span>Nom d'utilisateur/Email : {{name}}</span></p>
-        <p class="p_profile"><span>Rôle : {{role}}</span></p>
+        <p class="p_profile"><span><b>Nom d'utilisateur/Email :</b> {{name}}</span></p>
+        <p class="p_profile"><span><b>Rôle :</b> {{role}}</span></p>
+        {% if groups %}
+            <p class="p_profile"><span><b>Groupe(s) :</b> </span></p>
+            {% for group in groups %}
+                <p class="p_profile"><span>- {{group.name}}</span></p>
+            {% endfor %}
+        {% endif %}
     </div>
 </div>
 {{ script_foot|raw }}

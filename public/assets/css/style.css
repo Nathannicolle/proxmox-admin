@@ -488,6 +488,10 @@ span {
 	color: white;
 }
 
+.active_secondary {
+	background: #4d4d4d;
+}
+
 /* card VM */
 .card_container {
 	display: grid;
@@ -542,6 +546,10 @@ span {
 	color: gray;
 	margin-left: 1%;
 	font-size: 1.4em;
+}
+
+.p_profile span b {
+	color: gray;
 }
 
 .subcategory {

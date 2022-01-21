@@ -62,7 +62,7 @@ window.addEventListener("load", () => {
                 document.querySelector(".logo").style = "height: 200px;";
             }
         });
-    } else if(window.location.pathname == "/dashboard/" || window.location.pathname == "/dashboard_VM/" || window.location.pathname.match("/oneVM/") ||  window.location.pathname == "/dashboard_groups/" || window.location.pathname == "/dashboard_servers/" || window.location.pathname.match("/oneServer/")) {
+    } else if(window.location.pathname.match("/dashboard/") || window.location.pathname.match("/dashboard_[a-zA-Z]{0,8}/") ||  window.location.pathname.match("/oneVM/") || window.location.pathname.match("/oneServer/")) {
         document.querySelector(".ui.basic.inverted.segment.main_menu").style = "display: none !important;";
         document.querySelector(".page_container").style = "margin-top: 0; padding-bottom:0;";
         $(".subcategory").click(function () {
