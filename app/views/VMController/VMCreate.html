@@ -1,7 +1,7 @@
 <div class="page_form">
     <div class="form_container">
 
-        <form class="ui form ui inverted form form_connect" action="/" method="post">
+        <form class="ui form ui inverted form form_connect" action="{{ path('vm.VMCreate') }}" method="post">
             <label>Numéro :</label>
             <input type="text" name="number" placeholder="Numéro">
             <label>Nom :</label>
@@ -13,21 +13,33 @@
             <label>OS :</label>
             <input type="text" name="os" placeholder="OS">
             <label>Utilisateur(s) :</label>
-            <select class="ui fluid inverted dropdown" multiple="" name="user_">
+            <select class="ui fluid inverted dropdown" multiple="" name="idUser">
                 <option value="">Utilisateur(s)</option>
-                <option value="1">Louka</option>
-                <option value="2">Nathan</option>
-                <option value="3">Luc</option>
-                <option value="4">Héron</option>
+                {% for user in users %}
+
+                <option value="{{user.id}}">{{user.login}}</option>
+
+                {% endfor %}
             </select>
             <label>Groupe(s) :</label>
-            <select class="ui fluid inverted dropdown" multiple="" name="groupe">
+            <select class="ui fluid inverted dropdown" multiple="" name="idGroupe">
                 <option value="">Groupe(s)</option>
-                <option value="1">Alpha</option>
-                <option value="2">Beta</option>
-                <option value="3">Gamma</option>
-                <option value="4">Delta</option>
+                {% for group in groups %}
+
+                <option value="{{group.id}}">{{group.name}}</option>
+
+                {% endfor %}
             </select>
+            <label>Servers :</label>
+            <select class="ui fluid inverted dropdown" name="idUser">
+                <option value="">Server</option>
+                {% for server in servers %}
+
+                <option value="{{server.id}}">{{server.dnsName}}</option>
+
+                {% endfor %}
+            </select>
+
             <button>Créer une VM</button>
         </form>
 

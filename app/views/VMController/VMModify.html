@@ -1,35 +1,49 @@
 <div class="page_form">
     <div class="form_container">
 
-        <form class="ui form ui inverted form form_connect" action="/" method="post">
+        <form class="ui form ui inverted form form_connect" action="{{ path('vm.VMModify') }}" method="post">
             <label>Numéro :</label>
-            <input type="text" name="number" placeholder="Numéro" value="15">
+            <input type="text" name="number" placeholder="Numéro" value="{{byId.number}}">
             <label>Nom :</label>
-            <input type="text" name="name" placeholder="Nom" value="VM-01">
+            <input type="text" name="name" placeholder="Nom" value="{{byId.name}}">
             <label>Adresse IP :</label>
-            <input type="text" name="ip" placeholder="Adresse IP" value="169.254.5.15">
+            <input type="text" name="ip" placeholder="Adresse IP" value="{{byId.ip}}">
             <label>Port SSH :</label>
-            <input type="text" name="sshPort" placeholder="Port SSH" value="22">
+            <input type="text" name="sshPort" placeholder="Port SSH" value="{{byId.sshPort}}">
             <label>OS :</label>
-            <input type="text" name="os" placeholder="OS" value="">
-            <input type = "hidden" name = "id" value="{{id}}"/>
+            <input type="text" name="os" placeholder="OS" value="{{byId.os}}">
+
+            <input type = "hidden" name = "id" value="{{byId.id}}"/>
+
             <label>Utilisateur(s) :</label>
-            <select class="ui fluid inverted dropdown" multiple="" name="user_">
+            <select class="ui fluid inverted dropdown" multiple="" name="idUser">
                 <option value="">Utilisateur(s)</option>
-                <option value="1">Louka</option>
-                <option value="2">Nathan</option>
-                <option value="3">Luc</option>
-                <option value="4">Héron</option>
+                {% for user in users %}
+
+                <option value="{{user.id}}">{{user.login}}</option>
+
+                {% endfor %}
             </select>
             <label>Groupe(s) :</label>
-            <select class="ui fluid inverted dropdown" multiple="" name="groupe">
+            <select class="ui fluid inverted dropdown" multiple="" name="idGroupe">
                 <option value="">Groupe(s)</option>
-                <option value="1">Alpha</option>
-                <option value="2">Beta</option>
-                <option value="3">Gamma</option>
-                <option value="4">Delta</option>
+                {% for group in groups %}
+
+                <option value="{{group.id}}">{{group.name}}</option>
+
+                {% endfor %}
             </select>
-            <button>Modifier la VM <b>"<i>nom de la VM</i>"</b></button>
+            <label>Servers :</label>
+            <select class="ui fluid inverted dropdown" name="idUser">
+                <option value="">Server</option>
+                {% for server in servers %}
+
+                <option value="{{server.id}}">{{server.dnsName}}</option>
+
+                {% endfor %}
+            </select>
+
+            <button>Modifier la VM <b>"<i>{{byId.name}}</i>"</b></button>
         </form>
 
     </div>
