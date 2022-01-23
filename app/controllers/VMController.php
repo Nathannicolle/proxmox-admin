@@ -60,7 +60,7 @@ class VMController extends \controllers\ControllerBase{
      public function VMCreate(){
          $VM = new Vm();
          URequest::setValuesToObject($VM); // Une erreur arrive : SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
-         echo "<br><br><br><br><br><br><br><br><br><br>"; // cette erreur ce reproduit sur la page d'administration.
+         echo "<br><br><br><br><br><br><br><br><br><br>"; // cette erreur se reproduit sur la page d'administration.
          var_dump($VM);
          if (DAO::insert($VM)) {
 

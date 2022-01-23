@@ -13,7 +13,7 @@
             <label>OS :</label>
             <input type="text" name="os" placeholder="OS">
             <label>Utilisateur(s) :</label>
-            <select class="ui fluid inverted dropdown" multiple="" name="idUser">
+            <select class="ui fluid inverted dropdown" multiple="" name="user">
                 <option value="">Utilisateur(s)</option>
                 {% for user in users %}
 
@@ -22,7 +22,7 @@
                 {% endfor %}
             </select>
             <label>Groupe(s) :</label>
-            <select class="ui fluid inverted dropdown" multiple="" name="idGroupe">
+            <select class="ui fluid inverted dropdown" multiple="" name="groupe">
                 <option value="">Groupe(s)</option>
                 {% for group in groups %}
 
@@ -31,7 +31,7 @@
                 {% endfor %}
             </select>
             <label>Servers :</label>
-            <select class="ui fluid inverted dropdown" name="idUser">
+            <select class="ui fluid inverted dropdown" name="serveur">
                 <option value="">Server</option>
                 {% for server in servers %}
 
