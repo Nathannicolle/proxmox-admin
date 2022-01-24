@@ -17,7 +17,7 @@ use Ubiquity\utils\http\UResponse;
   * Controller VMController
   * @property JsUtils $jquery
   */
- #[Route(path: "/vm",inherited: true,automated: true)]
+#[Route(path: "/vm",inherited: true,automated: true)]
 class VMController extends \controllers\ControllerBase{
 
      private ViewRepository $repo;
