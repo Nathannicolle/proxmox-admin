@@ -3,7 +3,7 @@
         <ul>
             <li><a href="{{path('home')}}">Accueil</a></li>
             <li><a href="#">Tableau de bord</a></li>
-            <li class="header_info"><i class="fas fa-user"></i> {{name}}</li>
+            <li class="header_info"><a href="{{path('dashboard.profile')}}"><i class="fas fa-user"></i> {{name}}</a></li>
             <div class="dropdown">
                 <span>Rôle : {{role}}</span>
             </div>

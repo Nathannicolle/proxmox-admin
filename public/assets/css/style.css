@@ -380,13 +380,18 @@ body{
 .dropdown {
 	display: none;
 	position: absolute;
-	bottom: -100px;
+	bottom: -110px;
 	right: 0;
 	background-color: #3a3f44;
 	padding: 2%;
 	margin-right: 1%;
 	transition: 0.2s ease-in-out;
 	box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+	text-align: center;
+}
+
+.dropdown:hover {
+	display: block;
 }
 
 .dropdown::before {
