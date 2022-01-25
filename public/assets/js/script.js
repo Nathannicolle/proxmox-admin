@@ -52,15 +52,15 @@ window.addEventListener("load", () => {
         });
 
         // slider automatique
-        const ratio = 0.1;
+        /*const ratio = 0.1;
         const nav = document.querySelector(".main_menu");
         const options = {
             root: null,
             rootMargin: "0px",
             threshold: ratio,
-        };
+        };*/
 
-        const handleIntersect1 = function (entries, observer) {
+        /*const handleIntersect1 = function (entries, observer) {
             entries.forEach(function (entry) {
                 if (entry.intersectionRatio > ratio) {
                     slideSuivante();
@@ -69,7 +69,7 @@ window.addEventListener("load", () => {
         };
 
         const observer1 = new IntersectionObserver(handleIntersect1, options);
-        observer1.observe(document.querySelector("#other_content"));
+        observer1.observe(document.querySelector("#other_content"));*/
 
         document.querySelector("footer").style.display = "block";
 

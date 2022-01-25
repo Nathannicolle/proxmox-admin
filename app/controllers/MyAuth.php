@@ -16,7 +16,7 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
 
     protected $footerView = "@activeTheme/main/vFooter.html";
 
-    #[Route(path: "/signin", name: "auth.login")]
+    #[Route(path: "/", name: "auth.login")]
     public function getConnectFrom() {
         $this->loadView("MyAuth/index.html");
     }
@@ -87,6 +87,14 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
     }
 
     public function _getBaseRoute() {
-        return '/login/signin';
+        return '/login';
     }
+
+    #[Route(path: '/terminate')]
+    public function terminate()
+    {
+        parent::terminate();
+    }
+
+
 }
