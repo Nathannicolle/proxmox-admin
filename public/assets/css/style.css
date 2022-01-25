@@ -543,11 +543,47 @@ span {
 	box-shadow: inset 1px 1px 1px black;
 }
 
+.card_profile {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #495057;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	border-radius: 10px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	width: 50%;
+	transition: 0.5s ease-in-out;
+}
+
+.card_profile:hover {
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.user_content {
+	display: grid;
+	grid-template-columns: repeat(2, 50%);
+	width: 95%;
+}
+
+.group {
+	width: 100%;
+}
+
+.card_profile ul {
+	margin-top: 0;
+}
+
 .user_picture {
 	margin-left: 1%;
+	font-size: 2.2em;
+	border: 1px solid gray;
+	padding: 1%;
 }
 
 .p_profile {
+	width: 100%;
 	color: gray;
 	margin-left: 1%;
 	font-size: 1.4em;

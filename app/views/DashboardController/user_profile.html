@@ -32,15 +32,23 @@
     {% endif %}
     <div class="dashboard_content">
         <h1>Votre profil - {{name}}</h1>
-        <h2 class="user_picture"><i class="fas fa-user"></i></h2>
-        <p class="p_profile"><span><b>Nom d'utilisateur/Email :</b> {{name}}</span></p>
-        <p class="p_profile"><span><b>Rôle :</b> {{role}}</span></p>
-        {% if groups %}
-            <p class="p_profile"><span><b>Groupe(s) :</b> </span></p>
-            {% for group in groups %}
-                <p class="p_profile"><span>- {{group.name}}</span></p>
-            {% endfor %}
-        {% endif %}
+        <div class="card_profile">
+            <h2 class="user_picture"><i class="fas fa-user"></i></h2>
+            <div class="user_content">
+                <p class="p_profile"><span><b>Nom d'utilisateur/Email :</b> {{name}}</span></p>
+                <p class="p_profile"><span><b>Rôle :</b> {{role}}</span></p>
+                {% if groups %}
+                <div class="group">
+                    <p class="p_profile"><span><b>Groupe(s) :</b> </span></p>
+                    <ul>
+                        {% for group in groups %}
+                            <li class="p_profile"><span>{{group.name}}</span></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+        </div>
     </div>
 </div>
 {{ script_foot|raw }}
