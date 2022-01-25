@@ -21,6 +21,9 @@
     </aside>
     <div class="dashboard_content">
         <h1>Liste des serveurs</h1>
+        {% if role == '@ADMIN' or role == '@PROF' %}
+            <a href="#" class="link_add">+ Ajouter un serveur</a>
+        {% endif %}
         <div class="card_container">
             {% for server in serveurs %}
             <div class="card_VM">

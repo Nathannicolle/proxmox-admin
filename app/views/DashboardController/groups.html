@@ -32,6 +32,9 @@
     {% endif %}
     <div class="dashboard_content">
         <h1>Liste de vos Groupes</h1>
+        {% if role == '@ADMIN' or role == '@PROF' %}
+            <a href="#" class="link_add">+ Ajouter un groupe</a>
+        {% endif %}
         <div class="card_container">
             {% for group in groups %}
                 <div class="card_VM">
