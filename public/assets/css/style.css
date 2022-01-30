@@ -329,9 +329,10 @@ body{
 
 /* Style du dashboard */
 .secondary_menu {
-	position: relative;
+	position: fixed;
 	box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 	width: 100%;
+	background-color: #272b30;
 }
 
 .secondary_menu ul {
@@ -422,6 +423,7 @@ body{
 
 .dashboard_content {
 	margin-left: 13vw;
+	padding-top: 5%;
 }
 
 .user_infos {

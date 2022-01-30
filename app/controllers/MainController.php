@@ -66,7 +66,8 @@ class MainController extends ControllerBase {
     public function listGroups() {
         $user = USession::get('user');
         $user_id = USession::get('user_id');
-        $group = DAO::getAll(Groupe::class); // 'user_s = :user', false, ['user' => $user]
+        $user_name = USession::get('name');
+        $group = DAO::getAll(Groupe::class, 'INNER JOIN usergroups ug ON ug.idGroupe = Groupe.id'); // 'user_s = :user', false, ['user' => $user] // INNER JOIN usergroups ug ON ug.idGroupe = Groupe.id
         $this->jquery->renderView('DashboardController/groups.html', ['groups' => $group, 'name' => USession::get('name'), 'role' => USession::get('role')]);
     }
 
@@ -99,6 +100,4 @@ class MainController extends ControllerBase {
     {
         return USession::get('role', '@ALL');
     }
-
-
 }
