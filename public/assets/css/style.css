@@ -487,6 +487,17 @@ aside.dashboard_menu i {
 	margin-right: 1%;
 }
 
+.minimize_menu {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	margin-bottom: 4%;
+}
+
+.minimize_menu a {
+	padding: 20px !important;
+}
+
 .time {
 	text-align: center;
 }
