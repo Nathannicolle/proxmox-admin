@@ -117,6 +117,31 @@ window.addEventListener("load", () => {
                 document.querySelector("#showbtn_3").classList.remove("fa-chevron-right");
             }
         });
+
+        // minimize menu
+        $(".minimize_menu").click(function () {
+            if(document.querySelector(".minimize_menu i").classList.contains("fa-caret-square-left")) {
+                $(".minimize_menu i").removeClass("fa-caret-square-left");
+                $(".minimize_menu i").addClass("fa-caret-square-right");
+                document.querySelector("aside.dashboard_menu").style = "width: 5vw !important;";
+                document.querySelector("aside.dashboard_menu ul").style = "margin-left: 0;";
+                document.querySelectorAll("aside.dashboard_menu li a").forEach(element => {
+                    element.querySelector("span").style = "display: none !important;";
+                    element.querySelector("i").style = "font-size: 1.7em;";
+                    element.style = "margin-left: auto; margin-bottom: 7%; padding-right: 40%;";
+                });
+            } else if(document.querySelector(".minimize_menu i").classList.contains("fa-caret-square-right")) {
+                $(".minimize_menu i").removeClass("fa-caret-square-right");
+                $(".minimize_menu i").addClass("fa-caret-square-left");
+                document.querySelector("aside.dashboard_menu span").style = "display: inline !important;";
+                document.querySelector("aside.dashboard_menu").style = "width: 12vw !important;";
+                document.querySelectorAll("aside.dashboard_menu li a").forEach(element => {
+                    element.querySelector("span").style = "display: inline !important;";
+                    element.querySelector("i").style = "font-size: 1em;";
+                    element.style = "margin-bottom: 0; padding-right: 6%";
+                });
+            }
+        });
     } else {
         document.querySelector(".logo").style = "height: 100px;";
         document.querySelector(".logo").src = "assets/img/Proxmox_pannel_V7.2_light.png";

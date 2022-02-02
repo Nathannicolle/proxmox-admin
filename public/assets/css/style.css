@@ -492,17 +492,22 @@ aside.dashboard_menu i {
 	bottom: 0;
 	right: 0;
 	margin-bottom: 4%;
+	font-size: 1.4em;
 }
 
 .minimize_menu a {
-	padding: 20px !important;
+	padding: 18px !important;
+}
+
+.minimize_menu a:hover {
+	cursor: pointer;
 }
 
 .time {
 	text-align: center;
 }
 
-span {
+span.var_data {
 	color: white;
 }
 
