@@ -105,6 +105,22 @@ body{
 	margin-top: 1%;
 }
 
+.form_add_container {
+	width: 45%;
+	margin-bottom: 2%;
+}
+
+.form_add select {
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+.form_add label:last-child {
+	margin-bottom: 0 !important;
+}
+
 .form_connect button:hover {
 	cursor: pointer;
 	background-color: #372f2f;
@@ -582,11 +598,11 @@ span.var_data {
 	box-shadow: inset 1px 1px 1px black;
 }
 
-.list_VM_server li {
+.list_foreign_elements li {
 	list-style-type: none;
 }
 
-.list_VM_server li a {
+.list_foreign_elements li a {
 	display: block;
 	background-color: #474747;
 	color: white;
@@ -597,7 +613,7 @@ span.var_data {
 	transition: 0.5s ease-in-out;
 }
 
-.list_VM_server li a:hover {
+.list_foreign_elements li a:hover {
 	background-color: #1b1c1d;
 }
 
@@ -617,6 +633,10 @@ span.var_data {
 
 .card_profile:hover {
 	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.card_profile a {
+	font-size: 0.8em;
 }
 
 .user_content {

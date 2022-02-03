@@ -1,7 +1,7 @@
 <div class="page_form">
-    <div class="form_container">
+    <div class="form_container form_add_container">
 
-        <form class="ui form ui inverted form form_connect" action="{{ path('vm.VMCreate') }}" method="post">
+        <form class="ui form ui inverted form form_connect form_add" action="{{ path('vm.VMCreate') }}" method="post">
             <label>Numéro :</label>
             <input type="text" name="number" placeholder="Numéro">
             <label>Nom :</label>
@@ -12,8 +12,8 @@
             <input type="text" name="sshPort" placeholder="Port SSH">
             <label>OS :</label>
             <input type="text" name="os" placeholder="OS">
-            <label>Utilisateur(s) :</label>
-            <select class="ui fluid inverted dropdown" multiple="" name="user">
+            <label for="user">Utilisateur(s) :</label>
+            <select class="ui fluid inverted dropdown" multiple="" name="user" id="user">
                 <option value="">Utilisateur(s)</option>
                 {% for user in users %}
 
@@ -21,8 +21,8 @@
 
                 {% endfor %}
             </select>
-            <label>Groupe(s) :</label>
-            <select class="ui fluid inverted dropdown" multiple="" name="groupe">
+            <label for="groupes">Groupe(s) :</label>
+            <select class="ui fluid inverted dropdown" multiple="" name="groupe" id="groupes">
                 <option value="">Groupe(s)</option>
                 {% for group in groups %}
 
@@ -30,8 +30,8 @@
 
                 {% endfor %}
             </select>
-            <label>Servers :</label>
-            <select class="ui fluid inverted dropdown" name="serveur">
+            <label for="servers">Servers :</label>
+            <select class="ui fluid inverted dropdown" name="serveur" id="servers">
                 <option value="">Server</option>
                 {% for server in servers %}
 

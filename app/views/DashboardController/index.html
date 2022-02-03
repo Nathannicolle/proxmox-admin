@@ -27,8 +27,10 @@
             <ul>
                 <li><a href="{{path('dashboard.home')}}" class="link_active"><i class="fas fa-home"></i> Accueil</a></li>
                 <li><a href="{{path('dashboard.VM')}}"><i class="fas fa-laptop"></i> Mes VM</a></li>
+                <li><a href="{{path('dashboard.groups')}}"><i class="fas fa-users"></i> Mes groupes</a></li>
+                <li class="minimize_menu"><a><i class="far fa-caret-square-left"></i></a></li>
             </ul>
-            <a href="{{path('dashboard.groups')}}"><i class="fas fa-users"></i> Mes groupes</a>
+
         </aside>
     {% endif %}
     <div class="dashboard_content">
