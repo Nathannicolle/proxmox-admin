@@ -25,6 +25,14 @@
             <h1>Serveur N°{{id_server}}</h1>
             <p><b>Adresse IP : </b> {{ipAddress}}</p>
             <p><b>Nom du DNS : </b> {{DnsName}}</p>
+            {% if VMs %}
+                <p><b>VM(s) :</b></p>
+                <ul class="list_VM_server">
+                    {% for VM in VMs %}
+                        <li><a href="{{path('dashboard.oneVM', [VM.id])}}">{{VM.name}}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
         </div>
     </div>
 </div>

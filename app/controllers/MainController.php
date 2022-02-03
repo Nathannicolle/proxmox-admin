@@ -82,7 +82,8 @@ class MainController extends ControllerBase {
     #[Allow(['@ADMIN'])]
     public function oneServer($id) {
         $oneServer = DAO::getById(Serveur::class, $id);
-        $this->jquery->renderView('DashboardController/oneServer.html', ['id_server' => $oneServer->getId(), 'ipAddress' => $oneServer->getIpAddress(), 'DnsName' => $oneServer->getDnsName(), 'name' => USession::get('name'), 'role' => USession::get('role')]);
+        $vm_serveur = DAO::getAll(Vm::Class, "idServeur = :serveur_id", false, ['serveur_id' => $id]);
+        $this->jquery->renderView('DashboardController/oneServer.html', ['id_server' => $oneServer->getId(), 'ipAddress' => $oneServer->getIpAddress(), 'DnsName' => $oneServer->getDnsName(), 'VMs' => $vm_serveur, 'name' => USession::get('name'), 'role' => USession::get('role')]);
     }
 
     #[Route("dashboard_profile", name: "dashboard.profile")]

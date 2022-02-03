@@ -561,6 +561,10 @@ span.var_data {
 	font-size: 1.4em;
 }
 
+.card_VM ul {
+	margin-top: 0;
+}
+
 .link_vm {
 	display: block;
 	color: white;
@@ -576,6 +580,25 @@ span.var_data {
 .link_vm:hover {
 	background-color: #272b30;
 	box-shadow: inset 1px 1px 1px black;
+}
+
+.list_VM_server li {
+	list-style-type: none;
+}
+
+.list_VM_server li a {
+	display: block;
+	background-color: #474747;
+	color: white;
+	text-align: center;
+	padding: 5%;
+	margin-bottom: 5%;
+	width: fit-content;
+	transition: 0.5s ease-in-out;
+}
+
+.list_VM_server li a:hover {
+	background-color: #1b1c1d;
 }
 
 .card_profile {
@@ -724,6 +747,18 @@ footer a {
 }
 
 @media screen and (max-width: 1300px) {
+	aside.dashboard_menu ul {
+		margin-left: 0 !important;
+	}
+
+	aside.dashboard_menu ul li {
+		width: 100%;
+	}
+
+	aside.dashboard_menu ul li a {
+		width: 100%;
+	}
+
 	.form_container {
 		width: 75%;
 	}
