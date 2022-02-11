@@ -769,14 +769,17 @@ footer a {
 @media screen and (max-width: 1300px) {
 	aside.dashboard_menu ul {
 		margin-left: 0 !important;
+		padding-left: 0 !important;
 	}
 
 	aside.dashboard_menu ul li {
 		width: 100%;
+		margin-left: 0 !important;
 	}
 
 	aside.dashboard_menu ul li a {
 		width: 100%;
+		margin-left: 1%;
 	}
 
 	.form_container {
