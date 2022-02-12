@@ -12,6 +12,7 @@ use Ubiquity\orm\DAO;
 use Ubiquity\orm\repositories\ViewRepository;
 use Ubiquity\utils\http\URequest;
 use Ubiquity\utils\http\UResponse;
+use Ubiquity\utils\http\USession;
 
 /**
   * Controller VMController
@@ -52,13 +53,15 @@ class VMController extends \controllers\ControllerBase{
         $users = DAO::getAll(User_::class);
         $groups = DAO::getAll(Groupe::class);
         $servers = DAO::getAll(Serveur::class);
-        $this->loadView("VMController/VMCreate.html", ['users'=>$users, 'groups'=>$groups, 'servers'=>$servers]);
+        $this->loadView("VMController/VMCreate.html", ['userName' => USession::get('name'), 'userId' => USession::get('user_id'), 'users'=>$users, 'groups'=>$groups, 'servers'=>$servers]);
 
 	}
 
      #[Post(path: "/create",name: "vm.VMCreate")]
      public function VMCreate(){
          $VM = new Vm();
+         echo "<br><br><br><br><br><br><br><br><br><br>";
+         var_dump($VM);
          URequest::setValuesToObject($VM); // Une erreur arrive : SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
          echo "<br><br><br><br><br><br><br><br><br><br>"; // cette erreur se reproduit sur la page d'administration.
          var_dump($VM);
@@ -80,7 +83,7 @@ class VMController extends \controllers\ControllerBase{
         $users = DAO::getAll(User_::class);
         $groups = DAO::getAll(Groupe::class);
         $servers = DAO::getAll(Serveur::class);
-		$this->loadView('VMController/VMModify.html', ['users'=>$users, 'groups'=>$groups, 'servers'=>$servers]);
+		$this->loadView('VMController/VMModify.html', ['userName' => USession::get('name'), 'users'=>$users, 'groups'=>$groups, 'servers'=>$servers]);
 
 	}
 
@@ -98,4 +101,26 @@ class VMController extends \controllers\ControllerBase{
 
          UResponse::header('location', '/');
      }
+
+	#[Get(path: "/groupeModifyForm/{id}",name: "vm.VMGroupeModifyForm")]
+	public function VMGroupeModifyForm($id){
+
+        $VM = $this->repo->byId($id, false);
+        $users = DAO::getAll(User_::class);
+        $groups = DAO::getAll(Groupe::class);
+        $servers = DAO::getAll(Serveur::class);
+		$this->loadView('VMController/VMGroupeModifyForm.html', ['userName' => USession::get('name'), 'users'=>$users, 'groups'=>$groups, 'servers'=>$servers]);
+
+	}
+
+    #[Get(path: "/serveurModifyForm/{id}",name: "vm.VMServeurModifyForm")]
+    public function VMServeurModifyForm($id){
+
+        $VM = $this->repo->byId($id, false);
+        $users = DAO::getAll(User_::class);
+        $groups = DAO::getAll(Groupe::class);
+        $servers = DAO::getAll(Serveur::class);
+        $this->loadView('VMController/VMGroupeModifyForm.html', ['userName' => USession::get('name'), 'users'=>$users, 'groups'=>$groups, 'servers'=>$servers]);
+
+    }
 }
