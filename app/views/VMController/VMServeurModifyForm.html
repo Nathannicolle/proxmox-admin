@@ -1,0 +1,22 @@
+<div class="page_form">
+    <div class="form_container">
+        <br>
+        <h1 style="color:white">{{byId.name}}</h1>
+        <form class="ui form ui inverted form form_connect" action="{{ path('vm.VMModify') }}" method="post">
+
+            <input type = "hidden" name = "id" value="{{byId.id}}"/>
+            <label>Utilisateur(s) :</label>
+            <select class="ui fluid inverted dropdown" name="user_">
+                <option selected value="{{byId.user_}}">Utilisateur(s)</option>
+                {% for user in users %}
+
+                <option value="{{user.id}}">{{user.login}}</option>
+
+                {% endfor %}
+            </select>
+
+            <button>Modifier la VM</button>
+        </form>
+
+    </div>
+</div>

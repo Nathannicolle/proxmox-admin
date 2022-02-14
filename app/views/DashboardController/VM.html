@@ -35,7 +35,7 @@
     {% endif %}
     <div class="dashboard_content">
         <h1>Liste des VM</h1>
-        {% if role == '@ADMIN' or role == '@PROF' %}
+        {% if role == '@ADMIN' or role == '@PROF' or role == '@ETUDIANT' %}
             <a href="{{path('vm.VMCreateForm')}}" class="link_add">+ Ajouter une VM</a>
         {% endif %}
         <div class="card_container">
@@ -46,6 +46,12 @@
                     <p><b>Nom :</b> {{ vm.name }}</p>
                     <p><b>Adresse IP :</b> {{ vm.ip }}</p>
                     <a href="{{path('dashboard.oneVM', [vm.id])}}" class="link_vm">+ Plus d'infos</a>
+                    <p>
+                        <div class="ui toggle checkbox">
+                            <input type="checkbox" tabindex="0" class="">
+                            <label>Active</label>
+                        </div>
+                    </p>
                 </div>
             {% endfor %}
         </div>

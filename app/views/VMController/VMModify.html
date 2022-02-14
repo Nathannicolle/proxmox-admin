@@ -16,8 +16,10 @@
             <input type = "hidden" name = "id" value="{{byId.id}}"/>
 
             <label>Utilisateur(s) :</label>
-            <select class="ui fluid inverted dropdown" multiple="" name="user">
-                <option value="">Utilisateur(s)</option>
+            <input type="text" name="" value="{{userName}}">
+            <!--
+            <select class="ui fluid inverted dropdown" multiple="" name="user_">
+                <option value="">{{userName}}</option>
                 {% for user in users %}
 
                 <option value="{{user.id}}">{{user.login}}</option>
@@ -33,9 +35,10 @@
 
                 {% endfor %}
             </select>
-            <label>Servers :</label>
+            -->
+            <label>Serveurs :</label>
             <select class="ui fluid inverted dropdown" name="serveur">
-                <option value="">Server</option>
+                <option selected value="{{byId.serveur}}"></option>
                 {% for server in servers %}
 
                 <option value="{{server.id}}">{{server.dnsName}}</option>
@@ -43,7 +46,7 @@
                 {% endfor %}
             </select>
 
-            <button>Modifier la VM <b>"<i>{{byId.name}}</i>"</b></button>
+            <button>Modifier la VM</button>
         </form>
 
     </div>

@@ -12,26 +12,11 @@
             <input type="text" name="sshPort" placeholder="Port SSH">
             <label>OS :</label>
             <input type="text" name="os" placeholder="OS">
-            <label for="user">Utilisateur(s) :</label>
-            <select class="ui fluid inverted dropdown" multiple="" name="user" id="user">
-                <option value="">Utilisateur(s)</option>
-                {% for user in users %}
-
-                <option value="{{user.id}}">{{user.login}}</option>
-
-                {% endfor %}
-            </select>
-            <label for="groupes">Groupe(s) :</label>
-            <select class="ui fluid inverted dropdown" multiple="" name="groupe" id="groupes">
-                <option value="">Groupe(s)</option>
-                {% for group in groups %}
-
-                <option value="{{group.id}}">{{group.name}}</option>
-
-                {% endfor %}
-            </select>
-            <label for="servers">Servers :</label>
-            <select class="ui fluid inverted dropdown" name="serveur" id="servers">
+            <label>Utilisateur(s) :</label>
+            <input type="text" name="" value="{{userName}}">
+            <input type="text" name="user_" value="{{userId}}">
+            <label>Servers :</label>
+            <select class="ui fluid inverted dropdown" name="serveur">
                 <option value="">Server</option>
                 {% for server in servers %}
 
