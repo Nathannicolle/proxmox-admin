@@ -1,5 +1,19 @@
 window.addEventListener("load", () => {
     if(window.location.pathname == "/") {
+        if(window.innerWidth <= 1300) {
+            document.querySelector(".logo").style = "height: 100px;";
+            document.querySelector(".logo").src = "assets/img/Proxmox_pannel_V7.2_light.png";
+        } else {
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > document.querySelector(".banner").clientHeight) {
+                    document.querySelector(".logo").style = "height: 100px;";
+                    document.querySelector(".logo").src = "assets/img/Proxmox_pannel_V7.2_light.png";
+                } else {
+                    document.querySelector(".logo").src = "assets/img/Proxmox_pannel_V7.2_full.png";
+                    document.querySelector(".logo").style = "height: 200px;";
+                }
+            });
+        }
         const items = $(".slider > img");
         const nbslides = items.length;
         const suivant = $(".next_img");
@@ -72,16 +86,6 @@ window.addEventListener("load", () => {
         observer1.observe(document.querySelector("#other_content"));*/
 
         document.querySelector("footer").style.display = "block";
-
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > document.querySelector(".banner").clientHeight) {
-                document.querySelector(".logo").style = "height: 100px;";
-                document.querySelector(".logo").src = "assets/img/Proxmox_pannel_V7.2_light.png";
-            } else {
-                document.querySelector(".logo").src = "assets/img/Proxmox_pannel_V7.2_full.png";
-                document.querySelector(".logo").style = "height: 200px;";
-            }
-        });
     } else if(window.location.pathname.match("/dashboard/") || window.location.pathname.match("/dashboard_[a-zA-Z]{0,8}/") ||  window.location.pathname.match("/oneVM/") || window.location.pathname.match("/oneServer/")) {
         document.querySelector(".ui.basic.inverted.segment.main_menu").style = "display: none !important;";
         document.querySelector(".page_container").style = "margin-top: 0; padding-bottom:0;";
