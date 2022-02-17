@@ -64,11 +64,11 @@ class MainController extends ControllerBase {
     #[Route("dashboard_groups", name: "dashboard.groups")]
     #[Allow(['@ETUDIANT','@PROF','@ADMIN'])]
     public function listGroups() {
-        $user = USession::get('user');
-        $user_id = USession::get('user_id');
-        $user_name = USession::get('name');
-        $group = DAO::getAll(Groupe::class, 'INNER JOIN usergroups ug ON ug.idGroupe = Groupe.id'); // 'user_s = :user', false, ['user' => $user] // INNER JOIN usergroups ug ON ug.idGroupe = Groupe.id
-        $this->jquery->renderView('DashboardController/groups.html', ['groups' => $group, 'name' => USession::get('name'), 'role' => USession::get('role')]);
+        $user_infos = DAO::getById(User::class, USession::get('user_id'));
+        foreach ($user_infos->getGroupes() as $groupe) {
+            $groups = DAO::getAll(Groupe::class, 'id = :groupeId', ['groupeId' => $groupe]);
+        }
+        $this->jquery->renderView('DashboardController/groups.html', ['groups' => $groups, 'name' => USession::get('name'), 'role' => USession::get('role')]);
     }
 
     #[Route("dashboard_servers", name: "dashboard.servers")]

@@ -140,8 +140,9 @@ window.addEventListener("load", () => {
             if(document.querySelector(".minimize_menu i").classList.contains("fa-caret-square-left")) {
                 $(".minimize_menu i").removeClass("fa-caret-square-left");
                 $(".minimize_menu i").addClass("fa-caret-square-right");
+                document.querySelector("div.dashboard_content").style = "margin-left: 6vw";
                 document.querySelector("aside.dashboard_menu").style = "width: 5vw !important;";
-                document.querySelector("aside.dashboard_menu ul").style = "margin-left: 0 !important; padding-left: 0 !important;";
+                document.querySelector("aside.dashboard_menu ul").style = "margin-left: 5% !important; padding-left: 0 !important;";
                 document.querySelectorAll("aside.dashboard_menu li a").forEach(element => {
                     element.querySelector("span").style = "display: none !important;";
                     element.querySelector("i").style = "font-size: 1.7em;";

@@ -221,7 +221,7 @@ body{
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	height: 80vh;
+	height: 100vh;
 	text-align: center;
 	align-items: center;
 	box-shadow:inset 0 -15px 5px -16px #111;
@@ -508,8 +508,32 @@ aside.dashboard_menu i {
 	margin-right: 1%;
 }
 
-.minimize_menu {
+/* Customized title */
+aside.dashboard_menu ul li {
+	position: relative;
+}
+
+aside.dashboard_menu ul li a::after {
+	display: none;
+	background-color: rgb(44, 44, 44);
+	color: white;
 	position: absolute;
+	padding: 8%;
+	border-radius: 20px;
+	border: 1px solid gray;
+	font-size: 0.8em;
+	top: 50%;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+	transform: translateY(-50%);
+}
+
+aside.dashboard_menu ul li a:hover::after {
+	display: block;
+	content: attr(title);
+}
+
+.minimize_menu {
+	position: absolute !important;
 	bottom: 0;
 	right: 0;
 	margin-bottom: 4%;
