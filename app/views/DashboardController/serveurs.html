@@ -6,7 +6,7 @@
             <li class="header_info"><a href="{{path('dashboard.profile')}}"><i class="fas fa-user"></i> {{name}}</a></li>
             <div class="dropdown">
                 <span>Rôle : {{role}} <br></span>
-                <a href="http://127.0.0.1:8090/login/terminate">Déconnexion</a>
+                <a href="/login/terminate">Déconnexion</a>
             </div>
         </ul>
     </div>
@@ -23,7 +23,7 @@
     <div class="dashboard_content">
         <h1>Liste des serveurs</h1>
         {% if role == '@ADMIN' or role == '@PROF' %}
-            <a href="#" class="link_add">+ Ajouter un serveur</a>
+            <a href="#" class="ui inverted green button">+ Ajouter un serveur</a>
         {% endif %}
         <div class="card_container">
             {% for server in serveurs %}

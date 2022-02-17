@@ -6,7 +6,7 @@
             <li class="header_info"><a href="{{path('dashboard.profile')}}"><i class="fas fa-user"></i> {{name}}</a></li>
             <div class="dropdown">
                 <span>Rôle : {{role}} <br></span>
-                <a href="http://127.0.0.1:8090/login/terminate">Déconnexion</a>
+                <a href="/login/terminate">Déconnexion</a>
             </div>
         </ul>
     </div>
@@ -36,7 +36,7 @@
     <div class="dashboard_content">
         <h1>Liste des VM</h1>
         {% if role == '@ADMIN' or role == '@PROF' or role == '@ETUDIANT' %}
-            <a href="{{path('vm.VMCreateForm')}}" class="link_add">+ Ajouter une VM</a>
+            <a href="{{path('vm.VMCreateForm')}}" class="ui inverted green button">+ Ajouter une VM</a>
         {% endif %}
         <div class="card_container">
             {% for vm in vms %}
