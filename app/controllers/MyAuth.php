@@ -28,6 +28,14 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
         $fMessage->setIcon('warning');
     }
 
+    protected function badLoginMessage(FlashMessage $fMessage)
+    {
+        $fMessage->setTitle('Problème d\'identifiant/mot de passe');
+        $fMessage->setContent('Votre identifiant et/ou mot de passe est erroné !');
+        $fMessage->setType('error');
+    }
+
+
     public function _displayInfoAsString() {
         return true;
     }
