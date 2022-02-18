@@ -38,23 +38,28 @@
         {% if role == '@ADMIN' or role == '@PROF' or role == '@ETUDIANT' %}
             <a href="{{path('vm.VMCreateForm')}}" class="ui inverted green button">+ Ajouter une VM</a>
         {% endif %}
-        <div class="card_container">
-            {% for vm in vms %}
-                <div class="card_VM">
-                    <h1><i class="fas fa-desktop"></i></h1>
-                    <p><b>Numéro de VM :</b> {{ vm.number }}</p>
-                    <p><b>Nom :</b> {{ vm.name }}</p>
-                    <p><b>Adresse IP :</b> {{ vm.ip }}</p>
-                    <a href="{{path('dashboard.oneVM', [vm.id])}}" class="link_vm">+ Plus d'infos</a>
-                    <p>
-                        <div class="ui toggle checkbox">
-                            <input type="checkbox" tabindex="0" class="">
-                            <label>Active</label>
-                        </div>
-                    </p>
-                </div>
-            {% endfor %}
-        </div>
+        {% if vms %}
+            <div class="card_container">
+                {% for vm in vms %}
+                    <div class="card_VM">
+                        <h1><i class="fas fa-desktop"></i></h1>
+                        <p><b>Numéro de VM :</b> {{ vm.number }}</p>
+                        <p><b>Nom :</b> {{ vm.name }}</p>
+                        <p><b>Adresse IP :</b> {{ vm.ip }}</p>
+                        <a href="{{path('dashboard.oneVM', [vm.id])}}" class="link_vm">+ Plus d'infos</a>
+                        <p>
+                            <div class="ui toggle checkbox">
+                                <input type="checkbox" tabindex="0" class="">
+                                <label>Active</label>
+                            </div>
+                        </p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <h2>Aïe, vous n'avez aucune VM...</h2>
+            <h3></h3>
+        {% endif %}
     </div>
 </div>
 {{ script_foot|raw }}

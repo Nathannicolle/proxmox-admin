@@ -4,6 +4,7 @@ use Ajax\php\ubiquity\JsUtils;
 use http\Client\Curl\User;
 use models\Groupe;
 use models\Serveur;
+use models\User_;
 use models\Vm;
 use Ubiquity\attributes\items\acl\Allow;
 use Ubiquity\attributes\items\acl\Resource;
@@ -41,9 +42,10 @@ class MainController extends ControllerBase {
     public function dashboard() {
         $user_id = USession::get('user_id');
         $vm = DAO::getAll(Vm::class, 'idUser = :idUser', false, ['idUser' => $user_id]);
-        $groups = DAO::getAll(Groupe::class);
         $servers = DAO::getAll(Serveur::class);
-        $this->jquery->renderView('DashboardController/index.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'vms' => $vm, 'groups' => $groups, 'serveurs' => $servers]);
+        $user = DAO::getById(User_::class, USession::get('user_id'),['groupes']);
+        $groupes= $user->getGroupes();
+        $this->jquery->renderView('DashboardController/index.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'vms' => $vm, 'groups' => $groupes, 'serveurs' => $servers]);
     }
 
     #[Route("dashboard_VM", name: "dashboard.VM")]
@@ -64,11 +66,9 @@ class MainController extends ControllerBase {
     #[Route("dashboard_groups", name: "dashboard.groups")]
     #[Allow(['@ETUDIANT','@PROF','@ADMIN'])]
     public function listGroups() {
-        $user_infos = DAO::getById(User::class, USession::get('user_id'));
-        foreach ($user_infos->getGroupes() as $groupe) {
-            $groups = DAO::getAll(Groupe::class, 'id = :groupeId', ['groupeId' => $groupe]);
-        }
-        $this->jquery->renderView('DashboardController/groups.html', ['groups' => $groups, 'name' => USession::get('name'), 'role' => USession::get('role')]);
+        $user = DAO::getById(User_::class, USession::get('user_id'),['groupes']);
+        $groupes= $user->getGroupes();
+        $this->jquery->renderView('DashboardController/groups.html', ['groups' => $groupes, 'name' => USession::get('name'), 'role' => USession::get('role')]);
     }
 
     #[Route("dashboard_servers", name: "dashboard.servers")]

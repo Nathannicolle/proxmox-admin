@@ -151,6 +151,7 @@ window.addEventListener("load", () => {
             } else if(document.querySelector(".minimize_menu i").classList.contains("fa-caret-square-right")) {
                 $(".minimize_menu i").removeClass("fa-caret-square-right");
                 $(".minimize_menu i").addClass("fa-caret-square-left");
+                document.querySelector("div.dashboard_content").style = "margin-left: 13vw";
                 document.querySelector("aside.dashboard_menu span").style = "display: inline !important;";
                 document.querySelector("aside.dashboard_menu").style = "width: 12vw !important;";
                 if(window.innerWidth >= 1300) {

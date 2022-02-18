@@ -50,12 +50,7 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
     protected function onConnect($connected) {
         $urlParts=$this->getOriginalURL();
         USession::set($this->_getUserSessionKey(), $connected);
-        if(isset($urlParts)){
-            $this->_forward(implode("/",$urlParts));
-        }else{
-            //TODO
-            UResponse::header('location', '/');
-        }
+        UResponse::header('location', '/dashboard/');
     }
 
     #[Post(path:"/connect/", name:"myAuth.connect")]

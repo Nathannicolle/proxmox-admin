@@ -39,12 +39,16 @@
             <a href="#" class="ui inverted green button">+ Ajouter un groupe</a>
         {% endif %}
         <div class="card_container">
-            {% for group in groups %}
-                <div class="card_VM">
-                    <h1><i class="fas fa-users"></i></h1>
-                    <p><b>Nom du groupe :</b> {{ group.name }}</p>
-                </div>
-            {% endfor %}
+            {% if groups %}
+                {% for group in groups %}
+                    <div class="card_VM">
+                        <h1><i class="fas fa-users"></i></h1>
+                        <p><b>Nom du groupe :</b> {{ group.name }}</p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <h2>Vous ne faites partie d'aucun groupe...</h2>
+            {% endif %}
         </div>
     </div>
 </div>
