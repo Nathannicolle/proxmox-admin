@@ -566,6 +566,19 @@ a.ui.inverted.green.button {
 	margin-bottom: 1%;
 }
 
+.no_element_found {
+	background-color: #e76f51;
+	color: black;
+	padding: 1%;
+	width: 50%;
+	border: 2px dotted gray;
+	border-radius: 10px;
+}
+
+.no_element_found i {
+	margin-right: 1%;
+}
+
 /* card VM */
 .card_container {
 	display: grid;

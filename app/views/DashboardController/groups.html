@@ -27,18 +27,20 @@
         {% if role == '@ADMIN' or role == '@PROF' %}
             <a href="#" class="ui inverted green button">+ Ajouter un groupe</a>
         {% endif %}
-        <div class="card_container">
             {% if groups %}
-                {% for group in groups %}
-                    <div class="card_VM">
-                        <h1><i class="fas fa-users"></i></h1>
-                        <p><b>Nom du groupe :</b> {{ group.name }}</p>
-                    </div>
-                {% endfor %}
+                <div class="card_container">
+                    {% for group in groups %}
+                        <div class="card_VM">
+                            <h1><i class="fas fa-users"></i></h1>
+                            <p><b>Nom du groupe :</b> {{ group.name }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
             {% else %}
-                <h2>Vous ne faites partie d'aucun groupe...</h2>
+                <div class="no_element_found">
+                    <h2><i class="fa-solid fa-face-grin-beam-sweat"></i> Vous ne faites partie d'aucun groupe...</h2>
+                </div>
             {% endif %}
-        </div>
     </div>
 </div>
 {{ script_foot|raw }}
