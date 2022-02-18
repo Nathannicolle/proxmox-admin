@@ -488,6 +488,7 @@ aside.dashboard_menu a {
 	padding-left: 10%;
 	font-size: 1.4em;
 	transition: 0.5s ease-in-out;
+	--elm-width-right: -10vw;
 }
 
 aside.dashboard_menu a.link_active {
@@ -505,7 +506,7 @@ aside.dashboard_menu li a:hover {
 }
 
 aside.dashboard_menu i {
-	margin-right: 1%;
+	margin-right: 5%;
 }
 
 /* Customized title */
@@ -523,6 +524,7 @@ aside.dashboard_menu ul li a::after {
 	border: 1px solid gray;
 	font-size: 0.8em;
 	top: 50%;
+	right: var(--elm-width-right);
 	box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 	transform: translateY(-50%);
 }

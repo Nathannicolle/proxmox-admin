@@ -147,6 +147,7 @@ window.addEventListener("load", () => {
                     element.querySelector("span").style = "display: none !important;";
                     element.querySelector("i").style = "font-size: 1.7em;";
                     element.style = "margin-left: auto; margin-bottom: 7%; padding-right: 40%;";
+                    element.style.setProperty('--elm-width-right', '-8vw');
                 });
             } else if(document.querySelector(".minimize_menu i").classList.contains("fa-caret-square-right")) {
                 $(".minimize_menu i").removeClass("fa-caret-square-right");
@@ -161,6 +162,7 @@ window.addEventListener("load", () => {
                     element.querySelector("span").style = "display: inline !important;";
                     element.querySelector("i").style = "font-size: 1em;";
                     element.style = "margin-bottom: 0; padding-right: 6%";
+                    element.style.setProperty('--elm-width-right', '-10vw');
                 });
             }
         });
