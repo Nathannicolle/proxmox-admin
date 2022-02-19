@@ -3,7 +3,7 @@ return array(
 	"siteUrl"=>"http://127.0.0.1:8090/",
 	"database"=>[
 			"type"=>"mysql",
-			"dbName"=>"proxmoxDebug",
+			"dbName"=>"proxmox",
 			"serverName"=>"127.0.0.1",
 			"port"=>3306,
 			"user"=>"root",
@@ -15,7 +15,8 @@ return array(
 	"namespaces"=>[],
 	"templateEngine"=>"Ubiquity\\views\\engine\\Twig",
 	"templateEngineOptions"=>[
-			"cache"=>false
+			"cache"=>false,
+			"activeTheme"=>"semantic"
 			],
 	"test"=>false,
 	"debug"=>true,

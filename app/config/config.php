@@ -15,7 +15,7 @@ return array(
 	"namespaces"=>[],
 	"templateEngine"=>"Ubiquity\\views\\engine\\Twig",
 	"templateEngineOptions"=>[
-			"cache"=>false
+			"cache"=>false,
 			],
 	"test"=>false,
 	"debug"=>true,

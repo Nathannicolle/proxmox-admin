@@ -3,21 +3,23 @@
         <ul>
             <li><a href="{{path('home')}}">Accueil</a></li>
             <li><a href="#">Tableau de bord</a></li>
-            <li class="header_info"><a href="{{path('dashboard.profile')}}"><i class="fas fa-user"></i> {{name}}</a></li>
+            <li class="header_info"><a href="{{path('dashboard.profile')}}"><i class="user icon"></i> {{name}}</a></li>
             <div class="dropdown">
                 <span>Rôle : {{role}}<br></span>
-                <a href="/login/terminate"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                <a href="/login/terminate"><i class="sign out alternate icon"></i> Déconnexion</a>
             </div>
         </ul>
     </div>
     <aside class="dashboard_menu">
         <a href="{{path('home')}}"><img src="assets/img/Proxmox_pannel_V7.2_light.png" alt="logo proxmox pannel"/></a>
         <ul>
-            <li><a href="{{path('dashboard.home')}}" title="Accueil (Dashboard)"><i class="fas fa-home"></i><span>Accueil</span></a></li>
-            <li><a href="{{path('dashboard.VM')}}" title="VM (Dashboard)"><i class="fas fa-laptop"></i><span>Mes VM</span></a></li>
-            <li><a href="{{path('dashboard.groups')}}" title="Groupes (Dashboard)"><i class="fas fa-users"></i><span>Mes groupes</span></a></li>
-            <li><a href="{{path('dashboard.servers')}}" class="link_active" title="Serveurs (Dashboard)"><i class="fas fa-server"></i><span>Les serveurs</span></a></li>
-            <li class="minimize_menu"><a><i class="far fa-caret-square-left"></i></a></li>
+            <li><a href="{{path('dashboard.home')}}" title="Accueil (Dashboard)"><i class="home icon"></i><span>Accueil</span></a></li>
+            <li><a href="{{path('dashboard.VM')}}" title="VM (Dashboard)"><i class="laptop icon"></i><span>Mes VM</span></a></li>
+            <li><a href="{{path('dashboard.groups')}}" title="Groupes (Dashboard)"><i class="users icon"></i><span>Mes groupes</span></a></li>
+            {% if role == '@ADMIN' or role == '@PROF' %}
+                <li><a href="{{path('dashboard.servers')}}" class="link_active" title="Serveurs (Dashboard)"><i class="server icon"></i><span>Les serveurs</span></a></li>
+            {% endif %}
+            <li class="minimize_menu"><a><i class="caret square left outline icon"></i></a></li>
         </ul>
     </aside>
     <div class="dashboard_content">
@@ -28,7 +30,7 @@
         <div class="card_container">
             {% for server in serveurs %}
             <div class="card_VM">
-                <h1><i class="fas fa-server"></i></h1>
+                <h1><i class="server icon"></i></h1>
                 <p><b>ID du serveur :</b> {{ server.id }}</p>
                 <p><b>Adresse IP : </b> {{ server.ipaddress }} </p>
                 <a href="{{path('dashboard.oneServer', [server.id])}}" class="link_vm">+ Plus d'infos</a>

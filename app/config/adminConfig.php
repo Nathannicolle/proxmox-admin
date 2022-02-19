@@ -54,11 +54,11 @@ return array(
 			"config"
 			],
 	"part2"=>[
-			"themes",
 			"maintenance",
 			"composer",
 			"security",
-			"logs"
+			"logs",
+			"themes"
 			],
 	"style"=>"inverted",
 	"selected-acl-providers"=>[
