@@ -5,7 +5,8 @@
         "phpmv\/ubiquity": "^2.3",
         "phpmv\/php-mv-ui": "^2.4",
         "phpmv/ubiquity-security": "^0.0",
-        "phpmv/ubiquity-acl": "^0.0"
+        "phpmv/ubiquity-acl": "^0.0",
+        "fomantic/ui": "^2.8"
     },
     "require-dev": {
         "monolog\/monolog": "^2.2",

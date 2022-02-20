@@ -5,6 +5,7 @@ use Ajax\php\ubiquity\JsUtils;
 use http\Client\Curl\User;
 use models\Groupe;
 use models\Serveur;
+use models\User_;
 use models\Vm;
 use Ubiquity\attributes\items\acl\Allow;
 use Ubiquity\attributes\items\acl\Resource;
@@ -42,9 +43,10 @@ class MainController extends ControllerBase {
     public function dashboard() {
         $user_id = USession::get('user_id');
         $vm = DAO::getAll(Vm::class, 'idUser = :idUser', false, ['idUser' => $user_id]);
-        $groups = DAO::getAll(Groupe::class);
         $servers = DAO::getAll(Serveur::class);
-        $this->jquery->renderView('DashboardController/index.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'vms' => $vm, 'groups' => $groups, 'serveurs' => $servers]);
+        $user = DAO::getById(User_::class, USession::get('user_id'),['groupes']);
+        $groupes= $user->getGroupes();
+        $this->jquery->renderView('DashboardController/index.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'vms' => $vm, 'groups' => $groupes, 'serveurs' => $servers]);
     }
 
     #[Route("dashboard_VM", name: "dashboard.VM")]
@@ -59,17 +61,15 @@ class MainController extends ControllerBase {
     #[Allow(['@ETUDIANT','@PROF','@ADMIN'])]
     public function oneVM($id) {
         $oneVM = DAO::getById(Vm::class, $id);
-        $this->jquery->renderView('DashboardController/oneVM.html', ['VM_Number' => $oneVM->getNumber(), 'VM_Name' => $oneVM->getName(), 'VM_IP' => $oneVM->getIp(), 'Port_SSH' => $oneVM->getSshPort(), 'OS' => $oneVM->getOs(), 'name' => USession::get('name'), 'role' => USession::get('role')]);
+        $this->jquery->renderView('DashboardController/oneVM.html', ['VM_Id' => $oneVM->getId(), 'VM_Number' => $oneVM->getNumber(), 'VM_Name' => $oneVM->getName(), 'VM_IP' => $oneVM->getIp(), 'Port_SSH' => $oneVM->getSshPort(), 'OS' => $oneVM->getOs(), 'name' => USession::get('name'), 'role' => USession::get('role')]);
     }
 
     #[Route("dashboard_groups", name: "dashboard.groups")]
     #[Allow(['@ETUDIANT','@PROF','@ADMIN'])]
     public function listGroups() {
-        $user = USession::get('user');
-        $user_id = USession::get('user_id');
-        $user_name = USession::get('name');
-        $group = DAO::getAll(Groupe::class, 'INNER JOIN usergroups ug ON ug.idGroupe = Groupe.id'); // 'user_s = :user', false, ['user' => $user] // INNER JOIN usergroups ug ON ug.idGroupe = Groupe.id
-        $this->jquery->renderView('DashboardController/groups.html', ['groups' => $group, 'name' => USession::get('name'), 'role' => USession::get('role')]);
+        $user = DAO::getById(User_::class, USession::get('user_id'),['groupes']);
+        $groupes= $user->getGroupes();
+        $this->jquery->renderView('DashboardController/groups.html', ['groups' => $groupes, 'name' => USession::get('name'), 'role' => USession::get('role')]);
     }
 
     #[Route("dashboard_servers", name: "dashboard.servers")]

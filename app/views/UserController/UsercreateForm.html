@@ -1,0 +1,24 @@
+<div class="page_form">
+    <div class="form_container form_add_container">
+
+        <form class="ui form ui inverted form form_connect form_add" action="{{ path('user.create') }}" method="post">
+            <label>Email :</label>
+            <input type="text" name="login" placeholder="Email">
+            <label>Mot de passe :</label>
+            <input type="password" name="password" placeholder="Mot de passe">
+
+            <label>Servers :</label>
+            <select class="ui fluid inverted dropdown" multiple="" name="serveurs">
+                <option value="">Server</option>
+                {% for server in servers %}
+
+                <option value="{{server.id}}">{{server.dnsName}}</option>
+
+                {% endfor %}
+            </select>
+
+            <button>Créer une VM</button>
+        </form>
+
+    </div>
+</div>

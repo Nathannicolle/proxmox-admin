@@ -37,7 +37,7 @@ body{
 }
 
 .page_container {
-	margin-top: 200px;
+	margin-top: 150px;
 }
 
 .form_container {
@@ -221,10 +221,15 @@ body{
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	height: 80vh;
+	height: 100vh;
 	text-align: center;
 	align-items: center;
 	box-shadow:inset 0 -15px 5px -16px #111;
+	background-color: #8ecae6;
+}
+
+.schema_acc h1 {
+	margin-top: 1%;
 }
 
 .app_content {
@@ -391,7 +396,6 @@ body{
 .header_info i {
 	margin-right: 1%;
 	border: 1px solid gray;
-	padding: 1%;
 }
 
 .dropdown {
@@ -483,6 +487,7 @@ aside.dashboard_menu a {
 	padding-left: 10%;
 	font-size: 1.4em;
 	transition: 0.5s ease-in-out;
+	--elm-width-right: -10vw;
 }
 
 aside.dashboard_menu a.link_active {
@@ -500,11 +505,36 @@ aside.dashboard_menu li a:hover {
 }
 
 aside.dashboard_menu i {
-	margin-right: 1%;
+	margin-right: 5%;
+}
+
+/* Customized title */
+aside.dashboard_menu ul li {
+	position: relative;
+}
+
+aside.dashboard_menu ul li a::after {
+	display: none;
+	background-color: rgb(44, 44, 44);
+	color: white;
+	position: absolute;
+	padding: 8%;
+	border-radius: 20px;
+	border: 1px solid gray;
+	font-size: 0.8em;
+	top: 50%;
+	right: var(--elm-width-right);
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+	transform: translateY(-50%);
+}
+
+aside.dashboard_menu ul li a:hover::after {
+	display: block;
+	content: attr(title);
 }
 
 .minimize_menu {
-	position: absolute;
+	position: absolute !important;
 	bottom: 0;
 	right: 0;
 	margin-bottom: 4%;
@@ -531,21 +561,21 @@ span.var_data {
 	background: #4d4d4d;
 }
 
-.link_add {
-	display: block;
-	color: #007200;
-	border: 1px solid #007200;
-	padding: 1%;
-	width: 15%;
+a.ui.inverted.green.button {
 	margin-bottom: 1%;
-	text-align: center;
-	transition: 0.5s ease-in-out;
-	font-size: 1.2em;
 }
 
-.link_add:hover {
-	color: white;
-	background: #007200;
+.no_element_found {
+	background-color: #e76f51;
+	color: black;
+	padding: 1%;
+	width: 50%;
+	border: 2px dotted gray;
+	border-radius: 10px;
+}
+
+.no_element_found i {
+	margin-right: 1%;
 }
 
 /* card VM */
@@ -764,19 +794,24 @@ footer a {
 	.form_connect {
 		width: 75%;
 	}
+
+
 }
 
 @media screen and (max-width: 1300px) {
 	aside.dashboard_menu ul {
 		margin-left: 0 !important;
+		padding-left: 0 !important;
 	}
 
 	aside.dashboard_menu ul li {
 		width: 100%;
+		margin-left: 0 !important;
 	}
 
 	aside.dashboard_menu ul li a {
 		width: 100%;
+		margin-left: 1%;
 	}
 
 	.form_container {
@@ -785,6 +820,34 @@ footer a {
 
 	.form_connect {
 		width: 80%;
+	}
+
+	.banner {
+		padding-top: 0px;
+	}
+
+	#next_1 {
+		margin-bottom: 0;
+	}
+
+	.schema_acc {
+		height: 160vh;
+	}
+
+	#app_content_title {
+		transform: translateY(-15vh);
+	}
+
+	.app_content {
+		height: 105vh;
+	}
+
+	.cards_content {
+		transform: translateY(-15vh);
+	}
+
+	footer {
+		padding-top: 4%;
 	}
 }
 

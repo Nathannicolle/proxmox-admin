@@ -1,0 +1,21 @@
+<div class="page_form">
+    <div class="form_container form_add_container">
+
+        <form class="ui form ui inverted form form_connect form_add" action="{{ path('user.modify') }}" method="post">
+
+            <label>Droit :</label>
+            <select class="ui fluid inverted dropdown" name="role">
+                <option value="">Rôle</option>
+                <option disabled selected value="{{byId.role}}">Rôle</option>
+                <option value="@ADMIN">@ADMIN</option>
+                <option value="@PROF">@PROF</option>
+                <option value="@ETUDIANT">@ETUDIANT</option>
+            </select>
+
+            <input type = "hidden" name = "id" value="{{byId.id}}"/>
+
+            <button>Modifier une VM</button>
+        </form>
+
+    </div>
+</div>

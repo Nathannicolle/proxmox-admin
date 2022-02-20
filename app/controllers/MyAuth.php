@@ -28,6 +28,20 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
         $fMessage->setIcon('warning');
     }
 
+    protected function badLoginMessage(FlashMessage $fMessage)
+    {
+        $fMessage->setTitle('Problème d\'identifiant/mot de passe');
+        $fMessage->setContent('Votre identifiant et/ou mot de passe est erroné !');
+        $fMessage->setType('error');
+    }
+
+    protected function noAccessMessage(FlashMessage $fMessage)
+    {
+        $fMessage->setTitle('Accès non autorisé');
+        $fMessage->setContent('Vous n\'êtes pas connecté ou ne disposez pas d\'autorisations suffisantes');
+    }
+
+
     public function _displayInfoAsString() {
         return true;
     }
@@ -50,12 +64,7 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
     protected function onConnect($connected) {
         $urlParts=$this->getOriginalURL();
         USession::set($this->_getUserSessionKey(), $connected);
-        if(isset($urlParts)){
-            $this->_forward(implode("/",$urlParts));
-        }else{
-            //TODO
-            UResponse::header('location', '/');
-        }
+        UResponse::header('location', '/dashboard/');
     }
 
     #[Post(path:"/connect/", name:"myAuth.connect")]
