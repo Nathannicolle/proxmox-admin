@@ -1,5 +1,6 @@
 <?php
 namespace controllers;
+use Ubiquity\attributes\items\router\Post;
 use Ajax\php\ubiquity\JsUtils;
 use http\Client\Curl\User;
 use models\Groupe;
@@ -101,4 +102,12 @@ class MainController extends ControllerBase {
     {
         return USession::get('role', '@ALL');
     }
+
+	#[Get(path: "Main/contact",name: "main.contact")]
+	public function contact(){
+		
+		$this->loadView('MainController/contact.html');
+
+	}
+
 }

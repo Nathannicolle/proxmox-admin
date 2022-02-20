@@ -1,0 +1,22 @@
+
+<div class="contact">
+    <h1>Vous avez besoin d'aide ? Posez-nous votre question ici</h1>
+    <form action="contact.php">
+        <label for="nom">Nom & prénom</label>
+        <input type="text" id="nom" name="nom" placeholder="Votre nom">
+
+        <label for="sujet">Sujet</label>
+        <input type="text" id="sujet" name="sujet" placeholder="L'objet de votre message">
+
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" placeholder="Votre email">
+
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Votre message" style="height:200px"></textarea>
+
+        <input type="submit" value="Envoyer">
+    </form>
+</div>
+
+{{ script_foot|raw }}
