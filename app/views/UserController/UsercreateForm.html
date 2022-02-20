@@ -6,17 +6,9 @@
             <input type="text" name="login" placeholder="Email">
             <label>Mot de passe :</label>
             <input type="password" name="password" placeholder="Mot de passe">
-            <!
-            <label>Droit :</label>
-            <select class="ui fluid inverted dropdown" name="role">
-                <option value="">Rôle</option>
-                <option value="@ADMIN">@ADMIN</option>
-                <option value="@PROF">@PROF</option>
-                <option value="@ETUDIANT">@ETUDIANT</option>
-            </select>
 
             <label>Servers :</label>
-            <select class="ui fluid inverted dropdown" multiple="" name="serveur">
+            <select class="ui fluid inverted dropdown" multiple="" name="serveurs">
                 <option value="">Server</option>
                 {% for server in servers %}
 

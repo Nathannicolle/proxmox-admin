@@ -8,7 +8,7 @@
             <input type="password" name="password" placeholder="Mot de passe" value="{{byId.password}}">
 
             <label>Servers :</label>
-            <select class="ui fluid inverted dropdown" multiple="" name="serveur">
+            <select class="ui fluid inverted dropdown" multiple="" name="serveursIds">
                 <option selected value="{{byId.userservers}}">Server (en maintenance)</option>
                 {% for server in servers %}
 
@@ -18,7 +18,7 @@
             </select>
             <input type = "hidden" name = "id" value="{{byId.id}}"/>
 
-            <button>Créer une VM</button>
+            <button>Modifier une VM</button>
         </form>
 
     </div>

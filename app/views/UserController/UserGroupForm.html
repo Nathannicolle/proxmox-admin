@@ -1,0 +1,22 @@
+<div class="page_form">
+    <div class="form_container form_add_container">
+
+        <form class="ui form ui inverted form form_connect form_add" action="{{ path('user.modify') }}" method="post">
+
+            <label>Groupes :</label>
+            <select class="ui fluid inverted dropdown" multiple="" name="serveursIds">
+                <option selected value="{{byId.usergroups}}">Groupe (en maintenance)</option>
+                {% for groupe in groupes %}
+
+                <option value="{{groupe.id}}">{{groupe.name}}</option>
+
+                {% endfor %}
+            </select>
+
+            <input type = "hidden" name = "id" value="{{byId.id}}"/>
+
+            <button>Modifier une VM</button>
+        </form>
+
+    </div>
+</div>

@@ -100,4 +100,22 @@ class UserController extends \controllers\ControllerBase{
         UResponse::header('location', '/');
 	}
 
+	#[Get(path: "/droitForm/{id}",name: "user.userDroitForm")]
+    #[Allow(['@ADMIN'])]
+	public function UserDroitForm($id){
+
+        $user = $this->repo->byId($id, false);
+		$this->loadView('UserController/UserDroitForm.html');
+
+	}
+
+	#[Get(path: "/groupForm/{id}",name: "user.userGroupForm")]
+	public function UserGroupForm($id){
+
+        $user = $this->repo->byId($id, false);
+        $groupes = DAO::getAll(Groupe::class);
+		$this->loadView('UserController/UserGroupForm.html', ['groupes'=>$groupes]);
+
+	}
+
 }
