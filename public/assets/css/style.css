@@ -266,6 +266,12 @@ body{
 	border-radius: 20px;
 	width: 15%;
 	box-shadow: 0px 3px 6px rgba(0, 0,0, 0.16);
+	transition: 0.5s ease-in-out;
+}
+
+.card_content:hover {
+	cursor: pointer;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .slider {
@@ -401,14 +407,14 @@ body{
 .dropdown {
 	display: none;
 	position: absolute;
-	bottom: -110px;
+	top: 90%;
 	right: 0;
 	background-color: #3a3f44;
 	padding: 2%;
 	margin-right: 1%;
-	transition: 0.2s ease-in-out;
 	box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 	text-align: center;
+	transition: 0.8s ease-in-out;
 }
 
 .dropdown:hover {
@@ -432,6 +438,10 @@ body{
 
 .header_info:hover + .dropdown {
 	display: block;
+}
+
+.dropdown a.ui.inverted.red.button {
+	margin-top: 5%;
 }
 
 .dashboard_container {
@@ -572,6 +582,7 @@ a.ui.inverted.green.button {
 	width: 50%;
 	border: 2px dotted gray;
 	border-radius: 10px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .no_element_found i {
