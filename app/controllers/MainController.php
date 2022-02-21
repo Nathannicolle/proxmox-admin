@@ -105,9 +105,14 @@ class MainController extends ControllerBase {
 
 	#[Get(path: "Main/contact",name: "main.contact")]
 	public function contact(){
-		
-		$this->loadView('MainController/contact.html');
+        $this->loadView('MainController/contact.html');
+	}
 
+    
+
+	#[Get(path: "Main/legales",name: "main.legales")]
+	public function legales(){
+		$this->loadView('MainController/legales.html');
 	}
 
 }
