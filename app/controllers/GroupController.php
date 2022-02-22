@@ -1,6 +1,7 @@
 <?php
 namespace controllers;
 use Ajax\JsUtils;
+use Ubiquity\attributes\items\acl\Allow;
 use Ubiquity\attributes\items\router\Get;
 use models\Groupe;
 use Ubiquity\attributes\items\router\Post;
@@ -42,6 +43,7 @@ class GroupController extends \controllers\ControllerBase{
 	}
 
 	#[Get(path: "/createForm",name: "group.groupCreateForm")]
+    #[Allow(['@ADMIN','@PROF'])]
 	public function GroupCreateForm(){
 		
 		$this->loadView('GroupController/GroupCreateForm.html');
@@ -49,6 +51,7 @@ class GroupController extends \controllers\ControllerBase{
 	}
 
 	#[Post(path: "/create",name: "group.groupCreate")]
+    #[Allow(['@ADMIN','@PROF'])]
 	public function GroupCreate(){
 
         $group = new Groupe();
@@ -66,6 +69,7 @@ class GroupController extends \controllers\ControllerBase{
 	}
 
 	#[Get(path: "/modifyForm/{id}",name: "group.groupModifyForm")]
+    #[Allow(['@ADMIN','@PROF'])]
 	public function GroupModifyForm($id){
         $group = $this->repo->byId($id, false);
 		$this->loadView('GroupController/GroupModifyForm.html');
@@ -73,6 +77,7 @@ class GroupController extends \controllers\ControllerBase{
 	}
 
 	#[Post(path: "/modify",name: "group.groupModify")]
+    #[Allow(['@ADMIN','@PROF'])]
 	public function GroupModify(){
 
         $group = $this->repo->byId(URequest::post('id'));

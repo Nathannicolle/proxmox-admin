@@ -17,28 +17,11 @@
 
             <label>Utilisateur(s) :</label>
             <input type="text" name="" value="{{userName}}">
-            <!--
-            <select class="ui fluid inverted dropdown" multiple="" name="user_">
-                <option value="">{{userName}}</option>
-                {% for user in users %}
 
-                <option value="{{user.id}}">{{user.login}}</option>
-
-                {% endfor %}
-            </select>
-            <label>Groupe(s) :</label>
-            <select class="ui fluid inverted dropdown" multiple="" name="groupe">
-                <option value="">Groupe(s)</option>
-                {% for group in groups %}
-
-                <option value="{{group.id}}">{{group.name}}</option>
-
-                {% endfor %}
-            </select>
-            -->
             <label>Serveurs :</label>
             <select class="ui fluid inverted dropdown" name="serveur">
-                <option selected value="{{byId.serveur}}"></option>
+                <option value="">Serveur</option>
+                <option disabled selected value="{{byId.serveur}}">Serveur</option>
                 {% for server in servers %}
 
                 <option value="{{server.id}}">{{server.dnsName}}</option>

@@ -47,9 +47,8 @@ class UserController extends \controllers\ControllerBase{
 	}
 
 	#[Get(path: "/createForm",name: "user.createForm")]
-    #[Allow(['@PROF','@ADMIN'])]
+    #[Allow(['@ADMIN','@PROF'])]
 	public function UserCreateForm(){
-
 
         $groups = DAO::getAll(Groupe::class);
         $servers = DAO::getAll(Serveur::class);
@@ -58,7 +57,7 @@ class UserController extends \controllers\ControllerBase{
 	}
 
 	#[Post(path: "/create",name: "user.create")]
-    #[Allow(['@PROF','@ADMIN'])]
+    #[Allow(['@ADMIN','@PROF'])]
 	public function UserCreate(){
 
 		$user = new User_();
@@ -76,6 +75,7 @@ class UserController extends \controllers\ControllerBase{
 	}
 
 	#[Get(path: "/modifyForm/{id}",name: "user.modifyForm")]
+    #[Allow(['@ADMIN','@PROF'])]
 	public function UserModifyForm($id){
 
         $user = $this->repo->byId($id, false);
@@ -86,6 +86,7 @@ class UserController extends \controllers\ControllerBase{
 	}
 
 	#[Post(path: "/modify",name: "user.modify")]
+    #[Allow(['@ADMIN','@PROF'])]
 	public function UserModify(){
 
         $user = $this->repo->byId(URequest::post('id'));
@@ -101,7 +102,7 @@ class UserController extends \controllers\ControllerBase{
 	}
 
 	#[Get(path: "/droitForm/{id}",name: "user.userDroitForm")]
-    #[Allow(['@ADMIN'])]
+    #[Allow(['@ADMIN','@PROF'])]
 	public function UserDroitForm($id){
 
         $user = $this->repo->byId($id, false);
@@ -110,6 +111,7 @@ class UserController extends \controllers\ControllerBase{
 	}
 
 	#[Get(path: "/groupForm/{id}",name: "user.userGroupForm")]
+    #[Allow(['@ADMIN','@PROF'])]
 	public function UserGroupForm($id){
 
         $user = $this->repo->byId($id, false);

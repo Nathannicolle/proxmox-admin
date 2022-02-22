@@ -5,12 +5,13 @@
         <form class="ui form ui inverted form form_connect" action="{{ path('vm.VMModify') }}" method="post">
 
             <input type = "hidden" name = "id" value="{{byId.id}}"/>
-            <label>Utilisateur(s) :</label>
-            <select class="ui fluid inverted dropdown" name="user_">
-                <option selected value="{{byId.user_}}">Utilisateur(s)</option>
-                {% for user in users %}
+            <label>Serveur :</label>
+            <select class="ui fluid inverted dropdown" name="serveur">
+                <option value="">Serveur</option>
+                <option disabled selected value="{{byId.serveur}}">Serveur</option>
+                {% for server in servers %}
 
-                <option value="{{user.id}}">{{user.login}}</option>
+                <option value="{{server.id}}">{{server.dnsName}}</option>
 
                 {% endfor %}
             </select>
