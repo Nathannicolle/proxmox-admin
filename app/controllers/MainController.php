@@ -103,16 +103,15 @@ class MainController extends ControllerBase {
         return USession::get('role', '@ALL');
     }
 
-	#[Get(path: "Main/contact",name: "main.contact")]
+	#[Route(path: "Main/contact",name: "main.contact")]
+    #[Allow("@ALL")]
 	public function contact(){
         $this->loadView('MainController/contact.html');
 	}
 
-    
-
 	#[Get(path: "Main/legales",name: "main.legales")]
+    #[Allow("@ALL")]
 	public function legales(){
 		$this->loadView('MainController/legales.html');
 	}
-
 }

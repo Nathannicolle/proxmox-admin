@@ -863,3 +863,28 @@ footer a {
 		border-bottom: none;
 	}
 }
+
+/* Mention Légales */
+
+.plegales{
+	margin-left: 20%;
+	font-weight: bold;
+	margin-bottom: 50px;
+	padding-bottom: 20px;
+}
+
+.hlegales{
+	margin-left: 10%;
+}
+
+/* Contact */
+
+.formContact{
+display: block;
+}
+
+.form{
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 20px;
+}
