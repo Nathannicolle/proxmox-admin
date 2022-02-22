@@ -63,5 +63,6 @@ return array(
 	"style"=>"inverted",
 	"selected-acl-providers"=>[
 			"Ubiquity\\security\\acl\\persistence\\AclCacheProvider"
-			]
+			],
+	"activeDb"=>"default"
 	);
