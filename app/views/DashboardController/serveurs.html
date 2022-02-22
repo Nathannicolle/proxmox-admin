@@ -6,7 +6,7 @@
             <li class="header_info"><a href="{{path('dashboard.profile')}}"><i class="user icon"></i> {{name}}</a></li>
             <div class="dropdown">
                 <span>Rôle : {{role}}<br></span>
-                <a href="/login/terminate"><i class="sign out alternate icon"></i> Déconnexion</a>
+                <a href="/login/terminate" class="ui inverted red button"><i class="sign out alternate icon"></i> Déconnexion</a>
             </div>
         </ul>
     </div>
@@ -27,16 +27,22 @@
         {% if role == '@ADMIN' or role == '@PROF' %}
             <a href="#" class="ui inverted green button">+ Ajouter un serveur</a>
         {% endif %}
-        <div class="card_container">
-            {% for server in serveurs %}
-            <div class="card_VM">
-                <h1><i class="server icon"></i></h1>
-                <p><b>ID du serveur :</b> {{ server.id }}</p>
-                <p><b>Adresse IP : </b> {{ server.ipaddress }} </p>
-                <a href="{{path('dashboard.oneServer', [server.id])}}" class="link_vm">+ Plus d'infos</a>
+        {% if serveurs %}
+            <div class="card_container">
+                {% for server in serveurs %}
+                <div class="card_VM">
+                    <h1><i class="server icon"></i></h1>
+                    <p><b>ID du serveur :</b> {{ server.id }}</p>
+                    <p><b>Adresse IP : </b> {{ server.ipaddress }} </p>
+                    <a href="{{path('dashboard.oneServer', [server.id])}}" class="link_vm">+ Plus d'infos</a>
+                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
+        {% else %}
+        <div class="no_element_found">
+            <h2><i class="grin beam sweat outline icon"></i> Il n'y a aucun serveur...</h2>
         </div>
+        {% endif %}
     </div>
 </div>
 {{ script_foot|raw }}

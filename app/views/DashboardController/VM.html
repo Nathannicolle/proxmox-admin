@@ -6,7 +6,7 @@
             <li class="header_info"><a href="{{path('dashboard.profile')}}"><i class="user icon"></i> {{name}}</a></li>
             <div class="dropdown">
                 <span>Rôle : {{role}}<br></span>
-                <a href="/login/terminate"><i class="sign out alternate icon"></i> Déconnexion</a>
+                <a href="/login/terminate" class="ui inverted red button"><i class="sign out alternate icon"></i> Déconnexion</a>
             </div>
         </ul>
     </div>
@@ -47,7 +47,7 @@
             </div>
         {% else %}
             <div class="no_element_found">
-                <h2><i class="fa-solid fa-face-grin-beam-sweat"></i> Vous n'avez aucune VM...</h2>
+                <h2><i class="grin beam sweat outline icon"></i> Vous n'avez aucune VM...</h2>
             </div>
         {% endif %}
     </div>
