@@ -25,7 +25,7 @@
     <div class="dashboard_content">
         <h1>Liste des serveurs</h1>
         {% if role == '@ADMIN' or role == '@PROF' %}
-            <a href="#" class="ui inverted green button">+ Ajouter un serveur</a>
+            <a href="{{path('serveur.serveurCreateForm')}}" class="ui inverted green button">+ Ajouter un serveur</a>
         {% endif %}
         {% if serveurs %}
             <div class="card_container">
