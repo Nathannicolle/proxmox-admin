@@ -8,7 +8,3 @@ use Ubiquity\controllers\auth\AuthFiles;
 class MyAuthFiles extends AuthFiles{
 	public function getViewInfo(){
 		return "MyAuth/info.html";
-	}
-
-
-}
