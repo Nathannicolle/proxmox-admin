@@ -143,7 +143,7 @@ class User_{
 
 
 	 public function __toString(){
-		return $this->login.'';
+		return $this->login ;
 	}
 
 }

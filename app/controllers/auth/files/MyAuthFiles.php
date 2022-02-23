@@ -3,11 +3,11 @@ namespace controllers\auth\files;
 
 use Ubiquity\controllers\auth\AuthFiles;
  /**
-  * Class MyAuth2Files
+  * Class MyAuthFiles
   */
-class MyAuth2Files extends AuthFiles{
+class MyAuthFiles extends AuthFiles{
 	public function getViewInfo(){
-		return "MyAuth2/info.html";
+		return "MyAuth/info.html";
 	}
 
 

@@ -87,6 +87,11 @@ body{
 	margin-right: 2%;
 }
 
+#_userInfo {
+	display: flex;
+	align-items: center;
+}
+
 @keyframes opacity_change {
 	0% {
 		opacity: 0;
@@ -565,7 +570,7 @@ aside.dashboard_menu ul li {
 	position: relative;
 }
 
-aside.dashboard_menu ul li a::after {
+aside.dashboard_menu ul li a:not(.minimize_link)::after {
 	display: none;
 	background-color: rgb(44, 44, 44);
 	color: white;

@@ -23,13 +23,13 @@ use Ubiquity\utils\http\USession;
   * @property JsUtils $jquery
   */
 class MainController extends ControllerBase {
-    public function isValid($action){
-        return parent::isValid($action) && $this->isValidAcl($action);
-    }
-
     use AclControllerTrait, WithAuthTrait {
         WithAuthTrait::isValid insteadof AclControllerTrait;
         AclControllerTrait::isValid as isValidAcl;
+    }
+
+    public function isValid($action){
+        return parent::isValid($action) && $this->isValidAcl($action);
     }
 
     #[Route("_default", name: "index.home")]

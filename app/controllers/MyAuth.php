@@ -1,9 +1,12 @@
 <?php
 namespace controllers;
+use controllers\auth\files\MyAuthFiles;
+use controllers\auth\files\MyAuth3Files;
 use models\User;
 use models\User_;
 use Ubiquity\attributes\items\router\Post;
 use Ubiquity\attributes\items\router\Route;
+use Ubiquity\controllers\auth\AuthFiles;
 use Ubiquity\orm\DAO;
 use Ubiquity\utils\flash\FlashMessage;
 use Ubiquity\utils\http\UResponse;
@@ -104,6 +107,7 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
     {
         parent::terminate();
     }
-
-
+    protected function getFiles(): AuthFiles{
+        return new MyAuthFiles();
+    }
 }
