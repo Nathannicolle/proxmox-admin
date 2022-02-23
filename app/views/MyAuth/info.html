@@ -6,7 +6,7 @@
     {% endblock %}
     {% block _userInfo %}
     <div class="ui label">
-        {{ connected | raw }}
+        <a href="{{path('dashboard.home')}}">{{ connected | raw }}</a>
     </div>
     &nbsp;
     {% endblock %}

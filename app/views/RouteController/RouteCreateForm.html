@@ -1,0 +1,28 @@
+<div class="page_form">
+    <div class="form_container form_add_container">
+
+        <form class="ui form ui inverted form form_connect form_add" action="{{ path('route.routeCreate') }}" method="post">
+            <label>Port d'origine :</label>
+            <input type="text" name="portOrigin" placeholder="Port d'origine">
+            <label>Port de destination :</label>
+            <input type="text" name="portDest" placeholder="Port de destination">
+            <label>Host de destination :</label>
+            <input type="text" name="hostDest" placeholder="Host de destination">
+            <label>Ordre :</label>
+            <input type="text" name="order_" placeholder="Ordre">
+
+            <label>Servers :</label>
+            <select class="ui fluid inverted dropdown" multiple="" name="serveur">
+                <option value="">Server</option>
+                {% for server in servers %}
+
+                <option value="{{server.id}}">{{server.dnsName}}</option>
+
+                {% endfor %}
+            </select>
+
+            <button>Créer une route</button>
+        </form>
+
+    </div>
+</div>

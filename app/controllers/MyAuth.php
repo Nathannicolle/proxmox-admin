@@ -1,9 +1,12 @@
 <?php
 namespace controllers;
+use controllers\auth\files\MyAuthFiles;
+use controllers\auth\files\MyAuth3Files;
 use models\User;
 use models\User_;
 use Ubiquity\attributes\items\router\Post;
 use Ubiquity\attributes\items\router\Route;
+use Ubiquity\controllers\auth\AuthFiles;
 use Ubiquity\orm\DAO;
 use Ubiquity\utils\flash\FlashMessage;
 use Ubiquity\utils\http\UResponse;
@@ -42,7 +45,7 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
     }
 
 
-    public function _displayInfoAsString() {
+    public function _displayInfoAsString() :bool{
         return true;
     }
 
@@ -91,11 +94,11 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
      * {@inheritDoc}
      * @see \Ubiquity\controllers\auth\AuthController::isValidUser()
      */
-    public function _isValidUser($action=null) {
+    public function _isValidUser($action=null):bool {
         return USession::exists($this->_getUserSessionKey());
     }
 
-    public function _getBaseRoute() {
+    public function _getBaseRoute():string {
         return '/login';
     }
 
@@ -104,6 +107,7 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
     {
         parent::terminate();
     }
-
-
+    protected function getFiles(): AuthFiles{
+        return new MyAuthFiles();
+    }
 }

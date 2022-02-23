@@ -5,6 +5,7 @@ use models\Groupe;
 use models\Serveur;
 use models\User_;
 use models\Vm;
+use Ubiquity\attributes\items\acl\Allow;
 use Ubiquity\attributes\items\router\Get;
 use Ubiquity\attributes\items\router\Post;
 use Ubiquity\attributes\items\router\Route;
@@ -48,23 +49,20 @@ class VMController extends \controllers\ControllerBase{
 	}
 
 	#[Get(path: "/createForm",name: "vm.VMCreateForm")]
+    #[Allow(['@ADMIN','@PROF','@ETUDIANT'])]
 	public function VMCreateForm(){
 
         $users = DAO::getAll(User_::class);
-        $groups = DAO::getAll(Groupe::class);
         $servers = DAO::getAll(Serveur::class);
-        $this->loadView("VMController/VMCreate.html", ['userName' => USession::get('name'), 'userId' => USession::get('user_id'), 'users'=>$users, 'groups'=>$groups, 'servers'=>$servers]);
+        $this->loadView("VMController/VMCreate.html", ['userName' => USession::get('name'), 'userId' => USession::get('user_id'), 'servers'=>$servers]);
 
 	}
 
      #[Post(path: "/create",name: "vm.VMCreate")]
+     #[Allow(['@ADMIN','@PROF','@ETUDIANT'])]
      public function VMCreate(){
          $VM = new Vm();
-         echo "<br><br><br><br><br><br><br><br><br><br>";
-         var_dump($VM);
-         URequest::setValuesToObject($VM); // Une erreur arrive : SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'
-         echo "<br><br><br><br><br><br><br><br><br><br>"; // cette erreur se reproduit sur la page d'administration.
-         var_dump($VM);
+         URequest::setValuesToObject($VM);
          if (DAO::insert($VM)) {
 
              UResponse::header('location', '/');
@@ -77,6 +75,7 @@ class VMController extends \controllers\ControllerBase{
      }
 
 	#[Get(path: "/modifyForm/{id}",name: "vm.VMModifyForm")]
+    #[Allow(['@ADMIN','@PROF','@ETUDIANT'])]
 	public function VMModifyForm($id){
 
         $VM = $this->repo->byId($id, false);
@@ -88,6 +87,7 @@ class VMController extends \controllers\ControllerBase{
 	}
 
      #[Post(path: "/modify",name: "vm.VMModify")]
+     #[Allow(['@ADMIN','@PROF','@ETUDIANT'])]
      public function VMModify(){
 
          $VM = $this->repo->byId(URequest::post('id'));
@@ -103,24 +103,22 @@ class VMController extends \controllers\ControllerBase{
      }
 
 	#[Get(path: "/groupeModifyForm/{id}",name: "vm.VMGroupeModifyForm")]
+    #[Allow(['@ADMIN','@PROF','@ETUDIANT'])]
 	public function VMGroupeModifyForm($id){
 
         $VM = $this->repo->byId($id, false);
-        $users = DAO::getAll(User_::class);
         $groups = DAO::getAll(Groupe::class);
-        $servers = DAO::getAll(Serveur::class);
-		$this->loadView('VMController/VMGroupeModifyForm.html', ['userName' => USession::get('name'), 'users'=>$users, 'groups'=>$groups, 'servers'=>$servers]);
+		$this->loadView('VMController/VMGroupeModifyForm.html', ['groups'=>$groups]);
 
 	}
 
     #[Get(path: "/serveurModifyForm/{id}",name: "vm.VMServeurModifyForm")]
+    #[Allow(['@ADMIN','@PROF','@ETUDIANT'])]
     public function VMServeurModifyForm($id){
 
         $VM = $this->repo->byId($id, false);
-        $users = DAO::getAll(User_::class);
-        $groups = DAO::getAll(Groupe::class);
         $servers = DAO::getAll(Serveur::class);
-        $this->loadView('VMController/VMGroupeModifyForm.html', ['userName' => USession::get('name'), 'users'=>$users, 'groups'=>$groups, 'servers'=>$servers]);
+        $this->loadView('VMController/VMServeurModifyForm.html', ['servers'=>$servers]);
 
     }
 }

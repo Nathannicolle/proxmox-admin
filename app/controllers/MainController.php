@@ -23,13 +23,13 @@ use Ubiquity\utils\http\USession;
   * @property JsUtils $jquery
   */
 class MainController extends ControllerBase {
-    public function isValid($action){
-        return parent::isValid($action) && $this->isValidAcl($action);
-    }
-
     use AclControllerTrait, WithAuthTrait {
         WithAuthTrait::isValid insteadof AclControllerTrait;
         AclControllerTrait::isValid as isValidAcl;
+    }
+
+    public function isValid($action){
+        return parent::isValid($action) && $this->isValidAcl($action);
     }
 
     #[Route("_default", name: "index.home")]
@@ -103,11 +103,17 @@ class MainController extends ControllerBase {
         return USession::get('role', '@ALL');
     }
 
-	#[Route(path: "Main/contact",name: "main.contact")]
+	#[Route(path: "Main/contact",name: "main.contactForm")]
     #[Allow("@ALL")]
-	public function contact(){
-        $this->loadView('MainController/contact.html');
+	public function contactForm(){
+        $this->loadView('MainController/contactForm.html');
 	}
+
+    #[POST(path: "Main/contact",name: "main.contact")]
+    #[Allow("@ALL")]
+    public function contact(){
+        $this->loadView('MainController/contact.php');
+    }
 
 	#[Get(path: "Main/legales",name: "main.legales")]
     #[Allow("@ALL")]

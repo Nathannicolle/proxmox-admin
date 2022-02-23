@@ -1,0 +1,18 @@
+<div class="page_form">
+    <div class="form_container form_add_container">
+
+        <form class="ui form ui inverted form form_connect form_add" action="{{ path('serveur.serveurModify') }}" method="post">
+            <label>Adresse IP :</label>
+            <input type="text" name="ipAddress" placeholder="Adresse IP" value="{{byId.ipAddress}}">
+            <label>Nom du domaine :</label>
+            <input type="text" name="dnsName" placeholder="DNS" value="{{byId.dnsName}}">
+            <label>Identifiant :</label>
+            <input type="text" name="login" placeholder="Identifiant" value="{{byId.login}}">
+            <label>Mot de passe :</label>
+            <input type="password" name="password" placeholder="Mot de passe" value="{{byId.password}}">
+
+            <button>Modifier un serveur</button>
+        </form>
+
+    </div>
+</div>
