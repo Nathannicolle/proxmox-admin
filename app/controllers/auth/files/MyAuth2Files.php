@@ -6,7 +6,7 @@ use Ubiquity\controllers\auth\AuthFiles;
   * Class MyAuth2Files
   */
 class MyAuth2Files extends AuthFiles{
-	public function getViewInfo(){
+	public function getViewInfo():string{
 		return "MyAuth2/info.html";
 	}
 

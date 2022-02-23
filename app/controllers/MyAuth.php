@@ -42,7 +42,7 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
     }
 
 
-    public function _displayInfoAsString() {
+    public function _displayInfoAsString() :bool{
         return true;
     }
 
@@ -91,11 +91,11 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
      * {@inheritDoc}
      * @see \Ubiquity\controllers\auth\AuthController::isValidUser()
      */
-    public function _isValidUser($action=null) {
+    public function _isValidUser($action=null):bool {
         return USession::exists($this->_getUserSessionKey());
     }
 
-    public function _getBaseRoute() {
+    public function _getBaseRoute():string {
         return '/login';
     }
 
