@@ -117,6 +117,18 @@ body{
 	cursor: pointer;
 }
 
+.ui.label {
+	background-color: #9b9b9b;
+}
+
+.ui.label a {
+	opacity: 1;
+}
+
+.ui.label a:hover {
+	opacity: .5;
+}
+
 /* 1.1 - Bouton de connexion/déconnexion (dans le menu principal)
 *        (avec effet de remplissage par la gauche)
 */
@@ -699,7 +711,7 @@ a.ui.inverted.green.button {
 }
 
 .no_element_found {
-	background-color: #e76f51;
+	background-color: #e0a94f;
 	color: black;
 	padding: 1%;
 	width: 50%;
@@ -710,6 +722,15 @@ a.ui.inverted.green.button {
 
 .no_element_found i {
 	margin-right: 1%;
+}
+
+.no_element_profile {
+	box-shadow: none;
+	border: 1px dotted black;
+}
+
+.no_element_profile h2 {
+	font-size: 1.2em !important;
 }
 
 /* 4.5.1 - Catégories de l'accueil (VMs/Groupe/Serveur) (Ce sont les 'barres' sur lesquels on peut cliquer pour afficher ou cacher les éléments d'une catégorie) */

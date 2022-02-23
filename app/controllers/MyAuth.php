@@ -35,7 +35,7 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
     {
         $fMessage->setTitle('Problème d\'identifiant/mot de passe');
         $fMessage->setContent('Votre identifiant et/ou mot de passe est erroné !');
-        $fMessage->setType('error');
+        $fMessage->setType('warning');
     }
 
     protected function noAccessMessage(FlashMessage $fMessage)

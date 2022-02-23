@@ -90,8 +90,9 @@ class MainController extends ControllerBase {
     #[Route("dashboard_profile", name: "dashboard.profile")]
     #[Allow(['@ETUDIANT','@PROF','@ADMIN'])]
     public function dashboardProfile() {
-        $groups = DAO::getAll(Groupe::class);
-        $this->jquery->renderView('DashboardController/user_profile.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'groups' => $groups]);
+        $user = DAO::getById(User_::class, USession::get('user_id'),['groupes']);
+        $groupes= $user->getGroupes();
+        $this->jquery->renderView('DashboardController/user_profile.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'groups' => $groupes]);
     }
 
     protected function getAuthController(): AuthController {
