@@ -32,9 +32,14 @@
                 <p><b>VM(s) :</b></p>
                 <ul class="list_VM_server list_foreign_elements">
                     {% for VM in VMs %}
-                        <li><a href="{{path('dashboard.oneVM', [VM.id])}}">{{VM.name}}</a></li>
+                        <li><input type="checkbox" class="delete_VM"><a href="{{path('dashboard.oneVM', [VM.id])}}">{{VM.name}}</a></li>
                     {% endfor %}
                 </ul>
+            {% else %}
+            <p><b>VM(s) :</b></p>
+            <div class="no_element_found no_element_server">
+                <h2><i class="grin beam sweat outline icon"></i> Aucune VM attribuée au serveur...</h2>
+            </div>
             {% endif %}
         </div>
     </div>

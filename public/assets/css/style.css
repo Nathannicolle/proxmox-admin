@@ -733,6 +733,15 @@ a.ui.inverted.green.button {
 	font-size: 1.2em !important;
 }
 
+.no_element_server {
+	box-shadow: none;
+	width: 25%;
+}
+
+.no_element_server h2 {
+	font-size: 1.2em !important;
+}
+
 /* 4.5.1 - Catégories de l'accueil (VMs/Groupe/Serveur) (Ce sont les 'barres' sur lesquels on peut cliquer pour afficher ou cacher les éléments d'une catégorie) */
 .subcategory {
 	border-bottom: 1px solid gray;
@@ -842,6 +851,15 @@ a.ui.inverted.green.button {
 }
 
 /* 4.6.2 - Liens vers des éléments liés à l'élément parent (Par exemple liens vers les VMs d'un serveur) */
+.list_VM_server li {
+		display: flex;
+}
+
+.list_VM_server li .delete_VM {
+	margin-right: 8%;
+	background-color: #272b30 !important;
+}
+
 .list_foreign_elements li {
 	list-style-type: none;
 }
