@@ -6,8 +6,11 @@
         "phpmv\/php-mv-ui": "^2.4",
         "phpmv/ubiquity-security": "^0.0",
         "phpmv/ubiquity-acl": "^0.0",
-        "fomantic/ui": "^2.8"
+        "fomantic/ui": "^2.8",
+        "phpmv/php-ssh-proxmox": "dev-main"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require-dev": {
         "monolog\/monolog": "^2.2",
         "phpmv\/ubiquity-dev": "^0.1",
