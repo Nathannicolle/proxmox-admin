@@ -1,7 +1,7 @@
-/* --------------------------------------------- Code du style de l'application --------------------------------------------- */
-/* --------------------------------------------------- proxmox-pannel ------------------------------------------------------- */
-/* ---------------------------------------------- developped by Nathan NICOLLE ---------------------------------------------- */
-/* ---------------------------------------------------(Principalement)------------------------------------------------------- */
+/* --------------------------------------------- Code du style de l'application ----------------------------è------------------ */
+/* --------------------------------------------------- proxmox-pannel -------------------------------------------------------- */
+/* ---------------------------------------------- developed by Nathan NICOLLE ----------------------------------------------- */
+/* ---------------------------------------------------(Principalement)------------------------------------------------------ */
 
 /* ========= Sommaire : =========
    0 - Généralités
@@ -115,6 +115,18 @@ body{
 .logo:hover {
 	transform: scale(0.8);
 	cursor: pointer;
+}
+
+.ui.label {
+	background-color: #9b9b9b;
+}
+
+.ui.label a {
+	opacity: 1;
+}
+
+.ui.label a:hover {
+	opacity: .5;
 }
 
 /* 1.1 - Bouton de connexion/déconnexion (dans le menu principal)
@@ -699,7 +711,7 @@ a.ui.inverted.green.button {
 }
 
 .no_element_found {
-	background-color: #e76f51;
+	background-color: #e0a94f;
 	color: black;
 	padding: 1%;
 	width: 50%;
@@ -710,6 +722,24 @@ a.ui.inverted.green.button {
 
 .no_element_found i {
 	margin-right: 1%;
+}
+
+.no_element_profile {
+	box-shadow: none;
+	border: 1px dotted black;
+}
+
+.no_element_profile h2 {
+	font-size: 1.2em !important;
+}
+
+.no_element_server {
+	box-shadow: none;
+	width: 25%;
+}
+
+.no_element_server h2 {
+	font-size: 1.2em !important;
 }
 
 /* 4.5.1 - Catégories de l'accueil (VMs/Groupe/Serveur) (Ce sont les 'barres' sur lesquels on peut cliquer pour afficher ou cacher les éléments d'une catégorie) */
@@ -798,6 +828,10 @@ a.ui.inverted.green.button {
 	margin-top: 0;
 }
 
+.card_VM.oneElement {
+	margin-right: 1%;
+}
+
 /* 4.6.1 - Boutons pour voir plus d'informations sur l'élément */
 .link_vm {
 	display: block;
@@ -817,6 +851,15 @@ a.ui.inverted.green.button {
 }
 
 /* 4.6.2 - Liens vers des éléments liés à l'élément parent (Par exemple liens vers les VMs d'un serveur) */
+.list_VM_server li {
+		display: flex;
+}
+
+.list_VM_server li .delete_VM {
+	margin-right: 8%;
+	background-color: #272b30 !important;
+}
+
 .list_foreign_elements li {
 	list-style-type: none;
 }

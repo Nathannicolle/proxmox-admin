@@ -38,6 +38,13 @@
                         {% endfor %}
                     </ul>
                 </div>
+                {% else %}
+                    <div class="group">
+                        <p class="p_profile"><span class="var_data"><b>Groupe(s) :</b> </span></p>
+                        <div class="no_element_found no_element_profile">
+                            <h2><i class="grin beam sweat outline icon"></i> Vous ne faites partie d'aucun groupe...</h2>
+                        </div>
+                    </div>
                 {% endif %}
             </div>
             <a class="ui inverted red button" href="/login/terminate"><i class="sign out alternate icon"></i> Déconnexion</a>
