@@ -1,7 +1,6 @@
 # proxmox-admin
-
-This README outlines the details of collaborating on this Ubiquity application.
-A short introduction of this app could easily go here.
+![logo de l'app proxmox-pannel](https://github.com/Nathannicolle/proxmox-admin/blob/main/public/assets/img/Proxmox_pannel_V7.2_full.png)
+<br> Proxmox-pannel est une application qui permet la gestion simplifiée et à distance de serveurs et VM proxmox. Elle se base pour l'instant sur des données présentes en Base De Données, elle devrait prochainement se baser sur les données récuppérées via l'API de proxmox.
 
 ## Prerequisites
 
@@ -12,6 +11,9 @@ You will need the following things properly installed on your computer.
 * [Composer](https://getcomposer.org)
 * [Ubiquity devtools](https://ubiquity.kobject.net/)
 
+## Resources
+* Database : [proxmoxadmin.sql](https://github.com/Nathannicolle/proxmox-admin/blob/main/database/proxmoxadmin(1).sql)
+
 ## Installation
 
 * `git clone <repository-url>` this repository
@@ -21,7 +23,8 @@ You will need the following things properly installed on your computer.
 ## Running / Development
 
 * `Ubiquity serve`
-* Visit your app at [http://127.0.0.1:8090](http://127.0.0.1:8090).
+* Visit the app at [http://127.0.0.1:8090](http://127.0.0.1:8090).
+* You can access to dashboard from home page or at [http://127.0.0.1:8090/dasboard/](http://127.0.0.1:8090/dasboard/)
 
 ### devtools
 
