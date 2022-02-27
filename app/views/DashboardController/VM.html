@@ -23,7 +23,7 @@
         </ul>
     </aside>
     <div class="dashboard_content">
-        <h1>Liste des VM</h1>
+        <h1>Liste des VM  ({{vms|length}})</h1>
         {% if role == '@ADMIN' or role == '@PROF' or role == '@ETUDIANT' %}
             <a href="{{path('vm.VMCreateForm')}}" class="ui inverted green button">+ Ajouter une VM</a>
         {% endif %}

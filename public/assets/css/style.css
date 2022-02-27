@@ -185,6 +185,7 @@ body{
 .logo_banner {
 	background-color: white;
 	border-radius: 20px;
+	box-shadow: black 0px 0px 2px inset;
 }
 
 .see_more {
