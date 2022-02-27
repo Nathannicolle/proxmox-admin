@@ -15,7 +15,7 @@ You will need the following things properly installed on your computer.
 * Database : [proxmoxadmin.sql](https://github.com/Nathannicolle/proxmox-admin/blob/main/database/proxmoxadmin.sql)
 * Logo : [logo de proxmox-pannel](https://github.com/Nathannicolle/proxmox-admin/blob/main/public/assets/img/Proxmox_pannel_V7.2_full.png)
 * Version réduite du logo : [logo minimaliste de proxmox-pannel](https://github.com/Nathannicolle/proxmox-admin/blob/main/public/assets/img/Proxmox_pannel_V7.2_light.png)
-* Exemple de schéma de gestion des VM : [schéma](https://github.com/Nathannicolle/proxmox-admin/blob/main/public/assets/img/Sch%C3%A9ma.png)
+* Exemple de schéma de gestion des VM : [schéma](https://github.com/Nathannicolle/proxmox-admin/blob/main/public/assets/img/Schema.png)
 
 ## Installation
 
