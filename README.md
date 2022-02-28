@@ -1,6 +1,6 @@
 # proxmox-admin
 ![logo de l'app proxmox-pannel](https://github.com/Nathannicolle/proxmox-admin/blob/main/public/assets/img/Proxmox_pannel_V7.2_full.png)
-<br> Proxmox-pannel est une application qui permet la gestion simplifiée et à distance de serveurs et VM proxmox. Elle se base pour l'instant sur des données présentes en Base De Données, elle devrait prochainement se baser sur les données récuppérées via l'API de proxmox.
+<br> Proxmox-pannel est une application qui permet la gestion simplifiée et à distance de serveurs, groupes et VMs proxmox. Elle se base pour l'instant sur des données présentes en Base De Données, elle devrait prochainement se baser sur les données récuppérées via l'API de proxmox. L'application gère également différents niveaux d'accès (via les ACLs) au dashboard en fonction du rôle attribué à l'utilisateur. Le contenu du dashboard diffère en fonction du rôle de l'utilisateur.
 
 ## Prerequisites
 
@@ -12,7 +12,10 @@ You will need the following things properly installed on your computer.
 * [Ubiquity devtools](https://ubiquity.kobject.net/)
 
 ## Resources
-* Database : [proxmoxadmin.sql](https://github.com/Nathannicolle/proxmox-admin/blob/main/database/proxmoxadmin(1).sql)
+* Database : [proxmoxadmin.sql](https://github.com/Nathannicolle/proxmox-admin/blob/main/database/proxmoxadmin.sql)
+* Logo : [logo de proxmox-pannel](https://github.com/Nathannicolle/proxmox-admin/blob/main/public/assets/img/Proxmox_pannel_V7.2_full.png)
+* Version réduite du logo : [logo minimaliste de proxmox-pannel](https://github.com/Nathannicolle/proxmox-admin/blob/main/public/assets/img/Proxmox_pannel_V7.2_light.png)
+* Exemple de schéma de gestion des VM : [schéma](https://github.com/Nathannicolle/proxmox-admin/blob/main/public/assets/img/Schema.png)
 
 ## Installation
 

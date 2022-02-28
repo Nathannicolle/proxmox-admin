@@ -26,38 +26,38 @@
         <h1 class="time"></h1>
         <h2>Votre rôle est : <span class="var_data"> {{role}} </span></h2>
         {% if role == '@ADMIN' or role == '@PROF' %}
-            <h2 class="subcategory_3">Les serveurs <i class="chevron down icon" id="showbtn_3"></i></h2>
+            <h2 class="subcategory_3">Les serveurs ({{serveurs|length}}) <i class="chevron down icon" id="showbtn_3"></i></h2>
             <div class="card_container home_card_container_server">
                 {% for server in serveurs %}
-                <div class="card_VM">
-                    <h1><i class="server icon"></i></h1>
-                    <p><b>ID du serveur :</b> {{ server.id }}</p>
-                    <p><b>Adresse IP : </b> {{ server.ipaddress }} </p>
-                    <a href="{{path('dashboard.oneServer', [server.id])}}" class="link_vm">+ Plus d'infos</a>
-                </div>
+                    <div class="card_VM">
+                        <h1><i class="server icon"></i></h1>
+                        <p><b>ID du serveur :</b> {{ server.id }}</p>
+                        <p><b>Adresse IP : </b> {{ server.ipaddress }} </p>
+                        <a href="{{path('dashboard.oneServer', [server.id])}}" class="link_vm">+ Plus d'infos</a>
+                    </div>
                 {% endfor %}
             </div>
         {% else %}
-            <h2 class="subcategory">Vos VM <i class="chevron down icon" id="showbtn"></i></h2>
+            <h2 class="subcategory">Vos VM ({{vms|length}})<i class="chevron down icon" id="showbtn"></i></h2>
             <div class="card_container home_card_container">
                 {% for vm in vms %}
-                <div class="card_VM">
-                    <h1><i class="desktop icon"></i></h1>
-                    <p><b>Numéro de VM :</b> {{ vm.number }}</p>
-                    <p><b>Nom :</b> {{ vm.name }}</p>
-                    <p><b>Adresse IP :</b> {{ vm.ip }}</p>
-                    <a href="{{path('dashboard.oneVM', [vm.id])}}" class="link_vm">+ Plus d'infos</a>
-                </div>
+                    <div class="card_VM">
+                        <h1><i class="desktop icon"></i></h1>
+                        <p><b>Numéro de VM :</b> {{ vm.number }}</p>
+                        <p><b>Nom :</b> {{ vm.name }}</p>
+                        <p><b>Adresse IP :</b> {{ vm.ip }}</p>
+                        <a href="{{path('dashboard.oneVM', [vm.id])}}" class="link_vm">+ Plus d'infos</a>
+                    </div>
                 {% endfor %}
             </div>
 
-            <h2 class="subcategory_2">Vos groupes <i class="chevron down icon" id="showbtn_2"></i></i></h2>
+            <h2 class="subcategory_2">Vos groupes ({{groups|length}})<i class="chevron down icon" id="showbtn_2"></i></i></h2>
             <div class="card_container home_card_container_group">
                 {% for group in groups %}
-                <div class="card_VM">
-                    <h1><i class="users icon"></i></h1>
-                    <p><b>Nom du groupe :</b> {{ group.name }}</p>
-                </div>
+                    <div class="card_VM">
+                        <h1><i class="users icon"></i></h1>
+                        <p><b>Nom du groupe :</b> {{ group.name }}</p>
+                    </div>
                 {% endfor %}
             </div>
         {% endif %}
