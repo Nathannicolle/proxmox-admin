@@ -1877,16 +1877,16 @@
         },
         {
             "name": "prismjs/prism",
-            "version": "v1.26.0",
+            "version": "v1.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PrismJS/prism.git",
-                "reference": "0b6b1e2f0bd520d1396a942fa025ae811bc39383"
+                "reference": "703881e14bf7530b180fad6052e535d0085315cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PrismJS/prism/zipball/0b6b1e2f0bd520d1396a942fa025ae811bc39383",
-                "reference": "0b6b1e2f0bd520d1396a942fa025ae811bc39383",
+                "url": "https://api.github.com/repos/PrismJS/prism/zipball/703881e14bf7530b180fad6052e535d0085315cd",
+                "reference": "703881e14bf7530b180fad6052e535d0085315cd",
                 "shasum": ""
             },
             "type": "component",
@@ -1911,9 +1911,9 @@
             "description": "Lightweight, robust, elegant syntax highlighting. A spin-off project from Dabblet.",
             "support": {
                 "issues": "https://github.com/PrismJS/prism/issues",
-                "source": "https://github.com/PrismJS/prism/tree/v1.26.0"
+                "source": "https://github.com/PrismJS/prism/tree/v1.27.0"
             },
-            "time": "2022-01-06T17:49:21+00:00"
+            "time": "2022-02-17T21:38:46+00:00"
         },
         {
             "name": "psr/log",
