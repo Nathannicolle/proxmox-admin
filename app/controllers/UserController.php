@@ -78,14 +78,14 @@ class UserController extends \controllers\ControllerBase{
     #[Allow(['@ADMIN','@PROF'])]
 	public function UserModifyForm($id){
 
-        $user = $this->repo->byId($id, false);
-        //$user=DAO::getById(User::class,1,['serveurs']);
+        //$user = $this->repo->byId($id, false);
+        $user=DAO::getById(User_::class,$id,['serveurs']);
         //echo "<br><br><br><br><br><br><br>";
         //$serveurs=DAO::getAll(Serveur::class,'id= ?',false, [$id]);
-        //$serveurs=$user->getServeurs();
-        //var_dump($serveurs); //$user->getServeurs()
+        $serveurs=$user->getServeurs();
+        var_dump($serveurs); //$user->getServeurs()
         $servers = DAO::getAll(Serveur::class);
-		$this->loadView('UserController/UserModifyForm.html', ['servers'=>$servers]);
+		$this->loadView('UserController/UserModifyForm.html', ['servers'=>$servers, 'testServeur'=>$serveurs]);
 
 	}
 
