@@ -146,4 +146,8 @@ class User_{
 		return $this->login ;
 	}
 
+    public function getEmail(){
+         return $this->login;
+    }
+
 }
