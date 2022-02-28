@@ -107,6 +107,7 @@ class VMController extends \controllers\ControllerBase{
 	public function VMGroupeModifyForm($id){
 
         $VM = $this->repo->byId($id, false);
+        //$VMGroup = DAO::getById(Groupe::class, $VM->getGroupe());
         $groups = DAO::getAll(Groupe::class);
 		$this->loadView('VMController/VMGroupeModifyForm.html', ['groups'=>$groups]);
 
