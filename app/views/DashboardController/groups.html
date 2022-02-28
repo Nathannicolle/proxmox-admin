@@ -19,11 +19,11 @@
             {% if role == '@ADMIN' or role == '@PROF' %}
                 <li><a href="{{path('dashboard.servers')}}" title="Serveurs (Dashboard)"><i class="server icon"></i><span>Les serveurs</span></a></li>
             {% endif %}
-            <li class="minimize_menu"><a><i class="caret square left outline icon"></i></a></li>
+            <li class="minimize_menu"><a class="minimize_link"><i class="caret square left outline icon"></i></a></li>
         </ul>
     </aside>
     <div class="dashboard_content">
-        <h1>Liste de vos Groupes</h1>
+        <h1>Liste de vos Groupes ({{groups|length}})</h1>
         {% if role == '@ADMIN' or role == '@PROF' %}
             <a href="{{path('group.groupCreateForm')}}" class="ui inverted green button">+ Ajouter un groupe</a>
         {% endif %}

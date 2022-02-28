@@ -19,7 +19,7 @@
             {% if role == '@ADMIN' or role == '@PROF' %}
                 <li><a href="{{path('dashboard.servers')}}" class="link_active" title="Serveurs (Dashboard)"><i class="server icon"></i><span>Les serveurs</span></a></li>
             {% endif %}
-            <li class="minimize_menu"><a><i class="caret square left outline icon"></i></a></li>
+            <li class="minimize_menu"><a class="minimize_link"><i class="caret square left outline icon"></i></a></li>
         </ul>
     </aside>
     <div class="dashboard_content">
@@ -29,19 +29,19 @@
             <p><b>Adresse IP : </b> {{ipAddress}}</p>
             <p><b>Nom du DNS : </b> {{DnsName}}</p>
             {% if VMs %}
-                <p><b>VM(s) :</b></p>
+                <p><b>VM(s) ({{VMs|length}}) :</b></p>
                 <ul class="list_VM_server list_foreign_elements">
                     {% for VM in VMs %}
                         <li><input type="checkbox" class="delete_VM"><a href="{{path('dashboard.oneVM', [VM.id])}}">{{VM.name}}</a></li>
                     {% endfor %}
                 </ul>
             {% else %}
-            <p><b>VM(s) :</b></p>
-            <div class="no_element_found no_element_server">
-                <h2><i class="grin beam sweat outline icon"></i> Aucune VM attribuée au serveur...</h2>
-            </div>
+                <p><b>VM(s) ({{VMs|length}}) :</b></p>
+                <div class="no_element_found no_element_server">
+                    <h2><i class="grin beam sweat outline icon"></i> Aucune VM attribuée au serveur...</h2>
+                </div>
             {% endif %}
-            <p><a href="{{path('vm.VMModifyForm', [id_server])}}" class="ui inverted primary button"><i class="pen icon"></i> Modifier</a></p>
+            <p><a href="{{path('serveur.serveurModifyForm', [id_server])}}" class="ui inverted primary button"><i class="pen icon"></i> Modifier</a></p>
         </div>
     </div>
 </div>
