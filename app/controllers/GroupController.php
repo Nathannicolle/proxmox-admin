@@ -10,6 +10,7 @@ use Ubiquity\orm\DAO;
 use Ubiquity\orm\repositories\ViewRepository;
 use Ubiquity\utils\http\URequest;
 use Ubiquity\utils\http\UResponse;
+use Ubiquity\utils\http\USession;
 
 /**
  * Controller VMController
@@ -46,7 +47,7 @@ class GroupController extends \controllers\ControllerBase{
     #[Allow(['@ADMIN','@PROF'])]
 	public function GroupCreateForm(){
 		
-		$this->loadView('GroupController/GroupCreateForm.html');
+		$this->loadView('GroupController/GroupCreateForm.html', ['name' => USession::get('name'), 'role' => USession::get('role')]);
 
 	}
 
@@ -72,7 +73,7 @@ class GroupController extends \controllers\ControllerBase{
     #[Allow(['@ADMIN','@PROF'])]
 	public function GroupModifyForm($id){
         $group = $this->repo->byId($id, false);
-		$this->loadView('GroupController/GroupModifyForm.html');
+		$this->loadView('GroupController/GroupModifyForm.html', ['name' => USession::get('name'), 'role' => USession::get('role'),]);
 
 	}
 

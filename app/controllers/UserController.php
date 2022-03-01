@@ -13,6 +13,7 @@ use Ubiquity\orm\DAO;
 use Ubiquity\orm\repositories\ViewRepository;
 use Ubiquity\utils\http\URequest;
 use Ubiquity\utils\http\UResponse;
+use Ubiquity\utils\http\USession;
 
 /**
   * Controller UserController
@@ -52,7 +53,7 @@ class UserController extends \controllers\ControllerBase{
 
         $groups = DAO::getAll(Groupe::class);
         $servers = DAO::getAll(Serveur::class);
-		$this->loadView('UserController/UsercreateForm.html', ['groups'=>$groups, 'servers'=>$servers]);
+		$this->loadView('UserController/UsercreateForm.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'groups'=>$groups, 'servers'=>$servers]);
 
 	}
 
@@ -87,7 +88,7 @@ class UserController extends \controllers\ControllerBase{
         $servers = DAO::getAll(Serveur::class);
         echo "<br><br>";
         var_dump($user);
-		$this->loadView('UserController/UserModifyForm.html', ['servers'=>$servers, 'serverSelects'=>$serverSelects, 'user'=>$user]);
+		$this->loadView('UserController/UserModifyForm.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'servers'=>$servers, 'serverSelects'=>$serverSelects, 'user'=>$user]);
 
 	}
 
@@ -118,7 +119,7 @@ class UserController extends \controllers\ControllerBase{
 	public function UserDroitForm($id){
 
         $user = $this->repo->byId($id, false);
-		$this->loadView('UserController/UserDroitForm.html');
+		$this->loadView('UserController/UserDroitForm.html', ['name' => USession::get('name'), 'role' => USession::get('role'),]);
 
 	}
 
@@ -128,7 +129,7 @@ class UserController extends \controllers\ControllerBase{
 
         $user = $this->repo->byId($id, false);
         $groupes = DAO::getAll(Groupe::class);
-		$this->loadView('UserController/UserGroupForm.html', ['groupes'=>$groupes]);
+		$this->loadView('UserController/UserGroupForm.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'groupes'=>$groupes]);
 
 	}
 

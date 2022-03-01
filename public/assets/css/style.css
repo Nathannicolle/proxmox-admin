@@ -332,6 +332,7 @@ body{
 	flex-direction: column;
 	min-height: 600px;
 	overflow: hidden;
+	z-index: 2;
 }
 
 .form_connect {
@@ -344,7 +345,6 @@ body{
 	border: 1px solid rgba(255, 255, 255, 0.5);
 	border-right: 1px solid rgba(255, 255, 255, 0.2);
 	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-
 	padding: 2%;
 	padding-top: 4%;
 	padding-bottom: 4%;
@@ -377,7 +377,6 @@ body{
 	border: none;
 	padding: 3%;
 	width: 50%;
-	background-color: #161313;
 	margin-left: auto;
 	margin-right: auto;
 	transition: 0.5s ease-in-out;
@@ -436,6 +435,7 @@ body{
 	box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 	width: 100%;
 	background-color: #272b30;
+	z-index: 3;
 }
 
 .secondary_menu ul {

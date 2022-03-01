@@ -10,6 +10,7 @@ use Ubiquity\orm\DAO;
 use Ubiquity\orm\repositories\ViewRepository;
 use Ubiquity\utils\http\URequest;
 use Ubiquity\utils\http\UResponse;
+use Ubiquity\utils\http\USession;
 
 /**
  * Controller VMController
@@ -47,7 +48,7 @@ class ServeurController extends \controllers\ControllerBase{
     #[Allow(['@ADMIN'])]
 	public function ServeurCreateForm(){
 		
-		$this->loadView('ServeurController/ServeurCreateForm.html');
+		$this->loadView('ServeurController/ServeurCreateForm.html', ['name' => USession::get('name'), 'role' => USession::get('role'),]);
 
 	}
 
@@ -74,7 +75,7 @@ class ServeurController extends \controllers\ControllerBase{
 	public function ServeurModifyForm($id){
 
         $serveur = $this->repo->byId($id, false);
-		$this->loadView('ServeurController/ServeurModifyForm.html');
+		$this->loadView('ServeurController/ServeurModifyForm.html', ['name' => USession::get('name'), 'role' => USession::get('role'),]);
 
 	}
 

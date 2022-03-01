@@ -54,7 +54,7 @@ class VMController extends \controllers\ControllerBase{
 
         $users = DAO::getAll(User_::class);
         $servers = DAO::getAll(Serveur::class);
-        $this->loadView("VMController/VMCreate.html", ['userName' => USession::get('name'), 'userId' => USession::get('user_id'), 'servers'=>$servers]);
+        $this->loadView("VMController/VMCreate.html", ['name' => USession::get('name'), 'role' => USession::get('role'), 'userId' => USession::get('user_id'), 'servers'=>$servers]);
 
 	}
 
@@ -64,13 +64,10 @@ class VMController extends \controllers\ControllerBase{
          $VM = new Vm();
          URequest::setValuesToObject($VM);
          if (DAO::insert($VM)) {
-
              UResponse::header('location', '/');
 
          } else {
-
              UResponse::header('location', '/');
-
          }
      }
 
@@ -82,7 +79,7 @@ class VMController extends \controllers\ControllerBase{
         $users = DAO::getAll(User_::class);
         $groups = DAO::getAll(Groupe::class);
         $servers = DAO::getAll(Serveur::class);
-		$this->loadView('VMController/VMModify.html', ['userName' => USession::get('name'), 'users'=>$users, 'groups'=>$groups, 'servers'=>$servers]);
+		$this->loadView('VMController/VMModify.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'users'=>$users, 'groups'=>$groups, 'servers'=>$servers]);
 
 	}
 
@@ -109,7 +106,7 @@ class VMController extends \controllers\ControllerBase{
         $VM = $this->repo->byId($id, false);
         //$VMGroup = DAO::getById(Groupe::class, $VM->getGroupe());
         $groups = DAO::getAll(Groupe::class);
-		$this->loadView('VMController/VMGroupeModifyForm.html', ['groups'=>$groups]);
+		$this->loadView('VMController/VMGroupeModifyForm.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'groups'=>$groups]);
 
 	}
 
@@ -119,7 +116,7 @@ class VMController extends \controllers\ControllerBase{
 
         $VM = $this->repo->byId($id, false);
         $servers = DAO::getAll(Serveur::class);
-        $this->loadView('VMController/VMServeurModifyForm.html', ['servers'=>$servers]);
+        $this->loadView('VMController/VMServeurModifyForm.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'servers'=>$servers]);
 
     }
 

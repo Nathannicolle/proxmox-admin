@@ -4,6 +4,7 @@ use Ajax\JsUtils;
 use Ubiquity\attributes\items\router\Post;
 use Ubiquity\attributes\items\router\Get;
 use Ubiquity\attributes\items\router\Route;
+use Ubiquity\utils\http\USession;
 
 /**
  * Controller VMController
@@ -19,7 +20,7 @@ class DNSController extends \controllers\ControllerBase{
 	#[Get(path: "/createForm",name: "dns.DNSCreateForm")]
 	public function DNSCreateForm(){
 		
-		$this->loadView('DNSController/DNSCreateForm.html');
+		$this->loadView('DNSController/DNSCreateForm.html', ['name' => USession::get('name'), 'role' => USession::get('role'),]);
 
 	}
 
@@ -33,7 +34,7 @@ class DNSController extends \controllers\ControllerBase{
 	#[Get(path: "/modifyForm/{id}",name: "dns.DNSModifyForm")]
 	public function DNSModifyForm($id){
 		
-		$this->loadView('DNSController/DNSModifyForm.html');
+		$this->loadView('DNSController/DNSModifyForm.html', ['name' => USession::get('name'), 'role' => USession::get('role'),]);
 
 	}
 

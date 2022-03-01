@@ -11,6 +11,7 @@ use Ubiquity\orm\DAO;
 use Ubiquity\orm\repositories\ViewRepository;
 use Ubiquity\utils\http\URequest;
 use Ubiquity\utils\http\UResponse;
+use Ubiquity\utils\http\USession;
 
 /**
  * Controller VMController
@@ -49,7 +50,7 @@ class RouteController extends \controllers\ControllerBase{
 	public function RouteCreateForm(){
 
         $servers = DAO::getAll(Serveur::class);
-		$this->loadView('RouteController/RouteCreateForm.html', ['servers'=>$servers]);
+		$this->loadView('RouteController/RouteCreateForm.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'servers'=>$servers]);
 
 	}
 
@@ -79,7 +80,7 @@ class RouteController extends \controllers\ControllerBase{
 
         $route = $this->repo->byId($id, false);
         $servers = DAO::getAll(Serveur::class);
-		$this->loadView('RouteController/RouteModifyForm.html', ['servers'=>$servers]);
+		$this->loadView('RouteController/RouteModifyForm.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'servers'=>$servers]);
 
 	}
 

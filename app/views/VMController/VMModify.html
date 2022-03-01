@@ -1,33 +1,58 @@
-<div class="page_form">
-    <div class="form_container">
+<div class="dashboard_container">
+    <div class="secondary_menu">
+        <ul>
+            <li><a href="{{path('home')}}">Accueil</a></li>
+            <li><a href="#">Tableau de bord</a></li>
+            <li class="header_info"><a href="{{path('dashboard.profile')}}"><i class="user icon"></i> {{name}}</a></li>
+            <div class="dropdown">
+                <span>Rôle : {{role}}<br></span>
+                <a href="/login/terminate" class="ui inverted red button"><i class="sign out alternate icon"></i> Déconnexion</a>
+            </div>
+        </ul>
+    </div>
+    <aside class="dashboard_menu">
+        <a href="{{path('home')}}"><img src="assets/img/Proxmox_pannel_V7.2_light.png" alt="logo proxmox pannel"/></a>
+        <ul>
+            <li><a href="{{path('dashboard.home')}}" title="Accueil (Dashboard)"><i class="home icon"></i><span>Accueil</span></a></li>
+            <li><a href="{{path('dashboard.VM')}}" class="link_active" title="VM (Dashboard)"><i class="laptop icon"></i><span>Mes VM</span></a></li>
+            <li><a href="{{path('dashboard.groups')}}" title="Groupes (Dashboard)"><i class="users icon"></i><span>Mes groupes</span></a></li>
+            {% if role == '@ADMIN' or role == '@PROF' %}
+            <li><a href="{{path('dashboard.servers')}}" title="Serveurs (Dashboard)"><i class="server icon"></i><span>Les serveurs</span></a></li>
+            {% endif %}
+            <li class="minimize_menu"><a class="minimize_link"><i class="caret square left outline icon"></i></a></li>
+        </ul>
+    </aside>
+    <div class="dashboard_content">
+        <div class="form_container">
 
-        <form class="ui form ui inverted form form_connect" action="{{ path('vm.VMModify') }}" method="post">
-            <label>Numéro :</label>
-            <input type="text" name="number" placeholder="Numéro" value="{{byId.number}}">
-            <label>Nom :</label>
-            <input type="text" name="name" placeholder="Nom" value="{{byId.name}}">
-            <label>Adresse IP :</label>
-            <input type="text" name="ip" placeholder="Adresse IP" value="{{byId.ip}}">
-            <label>Port SSH :</label>
-            <input type="text" name="sshPort" placeholder="Port SSH" value="{{byId.sshPort}}">
-            <label>OS :</label>
-            <input type="text" name="os" placeholder="OS" value="{{byId.os}}">
+            <form class="ui form ui inverted form form_connect" action="{{ path('vm.VMModify') }}" method="post">
+                <label>Numéro :</label>
+                <input type="text" name="number" placeholder="Numéro" value="{{byId.number}}">
+                <label>Nom :</label>
+                <input type="text" name="name" placeholder="Nom" value="{{byId.name}}">
+                <label>Adresse IP :</label>
+                <input type="text" name="ip" placeholder="Adresse IP" value="{{byId.ip}}">
+                <label>Port SSH :</label>
+                <input type="text" name="sshPort" placeholder="Port SSH" value="{{byId.sshPort}}">
+                <label>OS :</label>
+                <input type="text" name="os" placeholder="OS" value="{{byId.os}}">
 
-            <input type = "hidden" name = "id" value="{{byId.id}}"/>
+                <input type = "hidden" name = "id" value="{{byId.id}}"/>
 
-            <label>Serveurs :</label>
-            <select class="ui fluid inverted dropdown" name="serveur">
-                <option value="">Serveur</option>
-                <option disabled selected value="{{byId.serveur}}">Serveur</option>
-                {% for server in servers %}
+                <label>Serveurs :</label>
+                <select class="ui fluid inverted dropdown" name="serveur">
+                    <option value="">Serveur</option>
+                    <option disabled selected value="{{byId.serveur}}">Serveur</option>
+                    {% for server in servers %}
 
-                <option value="{{server.id}}">{{server.dnsName}}</option>
+                    <option value="{{server.id}}">{{server.dnsName}}</option>
 
-                {% endfor %}
-            </select>
+                    {% endfor %}
+                </select>
 
-            <button>Modifier la VM</button>
-        </form>
+                <button>Modifier la VM</button>
+            </form>
 
+        </div>
     </div>
 </div>
