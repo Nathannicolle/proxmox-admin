@@ -61,7 +61,7 @@ class MainController extends ControllerBase {
     #[Allow(['@ETUDIANT','@PROF','@ADMIN'])]
     public function oneVM($id) {
         $oneVM = DAO::getById(Vm::class, $id);
-        $this->jquery->renderView('DashboardController/oneVM.html', ['VM_Id' => $oneVM->getId(), 'VM_Number' => $oneVM->getNumber(), 'VM_Name' => $oneVM->getName(), 'VM_IP' => $oneVM->getIp(), 'Port_SSH' => $oneVM->getSshPort(), 'OS' => $oneVM->getOs(), 'name' => USession::get('name'), 'role' => USession::get('role')]);
+        $this->jquery->renderView('DashboardController/oneVM.html', ['VM_Id' => $oneVM->getId(), 'VM_Number' => $oneVM->getNumber(), 'VM_Name' => $oneVM->getName(), 'VM_IP' => $oneVM->getIp(), 'Port_SSH' => $oneVM->getSshPort(), 'OS' => $oneVM->getOs(), 'Utilisateurs' => $oneVM->getUser_(), 'group_vm' => $oneVM->getGroupe(), 'name' => USession::get('name'), 'role' => USession::get('role')]);
     }
 
     #[Route("dashboard_groups", name: "dashboard.groups")]
