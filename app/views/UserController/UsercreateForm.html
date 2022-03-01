@@ -7,9 +7,9 @@
             <label>Mot de passe :</label>
             <input type="password" name="password" placeholder="Mot de passe">
 
-            <label>Servers :</label>
+            <label>Serveurs :</label>
             <select class="ui fluid inverted dropdown" multiple="" name="serveurs">
-                <option value="">Server</option>
+                <option value="">Serveur</option>
                 {% for server in servers %}
 
                 <option value="{{server.id}}">{{server.dnsName}}</option>

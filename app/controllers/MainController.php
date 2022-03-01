@@ -94,7 +94,7 @@ class MainController extends ControllerBase {
     public function dashboardProfile() {
         $user = DAO::getById(User_::class, USession::get('user_id'),['groupes']);
         $groupes= $user->getGroupes();
-        $this->jquery->renderView('DashboardController/user_profile.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'groups' => $groupes]);
+        $this->jquery->renderView('DashboardController/user_profile.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'user_id' => USession::get('user_id'), 'groups' => $groupes]);
     }
 
     protected function getAuthController(): AuthController {
