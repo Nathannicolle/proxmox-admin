@@ -117,7 +117,7 @@ class MainController extends ControllerBase {
     public function contact(){
         $mail=new InformationMail();
         MailerManager::send($mail);
-        $this->jquery->renderView('MainController/contact.php');
+        //$this->jquery->renderView('MainController/contact.php');
     }
 
 	#[Get(path: "Main/legales",name: "main.legales")]
