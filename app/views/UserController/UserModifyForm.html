@@ -8,11 +8,11 @@
             <input type="password" name="password" placeholder="Mot de passe" value="{{user.password}}">
 
             <label>Serveurs :</label>
-            <select class="ui fluid inverted dropdown" multiple="" name="serveurs">
+            <select class="ui fluid inverted dropdown" multiple="" name="serveurs[]">
                 <option value="">Serveur (en maintenance)</option>
                 {% for serverSelect in serverSelects %}
 
-                <option value="{{serverSelect.id}}">{{serverSelect.dnsName}}</option>
+                <option selected value="{{serverSelect.id}}">{{serverSelect.dnsName}}</option>
 
                 {% endfor %}
 

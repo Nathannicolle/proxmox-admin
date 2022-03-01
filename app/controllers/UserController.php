@@ -96,17 +96,21 @@ class UserController extends \controllers\ControllerBase{
 	public function UserModify(){
         echo "<br><br><br><br><br><br><br>";
         $user = $this->repo->byId(URequest::post('id'));
-        var_dump($user);
+        var_dump($user->getServeurs());
+        //var_dump($user->getServeurs());
         if ($user) {
 
             URequest::setValuesToObject($user);
             echo "<br><br><br><br><br><br><br>";
             var_dump($user);
+            echo "<br><br><br><br><br><br><br>";
+            var_dump($user->getGroupes());
+            var_dump($user->getServeurs());
             $this->repo->save($user);
 
         }
 
-        UResponse::header('location', '/');
+        //UResponse::header('location', '/');
 	}
 
 	#[Get(path: "/droitForm/{id}",name: "user.userDroitForm")]
