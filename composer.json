@@ -7,7 +7,9 @@
         "phpmv/ubiquity-security": "^0.0",
         "phpmv/ubiquity-acl": "^0.0",
         "fomantic/ui": "^2.8",
+        "phpmv/ubiquity-mailer": "^0.0.8",
         "phpmv/php-ssh-proxmox": "dev-main"
+
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

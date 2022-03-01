@@ -54,15 +54,17 @@ return array(
 			"config"
 			],
 	"part2"=>[
-			"maintenance",
 			"composer",
 			"security",
 			"logs",
-			"themes"
+			"mailer"
 			],
 	"style"=>"inverted",
 	"selected-acl-providers"=>[
 			"Ubiquity\\security\\acl\\persistence\\AclCacheProvider"
 			],
-	"activeDb"=>"default"
+	"activeDb"=>"default",
+	"mailer"=>[
+			"queue-period"=>"now"
+			]
 	);
