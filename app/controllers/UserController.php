@@ -82,22 +82,26 @@ class UserController extends \controllers\ControllerBase{
         $user=DAO::getById(User_::class,$id,['serveurs']);
         //echo "<br><br><br><br><br><br><br>";
         //$serveurs=DAO::getAll(Serveur::class,'id= ?',false, [$id]);
-        $serveurs=$user->getServeurs();
-        var_dump($serveurs); //$user->getServeurs()
+        $serverSelects=$user->getServeurs();
+        var_dump($serverSelects); //$user->getServeurs()
         $servers = DAO::getAll(Serveur::class);
-		$this->loadView('UserController/UserModifyForm.html', ['servers'=>$servers, 'testServeur'=>$serveurs]);
+        echo "<br><br>";
+        var_dump($user);
+		$this->loadView('UserController/UserModifyForm.html', ['servers'=>$servers, 'serverSelects'=>$serverSelects, 'user'=>$user]);
 
 	}
 
 	#[Post(path: "/modify",name: "user.modify")]
     #[Allow(['@ADMIN','@PROF'])]
 	public function UserModify(){
-
+        echo "<br><br><br><br><br><br><br>";
         $user = $this->repo->byId(URequest::post('id'));
-
+        var_dump($user);
         if ($user) {
 
             URequest::setValuesToObject($user);
+            echo "<br><br><br><br><br><br><br>";
+            var_dump($user);
             $this->repo->save($user);
 
         }
