@@ -6,8 +6,11 @@ use Ubiquity\attributes\items\router\Get;
 use models\Groupe;
 use Ubiquity\attributes\items\router\Post;
 use Ubiquity\attributes\items\router\Route;
+use Ubiquity\controllers\auth\AuthController;
+use Ubiquity\controllers\auth\WithAuthTrait;
 use Ubiquity\orm\DAO;
 use Ubiquity\orm\repositories\ViewRepository;
+use Ubiquity\security\acl\controllers\AclControllerTrait;
 use Ubiquity\utils\http\URequest;
 use Ubiquity\utils\http\UResponse;
 use Ubiquity\utils\http\USession;
@@ -17,13 +20,29 @@ use Ubiquity\utils\http\USession;
  * @property JsUtils $jquery
  */
 #[Route(path: "/group",inherited: true,automated: true)]
-class GroupController extends \controllers\ControllerBase{
-
+#[Allow(['@ADMIN','@PROF'])]
+class GroupController extends ControllerBase{
     private ViewRepository $repo;
-
     protected $headerView = "@activeTheme/main/vHeader.html";
-
     protected $footerView = "@activeTheme/main/vFooter.html";
+
+    use AclControllerTrait, WithAuthTrait {
+        WithAuthTrait::isValid insteadof AclControllerTrait;
+        AclControllerTrait::isValid as isValidAcl;
+    }
+
+    public function isValid($action){
+        return parent::isValid($action) && $this->isValidAcl($action);
+    }
+
+    protected function getAuthController(): AuthController {
+        return new MyAuth($this);
+    }
+
+    public function _getRole()
+    {
+        return USession::get('role', '@ALL');
+    }
 
     public function initialize() {
 
@@ -44,7 +63,6 @@ class GroupController extends \controllers\ControllerBase{
 	}
 
 	#[Get(path: "/createForm",name: "group.groupCreateForm")]
-    #[Allow(['@ADMIN','@PROF'])]
 	public function GroupCreateForm(){
 		
 		$this->loadView('GroupController/GroupCreateForm.html', ['name' => USession::get('name'), 'role' => USession::get('role')]);
@@ -52,7 +70,6 @@ class GroupController extends \controllers\ControllerBase{
 	}
 
 	#[Post(path: "/create",name: "group.groupCreate")]
-    #[Allow(['@ADMIN','@PROF'])]
 	public function GroupCreate(){
 
         $group = new Groupe();
@@ -70,7 +87,6 @@ class GroupController extends \controllers\ControllerBase{
 	}
 
 	#[Get(path: "/modifyForm/{id}",name: "group.groupModifyForm")]
-    #[Allow(['@ADMIN','@PROF'])]
 	public function GroupModifyForm($id){
         $group = $this->repo->byId($id, false);
 		$this->loadView('GroupController/GroupModifyForm.html', ['name' => USession::get('name'), 'role' => USession::get('role'),]);
@@ -78,7 +94,6 @@ class GroupController extends \controllers\ControllerBase{
 	}
 
 	#[Post(path: "/modify",name: "group.groupModify")]
-    #[Allow(['@ADMIN','@PROF'])]
 	public function GroupModify(){
 
         $group = $this->repo->byId(URequest::post('id'));
