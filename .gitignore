@@ -2,7 +2,8 @@
 vendor/
 app/cache/
 app/logs/
- 
+app/config/services.php
+
 # Eclipse
 .settings/
 .project

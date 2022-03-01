@@ -23,13 +23,13 @@ window.addEventListener("load", () => {
         // ----Liens Smooth vers les différentes parties----
         // Lien vers la partie à propos
         document.querySelector("#next_1").addEventListener("click", () => {
-            document.getElementById("other_content").scrollIntoView({
+            document.getElementById("next_1").scrollIntoView({
                 behavior: "smooth",
             });
         });
 
         document.querySelector("#next_2").addEventListener("click", () => {
-            document.getElementById("app_content_title").scrollIntoView({
+            document.getElementById("next_2").scrollIntoView({
                 behavior: "smooth",
             });
         });

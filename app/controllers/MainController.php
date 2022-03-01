@@ -24,6 +24,7 @@ use Ubiquity\utils\http\USession;
   * Controller MainController
   * @property JsUtils $jquery
   */
+#[Allow(['@ETUDIANT','@PROF','@ADMIN'])]
 class MainController extends ControllerBase {
     use AclControllerTrait, WithAuthTrait {
         WithAuthTrait::isValid insteadof AclControllerTrait;
@@ -41,7 +42,6 @@ class MainController extends ControllerBase {
 	}
 
     #[Route("dashboard", name: "dashboard.home")]
-    #[Allow(['@ETUDIANT','@PROF','@ADMIN'])]
     public function dashboard() {
         $user_id = USession::get('user_id');
         $vm = DAO::getAll(Vm::class, 'idUser = :idUser', false, ['idUser' => $user_id]);
@@ -52,7 +52,6 @@ class MainController extends ControllerBase {
     }
 
     #[Route("dashboard_VM", name: "dashboard.VM")]
-    #[Allow(['@ETUDIANT','@PROF','@ADMIN'])]
     public function listVM() {
         $user_id = USession::get('user_id');
         $vm = DAO::getAll(Vm::class, 'idUser = :idUser', false, ['idUser' => $user_id]);
@@ -60,14 +59,12 @@ class MainController extends ControllerBase {
     }
 
     #[Get("oneVM/{id}", name: "dashboard.oneVM")]
-    #[Allow(['@ETUDIANT','@PROF','@ADMIN'])]
     public function oneVM($id) {
         $oneVM = DAO::getById(Vm::class, $id);
-        $this->jquery->renderView('DashboardController/oneVM.html', ['VM_Id' => $oneVM->getId(), 'VM_Number' => $oneVM->getNumber(), 'VM_Name' => $oneVM->getName(), 'VM_IP' => $oneVM->getIp(), 'Port_SSH' => $oneVM->getSshPort(), 'OS' => $oneVM->getOs(), 'name' => USession::get('name'), 'role' => USession::get('role')]);
+        $this->jquery->renderView('DashboardController/oneVM.html', ['VM_Id' => $oneVM->getId(), 'VM_Number' => $oneVM->getNumber(), 'VM_Name' => $oneVM->getName(), 'VM_IP' => $oneVM->getIp(), 'Port_SSH' => $oneVM->getSshPort(), 'OS' => $oneVM->getOs(), 'Utilisateurs' => $oneVM->getUser_(), 'group_vm' => $oneVM->getGroupe(), 'name' => USession::get('name'), 'role' => USession::get('role')]);
     }
 
     #[Route("dashboard_groups", name: "dashboard.groups")]
-    #[Allow(['@ETUDIANT','@PROF','@ADMIN'])]
     public function listGroups() {
         $user = DAO::getById(User_::class, USession::get('user_id'),['groupes']);
         $groupes= $user->getGroupes();
@@ -90,7 +87,6 @@ class MainController extends ControllerBase {
     }
 
     #[Route("dashboard_profile", name: "dashboard.profile")]
-    #[Allow(['@ETUDIANT','@PROF','@ADMIN'])]
     public function dashboardProfile() {
         $user = DAO::getById(User_::class, USession::get('user_id'),['groupes']);
         $groupes= $user->getGroupes();
@@ -117,7 +113,7 @@ class MainController extends ControllerBase {
     public function contact(){
         $mail=new InformationMail();
         MailerManager::send($mail);
-        $this->jquery->renderView('MainController/contact.php');
+        //$this->jquery->renderView('MainController/contact.php');
     }
 
 	#[Get(path: "Main/legales",name: "main.legales")]
