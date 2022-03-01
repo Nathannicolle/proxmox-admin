@@ -122,4 +122,11 @@ class VMController extends \controllers\ControllerBase{
         $this->loadView('VMController/VMServeurModifyForm.html', ['servers'=>$servers]);
 
     }
+
+	#[Get(path: "/VMDelete",name: "vm.VMDelete")]
+	public function VMDelete(){
+		$this->loadView('VMController/VMDelete.html');
+
+	}
+
 }

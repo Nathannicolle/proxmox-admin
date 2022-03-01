@@ -5,7 +5,7 @@ return array(
 	"auth"=>true,
 	"user"=>"luc.papillon@sts-sio-caen.info",
 	"password"=>"91XVsUU*",
-	"protocol"=>"SMTP",
+	"protocol"=>"smtp",
 	"CharSet"=>"utf-8",
 	"ns"=>"mail",
 	"SMTPOptions"=>[

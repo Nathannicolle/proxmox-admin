@@ -1,12 +1,10 @@
 <?php
 namespace mail;
 
-namespace mail;
-
 use models\User_;
 use Ubiquity\mailer\AbstractMail;
 use Ubiquity\orm\DAO;
-use models\User;
+
 
 class BesoinDaide extends AbstractMail {
 
@@ -21,7 +19,7 @@ class BesoinDaide extends AbstractMail {
         $date = (new \DateTime())->format('c');
         $user = DAO::getOne(User_::class, 1);
         $body = '<h2>Message</h2><div>Message content</div>';
-        $content = $this->loadView('mailer/AllUsers.html', \compact('date', 'user', 'body'));
+        $content = $this->loadView('mainController/ConfirmationAide.html', \compact('date', 'user', 'body'));
         return $content;
     }
 
