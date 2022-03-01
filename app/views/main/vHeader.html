@@ -21,6 +21,9 @@
 				<div class="ui inverted secondary menu">
 					<a href="{{ path('home')}}"><img src="assets/img/Proxmox_pannel_V7.2_full.png" class="logo"></a>
 					<a href="{{ path('home') }}" class="item">Accueil</a>
+					{% if app.session.get('role') != null %}
+						<a href="{{ path('dashboard.home') }}" class="item">Mon espace</a>
+					{% endif %}
 					<a href="#" class="item">Contact</a>
 					<div class="item" id="link_connection">{{ _userInfo|raw }}</div>
 				</div>
