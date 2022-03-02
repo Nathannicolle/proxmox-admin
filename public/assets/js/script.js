@@ -1,5 +1,5 @@
 window.addEventListener("load", () => {
-    if(window.location.pathname == "/") {
+    if(window.location.pathname === "/") {
         if(window.innerWidth <= 1300) {
             document.querySelector(".logo").style = "height: 100px;";
             document.querySelector(".logo").src = "assets/img/Proxmox_pannel_V7.2_light.png";
@@ -86,7 +86,7 @@ window.addEventListener("load", () => {
         observer1.observe(document.querySelector("#other_content"));*/
 
         document.querySelector("footer").style.display = "block";
-    } else if(window.location.pathname.match("/dashboard/") || window.location.pathname.match("/dashboard_[a-zA-Z]{0,8}/") ||  window.location.pathname.match("/oneVM/") || window.location.pathname.match("/oneServer/")) {
+    } else if(window.location.pathname.match("/dashboard") || window.location.pathname.match("/dashboard_[a-zA-Z]{0,8}") ||  window.location.pathname.match("/oneVM") || window.location.pathname.match("/oneServer") || window.location.pathname.match('/createForm') || window.location.pathname.match('/modifyForm') || window.location.pathname.match('/groupeModifyForm')) {
         document.querySelector(".ui.basic.inverted.segment.main_menu").style = "display: none !important;";
         document.querySelector(".page_container").style = "margin-top: 0; padding-bottom:0;";
         $(".subcategory").click(function () {
