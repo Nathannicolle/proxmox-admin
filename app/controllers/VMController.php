@@ -124,7 +124,7 @@ class VMController extends \controllers\ControllerBase{
     }
 
 
-	#[Get(path: "/VMDelete/{id}",name: "vm.VMDelete")]
+	/*#[Get(path: "/VMDelete/{id}",name: "vm.VMDelete")]
     #[Allow(['@ADMIN','@PROF','@ETUDIANT'])]
 	public function VMDelete($id){
         $VM = $this->repo->byId(URequest::post('id'));
@@ -133,8 +133,8 @@ class VMController extends \controllers\ControllerBase{
             URequest::setValuesToObject($VM);
             $this->repo->remove($VM);
         }
-        UResponse::header('location', 'VMController/VMDelete.html');
-		//$this->loadView('');
-    }
+        UResponse::header('location', '/');
+		//$this->loadView('VMController/VMDelete.html');
+    }*/
 
 }
