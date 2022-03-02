@@ -25,7 +25,7 @@
     <div class="dashboard_content">
         <div class="form_container form_add_container">
 
-            <form class="ui form ui inverted form form_connect form_add" action="{{ path('group.groupModify') }}" method="post">
+            <form class="ui form ui inverted form form_connect form_edit" action="{{ path('group.groupModify') }}" method="post">
                 <label>Groupe :</label>
                 <input type="text" name="name" placeholder="Groupe" value="{{byId.name}}">
                 <input type = "hidden" name = "id" value="{{byId.id}}"/>

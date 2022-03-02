@@ -385,7 +385,10 @@ body{
 
 .form_add_container {
 	width: 45%;
+	margin-top: 1%;
 	margin-bottom: 2%;
+	/*background-color: black !important;
+	background-image: none;*/
 }
 
 .form_add select {
@@ -397,6 +400,22 @@ body{
 
 .form_add label:last-child {
 	margin-bottom: 0 !important;
+}
+
+.form_add button {
+	background-color: #132a13;
+}
+
+.form_add button:hover {
+	background-color: #004b23 !important;
+}
+
+.form_edit button {
+	background-color: #001f2f;
+}
+
+.form_edit button:hover {
+	background-color: #023047 !important;
 }
 
 .form_connect button:hover {

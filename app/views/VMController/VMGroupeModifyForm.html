@@ -26,7 +26,7 @@
         <div class="form_container">
             <br>
             <h1 style="color:white">{{byId.name}}</h1>
-            <form class="ui form ui inverted form form_connect" action="{{ path('vm.VMModify') }}" method="post">
+            <form class="ui form ui inverted form form_connect form_edit" action="{{ path('vm.VMModify') }}" method="post">
 
                 <input type = "hidden" name = "id" value="{{byId.id}}"/>
                 <label>Groupe :</label>
