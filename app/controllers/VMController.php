@@ -95,6 +95,7 @@ class VMController extends ControllerBase{
         $users = DAO::getAll(User_::class);
         $groups = DAO::getAll(Groupe::class);
         $servers = DAO::getAll(Serveur::class);
+        $VMServeur = DAO::getById(Serveur::class, $VM->getServeur());
         $this->loadView('VMController/VMModify.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'users'=>$users, 'groups'=>$groups, 'servers'=>$servers]);
 
     }
