@@ -65,7 +65,8 @@ class MainController extends ControllerBase {
         if($oneVM !== null) {
             $this->jquery->renderView('DashboardController/oneVM.html', ['VM_Id' => $oneVM->getId(), 'VM_Number' => $oneVM->getNumber(), 'VM_Name' => $oneVM->getName(), 'VM_IP' => $oneVM->getIp(), 'Port_SSH' => $oneVM->getSshPort(), 'OS' => $oneVM->getOs(), 'Utilisateurs' => $oneVM->getUser_(), 'group_vm' => $oneVM->getGroupe(), 'name' => USession::get('name'), 'role' => USession::get('role')]);
         } else {
-            $this->jquery->renderView('DashboardController/oneVM.html', ['VM_Id' => null, 'name' => USession::get('name'), 'role' => USession::get('role')]);
+            $vm = DAO::getAll(Vm::class, 'idUser = :idUser', false, ['idUser' => USession::get('user_id')]);    
+            $this->jquery->renderView('DashboardController/VM.html', ['vms' => $vm, 'name' => USession::get('name'), 'role' => USession::get('role')]);
         }
     }
 

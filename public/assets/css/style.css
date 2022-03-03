@@ -36,6 +36,7 @@
      6.3 - Ecran d'une largeur type Tablette/Smartphone
    7 - Mention Légales
    8 - Contact
+   9 - Page 404
  */
 
 /* 0 - Généralités */
@@ -1051,4 +1052,19 @@ display: block;
 	font-weight: bold;
 	text-align: center;
 	margin-bottom: 20px;
+}
+
+/* 9 - page 404 */
+.container_404 {
+	text-align: center;
+	color: white;
+	font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+}
+
+.container_404 h1 {
+	font-size: 2.4em;
+}
+
+.container_404 h2 {
+	font-size: 2.1em;
 }
