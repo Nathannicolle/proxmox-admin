@@ -128,8 +128,9 @@ class MainController extends ControllerBase {
 		$this->loadView('MainController/legales.html');
 	}
 
-    #[Route('{url}', priority: -1000)]
+    /*#[Route('{url}', priority: -1000)]
+    #[Allow("@ALL")]
     public function p404($url){
         $this->loadView('MainController/404.html', ['url' => $url]);
-    }
+    }*/
 }
