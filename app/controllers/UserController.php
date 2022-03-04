@@ -63,10 +63,10 @@ class UserController extends ControllerBase {
     }
 
 	public function index(){
-		
 	}
 
 	#[Get(path: "/createForm",name: "user.createForm")]
+    #[Allow(['@ALL'])]
 	public function UserCreateForm(){
 
         $groups = DAO::getAll(Groupe::class);
@@ -76,19 +76,14 @@ class UserController extends ControllerBase {
 	}
 
 	#[Post(path: "/create",name: "user.create")]
+    #[Allow(['@ALL'])]
 	public function UserCreate(){
-
 		$user = new User_();
         URequest::setValuesToObject($user);
-
         if (DAO::insert($user)) {
-
-            UResponse::header('location', '/');
-
+            $this->loadView('UserController/InsertionReussi.html');
         } else {
-
-            UResponse::header('location', '/');
-
+            $this->loadView('UserController/ErreurInsertion.html');
         }
 	}
 
@@ -145,4 +140,13 @@ class UserController extends ControllerBase {
 
 	}
 
+    #[Get(path: "/InsertionReussi",name: "user.Insert")]
+    public function InsertionReussi(){
+        $this->loadView('UserController/InsertionReussi.html');
+    }
+
+    #[Get(path: "/EchecInsertion",name: "user.Insert")]
+    public function EchecInsert(){
+        $this->loadView('UserController/EchecInsertion.html');
+    }
 }
