@@ -3,6 +3,7 @@ vendor/
 app/cache/
 app/logs/
 app/config/services.php
+app/config/config.php
 public/.htaccess
 
 # Eclipse

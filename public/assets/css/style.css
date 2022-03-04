@@ -1065,6 +1065,15 @@ display: block;
 	font-size: 2.4em;
 }
 
-.container_404 h2 {
+.container_404 span {
 	font-size: 2.1em;
+}
+
+.container_404 i {
+	font-size: 2.5em;
+}
+
+.container_404 span.not_founded_error {
+	display: inline-block;
+	transform: translateY(20px) rotate(45deg) !important;
 }
