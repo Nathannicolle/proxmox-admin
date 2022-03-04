@@ -33,7 +33,7 @@
 
                 <label>Serveurs :</label>
                 <select class="ui fluid inverted dropdown" multiple="" name="serveurs[]">
-                    <option value="">Serveur (en maintenance)</option>
+                    <option value="">Serveur</option>
                     {% for serverSelect in serverSelects %}
 
                     <option selected value="{{serverSelect.id}}">{{serverSelect.dnsName}}</option>

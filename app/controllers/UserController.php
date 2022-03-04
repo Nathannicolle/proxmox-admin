@@ -134,9 +134,14 @@ class UserController extends ControllerBase {
 	#[Get(path: "/groupForm/{id}",name: "user.userGroupForm")]
 	public function UserGroupForm($id){
 
-        $user = $this->repo->byId($id, false);
+        //$user = $this->repo->byId($id, false);
+        $user=DAO::getById(User_::class,$id,['groupes']);
+        $groupeSelects=$user->getGroupes();
+        //var_dump($serverSelects); //$user->getServeurs()
+        //echo "<br><br>";
+        //var_dump($user);
         $groupes = DAO::getAll(Groupe::class);
-		$this->loadView('UserController/UserGroupForm.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'groupes'=>$groupes]);
+		$this->loadView('UserController/UserGroupForm.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'groupes'=>$groupes, 'groupeSelects'=>$groupeSelects, 'user'=>$user]);
 
 	}
 
