@@ -1,12 +1,15 @@
 <?php
 namespace controllers;
 
+use Ajax\php\ubiquity\JsUtils;
+use Ubiquity\attributes\items\router\Route;
 use Ubiquity\core\postinstall\Display;
 use Ubiquity\log\Logger;
 use Ubiquity\themes\ThemesManager;
 
 /**
  * Controller IndexController
+ * @property JsUtils $jquery
  */
 class IndexController extends ControllerBase {
 
@@ -33,4 +36,11 @@ class IndexController extends ControllerBase {
 			$this->forward(IndexController::class);
 		}
 	}
+
+
+
+    #[Route('{url}', requirements: ["url"=>"(?!(a|A)dmin).*?"], priority: -1000)]
+    public function p404($url){
+        $this->jquery->renderView('MainController/404.html', ['url' => $url]);
+    }
 }
