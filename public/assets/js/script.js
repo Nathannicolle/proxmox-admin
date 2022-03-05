@@ -170,6 +170,15 @@ window.addEventListener("load", () => {
         document.querySelector(".logo").style = "height: 100px;";
         document.querySelector(".logo").src = "assets/img/Proxmox_pannel_V7.2_light.png";
     }
+
+    if(typeof document.querySelector("div.container_404") !== 'undefined') {
+        let plane = document.querySelector(".plane");
+        let slide_effet = document.querySelector(".slide_effet");
+        document.addEventListener('keydown', (key) => {
+            plane.style.animationPlayState = 'running';
+            slide_effet.style.animationPlayState = 'running';
+        });
+    }
 });
 
 $('.ui.fluid.dropdown')
