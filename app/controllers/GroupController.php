@@ -59,7 +59,6 @@ class GroupController extends ControllerBase{
         }
     }
 	public function index(){
-		
 	}
 
 	#[Get(path: "/createForm",name: "group.groupCreateForm")]
@@ -76,13 +75,9 @@ class GroupController extends ControllerBase{
         URequest::setValuesToObject($group);
 
         if (DAO::insert($group)) {
-
             UResponse::header('location', '/');
-
         } else {
-
             UResponse::header('location', '/');
-
         }
 	}
 
@@ -102,10 +97,19 @@ class GroupController extends ControllerBase{
 
             URequest::setValuesToObject($group);
             $this->repo->save($group);
-
         }
-
         UResponse::header('location', '/');
 	}
+
+    #[Get(path: "/Delete/{id}",name: "groupe.Delete")]
+    #[Allow(['@PROF','@ADMIN'])]
+    public function Delete($id){
+        $groupes = $this->repo->byId($id);
+        if (isset($groupes)) {
+            URequest::setValuesToObject($groupes);
+            $this->repo->remove($groupes);
+        }
+        $this->loadView('GroupController/Delete.html');
+    }
 
 }
