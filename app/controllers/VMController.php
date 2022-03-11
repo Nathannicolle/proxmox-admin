@@ -102,14 +102,10 @@ class VMController extends ControllerBase{
     public function VMModify(){
 
         $VM = $this->repo->byId(URequest::post('id'));
-
         if ($VM) {
-
             URequest::setValuesToObject($VM);
             $this->repo->save($VM);
-
         }
-
         UResponse::header('location', '/');
     }
 
@@ -120,7 +116,6 @@ class VMController extends ControllerBase{
         //$VMGroup = DAO::getById(Groupe::class, $VM->getGroupe());
         $groups = DAO::getAll(Groupe::class);
         $this->loadView('VMController/VMGroupeModifyForm.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'groups'=>$groups]);
-
     }
 
     #[Get(path: "/serveurModifyForm/{id}",name: "vm.VMServeurModifyForm")]
@@ -133,17 +128,14 @@ class VMController extends ControllerBase{
     }
 
 
-
 	#[Get(path: "/VMDelete/{id}",name: "vm.VMDelete")]
     #[Allow(['@ADMIN','@PROF','@ETUDIANT'])]
 	public function VMDelete($id){
         $VMD = $this->repo->byId($id);
-
         if (isset($VMD)) {
             URequest::setValuesToObject($VMD);
             $this->repo->remove($VMD);
         }
-
 		$this->loadView('VMController/VMDelete.html');
     }
 

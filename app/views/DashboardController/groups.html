@@ -33,7 +33,8 @@
                         <div class="card_VM">
                             <h1><i class="users icon"></i></h1>
                             <p><b>Nom du groupe :</b> {{ group.name }}</p>
-                            <p><a href="{{path('group.groupModifyForm', [group.id])}}" class="ui inverted primary button"><i class="pen icon"></i> Modifier</a></p>
+                            <div><a href="{{path('group.groupModifyForm', [group.id])}}" class="ui inverted primary button"><i class="pen icon"></i> Modifier</a>
+                            <a href="{{path('groupe.Delete', [group.id])}}" class="ui inverted red button"><i class="delete icon"></i> supprimer</a></div>
                         </div>
                     {% endfor %}
                 </div>

@@ -27,7 +27,8 @@ class Groupe{
 	private $vms;
 
 	
-	#[ManyToMany(targetEntity: "models\\User",inversedBy: "groupes")]
+
+	#[ManyToMany(targetEntity: "models\\User_",inversedBy: "groupes",cascade:["remove"])]
 	#[JoinTable(name: "usergroups",inverseJoinColumns: ["name"=>"idUser","referencedColumnName"=>"id"])]
 	private $user_s;
 
