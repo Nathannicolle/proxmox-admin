@@ -1,12 +1,11 @@
 <?php
 namespace controllers;
 use mail\InformationMail;
+use models\User;
 use Ubiquity\attributes\items\router\Post;
 use Ajax\php\ubiquity\JsUtils;
-use http\Client\Curl\User;
 use models\Groupe;
 use models\Serveur;
-use models\User_;
 use models\Vm;
 use Ubiquity\attributes\items\acl\Allow;
 use Ubiquity\attributes\items\acl\Resource;
@@ -46,7 +45,7 @@ class MainController extends ControllerBase {
         $user_id = USession::get('user_id');
         $vm = DAO::getAll(Vm::class, 'idUser = :idUser', false, ['idUser' => $user_id]);
         $servers = DAO::getAll(Serveur::class);
-        $user = DAO::getById(User_::class, USession::get('user_id'),['groupes']);
+        $user = DAO::getById(User::class, USession::get('user_id'),['groupes']);
         $groupes= $user->getGroupes();
         $this->jquery->renderView('DashboardController/index.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'vms' => $vm, 'groups' => $groupes, 'serveurs' => $servers]);
     }
@@ -60,10 +59,9 @@ class MainController extends ControllerBase {
 
     #[Get("oneVM/{id}", name: "dashboard.oneVM")]
     public function oneVM($id) {
-        /*$oneVM = DAO::getById(Vm::class, $id);*/
         $oneVM = DAO::getOne(Vm::class, 'Id = :id_vm AND idUser = :id_user', false, ['id_vm' => $id, 'id_user' => USession::get("user_id")]);
         if($oneVM !== null) {
-            $this->jquery->renderView('DashboardController/oneVM.html', ['VM_Id' => $oneVM->getId(), 'VM_Number' => $oneVM->getNumber(), 'VM_Name' => $oneVM->getName(), 'VM_IP' => $oneVM->getIp(), 'Port_SSH' => $oneVM->getSshPort(), 'OS' => $oneVM->getOs(), 'Utilisateurs' => $oneVM->getUser_(), 'group_vm' => $oneVM->getGroupe(), 'name' => USession::get('name'), 'role' => USession::get('role')]);
+            $this->jquery->renderView('DashboardController/oneVM.html', ['VM_Id' => $oneVM->getId(), 'VM_Number' => $oneVM->getNumber(), 'VM_Name' => $oneVM->getName(), 'VM_IP' => $oneVM->getIp(), 'Port_SSH' => $oneVM->getSshPort(), 'OS' => $oneVM->getOs(), 'Utilisateurs' => $oneVM->getUser(), 'group_vm' => $oneVM->getGroupe(), 'name' => USession::get('name'), 'role' => USession::get('role')]);
         } else {
             $vm = DAO::getAll(Vm::class, 'idUser = :idUser', false, ['idUser' => USession::get('user_id')]);    
             $this->jquery->renderView('DashboardController/VM.html', ['vms' => $vm, 'name' => USession::get('name'), 'role' => USession::get('role')]);
@@ -72,20 +70,18 @@ class MainController extends ControllerBase {
 
     #[Route("dashboard_groups", name: "dashboard.groups")]
     public function listGroups() {
-        $user = DAO::getById(User_::class, USession::get('user_id'),['groupes']);
+        $user = DAO::getById(User::class, USession::get('user_id'),['groupes']);
         $groupes= $user->getGroupes();
         $this->jquery->renderView('DashboardController/groups.html', ['groups' => $groupes, 'name' => USession::get('name'), 'role' => USession::get('role')]);
     }
 
     #[Route("dashboard_servers", name: "dashboard.servers")]
-    #[Allow(['@ADMIN'])]
     public function listServers() {
         $servers = DAO::getAll(Serveur::class);
         $this->jquery->renderView('DashboardController/serveurs.html', ['serveurs' => $servers, 'name' => USession::get('name'), 'role' => USession::get('role')]);
     }
 
     #[Get("oneServer/{id}", name: "dashboard.oneServer")]
-    #[Allow(['@ADMIN'])]
     public function oneServer($id) {
         $oneServer = DAO::getById(Serveur::class, $id);
         $vm_serveur = DAO::getAll(Vm::Class, "idServeur = :serveur_id", false, ['serveur_id' => $id]);
@@ -94,7 +90,7 @@ class MainController extends ControllerBase {
 
     #[Route("dashboard_profile", name: "dashboard.profile")]
     public function dashboardProfile() {
-        $user = DAO::getById(User_::class, USession::get('user_id'),['groupes']);
+        $user = DAO::getById(User::class, USession::get('user_id'),['groupes']);
         $groupes= $user->getGroupes();
         $this->jquery->renderView('DashboardController/user_profile.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'user_id' => USession::get('user_id'), 'groups' => $groupes]);
     }

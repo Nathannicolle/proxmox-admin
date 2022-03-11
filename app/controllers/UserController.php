@@ -3,7 +3,7 @@ namespace controllers;
 use Ajax\JsUtils;
 use models\Groupe;
 use models\Serveur;
-use models\User_;
+use models\User;
 use models\Vm;
 use Ubiquity\attributes\items\acl\Allow;
 use Ubiquity\attributes\items\router\Post;
@@ -48,9 +48,7 @@ class UserController extends ControllerBase {
     }
 
     public function initialize() {
-
-        //parent::initialize();
-        $this->repo??=new ViewRepository($this, User_::class);
+        $this->repo??=new ViewRepository($this, User::class);
         if (! URequest::isAjax()) {
             $this->loadView($this->headerView);
         }
@@ -63,6 +61,7 @@ class UserController extends ControllerBase {
     }
 
 	public function index(){
+        // No index redirection needed
 	}
 
 	#[Get(path: "/createForm",name: "user.createForm")]
@@ -78,7 +77,7 @@ class UserController extends ControllerBase {
 	#[Post(path: "/create",name: "user.create")]
     #[Allow(['@ALL'])]
 	public function UserCreate(){
-		$user = new User_();
+		$user = new User();
         URequest::setValuesToObject($user);
         if (DAO::insert($user)) {
             $this->loadView('UserController/InsertionReussi.html');
@@ -91,8 +90,7 @@ class UserController extends ControllerBase {
 	public function UserModifyForm($id){
 
         //$user = $this->repo->byId($id, false);
-        $user=DAO::getById(User_::class,$id,['serveurs']);
-        //echo "<br><br><br><br><br><br><br>";
+        $user=DAO::getById(User::class,$id,['serveurs']);
         //$serveurs=DAO::getAll(Serveur::class,'id= ?',false, [$id]);
         $serverSelects=$user->getServeurs();
         var_dump($serverSelects); //$user->getServeurs()
@@ -104,23 +102,17 @@ class UserController extends ControllerBase {
 
 	#[Post(path: "/modify",name: "user.modify")]
 	public function UserModify(){
-        echo "<br><br><br><br><br><br><br>";
         $user = $this->repo->byId(URequest::post('id'));
         var_dump($user->getServeurs());
-        //var_dump($user->getServeurs());
         if ($user) {
 
             URequest::setValuesToObject($user);
-            echo "<br><br><br><br><br><br><br>";
             var_dump($user);
-            echo "<br><br><br><br><br><br><br>";
             var_dump($user->getGroupes());
             var_dump($user->getServeurs());
             $this->repo->save($user);
 
         }
-
-        //UResponse::header('location', '/');
 	}
 
 	#[Get(path: "/droitForm/{id}",name: "user.userDroitForm")]
@@ -135,7 +127,7 @@ class UserController extends ControllerBase {
 	public function UserGroupForm($id){
 
         //$user = $this->repo->byId($id, false);
-        $user=DAO::getById(User_::class,$id,['groupes']);
+        $user=DAO::getById(User::class,$id,['groupes']);
         $groupeSelects=$user->getGroupes();
         //var_dump($serverSelects); //$user->getServeurs()
         //echo "<br><br>";

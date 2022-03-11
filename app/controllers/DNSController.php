@@ -39,7 +39,7 @@ class DNSController extends ControllerBase {
     }
 
 	public function index(){
-		
+		// No index redirection needed
 	}
 
 	#[Get(path: "/createForm",name: "dns.DNSCreateForm")]

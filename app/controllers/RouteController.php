@@ -1,7 +1,6 @@
 <?php
 namespace controllers;
 use Ajax\JsUtils;
-//use models\Route;
 use models\Serveur;
 use Ubiquity\attributes\items\acl\Allow;
 use Ubiquity\attributes\items\router\Post;
@@ -47,8 +46,6 @@ class RouteController extends ControllerBase{
 
     // Erreur je ne peux pas utiliser le model "Route" car "Route" est déjà utilisé
     public function initialize() {
-
-        //parent::initialize();
         $this->repo??=new ViewRepository($this, \models\Route::class);
         if (! URequest::isAjax()) {
             $this->loadView($this->headerView);
@@ -62,7 +59,7 @@ class RouteController extends ControllerBase{
     }
 
 	public function index(){
-		
+        // No index redirection needed
 	}
 
 	#[Get(path: "/createForm",name: "route.routeCreateForm")]
@@ -81,13 +78,10 @@ class RouteController extends ControllerBase{
         URequest::setValuesToObject($route);
 
         if (DAO::insert($route)) {
-
             UResponse::header('location', '/');
 
         } else {
-
             UResponse::header('location', '/');
-
         }
 	}
 

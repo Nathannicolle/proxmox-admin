@@ -45,8 +45,6 @@ class ServeurController extends ControllerBase{
     }
 
     public function initialize() {
-
-        //parent::initialize();
         $this->repo??=new ViewRepository($this, Serveur::class);
         if (! URequest::isAjax()) {
             $this->loadView($this->headerView);
@@ -60,7 +58,7 @@ class ServeurController extends ControllerBase{
     }
 
 	public function index(){
-		
+        // No index redirection needed
 	}
 
 	#[Get(path: "/createForm",name: "serveur.serveurCreateForm")]
@@ -72,18 +70,13 @@ class ServeurController extends ControllerBase{
 
 	#[Post(path: "/create",name: "serveur.serveurCreate")]
 	public function ServeurCreate(){
-
         $serveur = new Serveur();
         URequest::setValuesToObject($serveur);
 
         if (DAO::insert($serveur)) {
-
             UResponse::header('location', '/');
-
         } else {
-
             UResponse::header('location', '/');
-
         }
 	}
 

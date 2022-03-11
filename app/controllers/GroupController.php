@@ -45,8 +45,6 @@ class GroupController extends ControllerBase{
     }
 
     public function initialize() {
-
-        //parent::initialize();
         $this->repo??=new ViewRepository($this, Groupe::class);
         if (! URequest::isAjax()) {
             $this->loadView($this->headerView);
@@ -59,7 +57,7 @@ class GroupController extends ControllerBase{
         }
     }
 	public function index(){
-		
+        // No index redirection needed
 	}
 
 	#[Get(path: "/createForm",name: "group.groupCreateForm")]

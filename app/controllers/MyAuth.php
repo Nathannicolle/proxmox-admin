@@ -3,7 +3,6 @@ namespace controllers;
 use controllers\auth\files\MyAuthFiles;
 use controllers\auth\files\MyAuth3Files;
 use models\User;
-use models\User_;
 use Ubiquity\attributes\items\router\Post;
 use Ubiquity\attributes\items\router\Route;
 use Ubiquity\controllers\auth\AuthFiles;
@@ -65,7 +64,6 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
 
 
     protected function onConnect($connected) {
-        $urlParts=$this->getOriginalURL();
         USession::set($this->_getUserSessionKey(), $connected);
         UResponse::header('location', '/dashboard/');
     }
@@ -75,7 +73,7 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
         if(URequest::isPost()){ // Si la requête de connexion se fait bien avec POST
             $login=URequest::post($this->_getLoginInputName());
             // $password=URequest::post($this->_getPasswordInputName());
-            $user=DAO::getOne(User_::class,'login= :login',false,['login'=>$login]); // On récupère l'utilisateur dont le login correspond à celui entré dans le formulaire
+            $user=DAO::getOne(User::class,'login= :login',false,['login'=>$login]); // On récupère l'utilisateur dont le login correspond à celui entré dans le formulaire
             if(isset($user)) {
                     $id = $user->getId();
                     $name=$user->getLogin();
@@ -87,7 +85,6 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
             }
             return $user;
         }
-        return;
     }
 
     /**
@@ -107,6 +104,7 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
     {
         parent::terminate();
     }
+
     protected function getFiles(): AuthFiles{
         return new MyAuthFiles();
     }
