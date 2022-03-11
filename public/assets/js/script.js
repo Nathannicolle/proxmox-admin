@@ -161,17 +161,29 @@ window.addEventListener("load", () => {
             }
         });
 
-        if(plane.style.animationPlayState === 'running') {
-            document.addEventListener('keydown', (event) => {
-                if(event.key === "ArrowUp" || event.key === "Up" || event.key === "KeyZ") {
-                    alert("up");
-                    plane.style = "transform: translateY('-50px') !important;";
-                } else if (event.key === "ArrowDown" || event.key === "Down" || event.key === "KeyS") {
-                    alert("down");
-                    plane.style = "transform: translateY('50px') !important;";
-                }
+        document.querySelectorAll(".slide_effet i").forEach((element) => {
+            element.addEventListener("click", () => {
+                element.classList.add("hidde");
             });
-        }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if(event.key === "ArrowUp" || event.key === "Up" || event.key === "KeyZ") {
+                document.querySelector("i.fighter.jet.icon").classList.remove("translate_down");
+                document.querySelector("i.fighter.jet.icon").classList.add("translate_up");
+                console.log("up");
+            } else if (event.key === "ArrowDown" || event.key === "Down" || event.key === "KeyS") {
+                document.querySelector("i.fighter.jet.icon").classList.remove("translate_up");
+                document.querySelector("i.fighter.jet.icon").classList.add("translate_down");
+                console.log("down");
+            } else if (event.key === " ") {
+                if(plane.style.animationPlayState === 'running') {
+                    plane.style.animationPlayState = 'paused';
+                } else if(plane.style.animationPlayState === 'paused') {
+                    plane.style.animationPlayState = 'running';
+                }
+            }
+        });
     }
 });
 

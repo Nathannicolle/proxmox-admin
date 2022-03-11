@@ -1101,6 +1101,19 @@ display: block;
 	color: transparent;
 }
 
+.plane i.fighter.jet.icon {
+	z-index: 2;
+	transition: 0.5s ease-in-out;
+}
+
+.plane i.fighter.jet.icon.translate_up {
+	transform: translateY(-50px);
+}
+
+.plane i.fighter.jet.icon.translate_down {
+	transform: translateY(50px);
+}
+
 .slide_effet {
 	display: flex;
 	justify-content: space-around;
@@ -1114,6 +1127,21 @@ display: block;
 	-webkit-text-stroke: 2px white;
 	color: transparent;
 	font-size: 4em;
+}
+
+.slide_effet i.cloud.icon.hidde {
+	animation: depop 2s forwards;
+}
+
+@keyframes depop {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+		box-shadow: rgba(255, 255, 255, 0.35) 0px -50px 36px -30px inset;
+	}
 }
 
 @keyframes slide {
