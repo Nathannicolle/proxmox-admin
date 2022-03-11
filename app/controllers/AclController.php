@@ -10,7 +10,7 @@ class AclController extends Controller {
 	use AclControllerTrait;
 
 	public function index() {
-		
+		// No index redirection needed
 	}
 
 	public function _getRole() {

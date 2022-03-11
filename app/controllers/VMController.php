@@ -3,7 +3,7 @@ namespace controllers;
 use Ajax\JsUtils;
 use models\Groupe;
 use models\Serveur;
-use models\User_;
+use models\User;
 use models\Vm;
 use Ubiquity\attributes\items\acl\Allow;
 use Ubiquity\attributes\items\router\Get;
@@ -48,8 +48,6 @@ class VMController extends ControllerBase{
     }
 
     public function initialize() {
-
-        //parent::initialize();
         $this->repo??=new ViewRepository($this, Vm::class);
         if (! URequest::isAjax()) {
             $this->loadView($this->headerView);
@@ -70,7 +68,7 @@ class VMController extends ControllerBase{
     #[Get(path: "/createForm",name: "vm.VMCreateForm")]
     public function VMCreateForm(){
 
-        $users = DAO::getAll(User_::class);
+        $users = DAO::getAll(User::class);
         $servers = DAO::getAll(Serveur::class);
         $this->loadView("VMController/VMCreate.html", ['name' => USession::get('name'), 'role' => USession::get('role'), 'userId' => USession::get('user_id'), 'servers'=>$servers]);
 
@@ -92,7 +90,7 @@ class VMController extends ControllerBase{
     public function VMModifyForm($id){
 
         $VM = $this->repo->byId($id, false);
-        $users = DAO::getAll(User_::class);
+        $users = DAO::getAll(User::class);
         $groups = DAO::getAll(Groupe::class);
         $servers = DAO::getAll(Serveur::class);
         $VMServeur = DAO::getById(Serveur::class, $VM->getServeur());

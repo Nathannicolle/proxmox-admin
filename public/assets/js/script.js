@@ -65,26 +65,6 @@ window.addEventListener("load", () => {
             slidePrecedente();
         });
 
-        // slider automatique
-        /*const ratio = 0.1;
-        const nav = document.querySelector(".main_menu");
-        const options = {
-            root: null,
-            rootMargin: "0px",
-            threshold: ratio,
-        };*/
-
-        /*const handleIntersect1 = function (entries, observer) {
-            entries.forEach(function (entry) {
-                if (entry.intersectionRatio > ratio) {
-                    slideSuivante();
-                }
-            });
-        };
-
-        const observer1 = new IntersectionObserver(handleIntersect1, options);
-        observer1.observe(document.querySelector("#other_content"));*/
-
         document.querySelector("footer").style.display = "block";
     } else if(window.location.pathname.match("/dashboard") || window.location.pathname.match("/dashboard_[a-zA-Z]{0,8}") ||  window.location.pathname.match("/oneVM") || window.location.pathname.match("/oneServer") || window.location.pathname.match('/createForm') || window.location.pathname.match('/modifyForm') || window.location.pathname.match('/groupeModifyForm')) {
         document.querySelector(".ui.basic.inverted.segment.main_menu").style = "display: none !important;";
@@ -173,7 +153,6 @@ window.addEventListener("load", () => {
 
     if(typeof document.querySelector("div.container_404") !== 'undefined') {
         let plane = document.querySelector(".plane");
-        let plane_i = document.querySelector(".plane i");
         let slide_effet = document.querySelector(".slide_effet");
         document.addEventListener('keydown', (event) => {
             if(event.key === "Enter") {
@@ -193,15 +172,10 @@ window.addEventListener("load", () => {
                 }
             });
         }
-
-        if(slide_effet.style.animationPlayState === 'running') {
-            document.querySelectorAll(".slide_effet i").forEach(() => {
-
-            });
-        }
     }
 });
 
 $('.ui.fluid.dropdown')
     .dropdown({
+
     });

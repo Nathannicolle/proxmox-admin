@@ -52,7 +52,7 @@ class Serveur{
 	private $vms;
 
 	
-	#[ManyToMany(targetEntity: "models\\User_",inversedBy: "serveurs")]
+	#[ManyToMany(targetEntity: "models\\User",inversedBy: "serveurs")]
 	#[JoinTable(name: "userservers",joinColumns: ["name"=>"id_1","referencedColumnName"=>"id"],inverseJoinColumns: ["name"=>"id","referencedColumnName"=>"id"])]
 	private $user_s;
 

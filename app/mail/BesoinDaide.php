@@ -1,7 +1,7 @@
 <?php
 namespace mail;
 
-use models\User_;
+use models\User;
 use Ubiquity\mailer\AbstractMail;
 use Ubiquity\orm\DAO;
 
@@ -11,13 +11,13 @@ class BesoinDaide extends AbstractMail {
     protected function initialize() {
         $this->subject = 'Message test';
         $this->from("luc.papillon@sts-sio-caen.info", 'Luc');
-        $this->to(DAO::getAll(User_::class, '', false));
+        $this->to(DAO::getAll(User::class, '', false));
 
     }
 
     public function body():string {
         $date = (new \DateTime())->format('c');
-        $user = DAO::getOne(User_::class, 1);
+        $user = DAO::getOne(User::class, 1);
         $body = '<h2>Message</h2><div>Message content</div>';
         $content = $this->loadView('mainController/ConfirmationAide.html', \compact('date', 'user', 'body'));
         return $content;

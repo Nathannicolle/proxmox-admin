@@ -11,7 +11,7 @@ use Ubiquity\attributes\items\ManyToMany;
 use Ubiquity\attributes\items\JoinTable;
 
 #[Table(name: "user_")]
-class User_{
+class User {
 	
 	#[Id()]
 	#[Column(name: "id",dbType: "int(11)")]
@@ -35,7 +35,7 @@ class User_{
 	private $role;
 
 	
-	#[OneToMany(mappedBy: "user_",className: "models\\Vm")]
+	#[OneToMany(mappedBy: "user",className: "models\\Vm")]
 	private $vms;
 
 	
@@ -145,9 +145,4 @@ class User_{
 	 public function __toString(){
 		return $this->login ;
 	}
-
-    public function getEmail(){
-         return $this->login;
-    }
-
 }
