@@ -173,11 +173,32 @@ window.addEventListener("load", () => {
 
     if(typeof document.querySelector("div.container_404") !== 'undefined') {
         let plane = document.querySelector(".plane");
+        let plane_i = document.querySelector(".plane i");
         let slide_effet = document.querySelector(".slide_effet");
-        document.addEventListener('keydown', (key) => {
-            plane.style.animationPlayState = 'running';
-            slide_effet.style.animationPlayState = 'running';
+        document.addEventListener('keydown', (event) => {
+            if(event.key === "Enter") {
+                plane.style.animationPlayState = 'running';
+                slide_effet.style.animationPlayState = 'running';
+            }
         });
+
+        if(plane.style.animationPlayState === 'running') {
+            document.addEventListener('keydown', (event) => {
+                if(event.key === "ArrowUp" || event.key === "Up" || event.key === "KeyZ") {
+                    alert("up");
+                    plane.style = "transform: translateY('-50px') !important;";
+                } else if (event.key === "ArrowDown" || event.key === "Down" || event.key === "KeyS") {
+                    alert("down");
+                    plane.style = "transform: translateY('50px') !important;";
+                }
+            });
+        }
+
+        if(slide_effet.style.animationPlayState === 'running') {
+            document.querySelectorAll(".slide_effet i").forEach(() => {
+
+            });
+        }
     }
 });
 
