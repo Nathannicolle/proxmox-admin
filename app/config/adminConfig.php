@@ -57,7 +57,8 @@ return array(
 			"composer",
 			"security",
 			"logs",
-			"mailer"
+			"mailer",
+			"themes"
 			],
 	"style"=>"inverted",
 	"selected-acl-providers"=>[

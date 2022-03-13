@@ -67,7 +67,6 @@ class UserController extends ControllerBase {
 	#[Get(path: "/createForm",name: "user.createForm")]
     #[Allow(['@ALL'])]
 	public function UserCreateForm(){
-
         $groups = DAO::getAll(Groupe::class);
         $servers = DAO::getAll(Serveur::class);
 		$this->loadView('UserController/UsercreateForm.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'groups'=>$groups, 'servers'=>$servers]);

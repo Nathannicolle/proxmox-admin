@@ -146,6 +146,27 @@ window.addEventListener("load", () => {
                 });
             }
         });
+    } else if (window.location.pathname.match("/login")) {
+        document.querySelector(".logo").style = "height: 100px;";
+        document.querySelector(".logo").src = "assets/img/Proxmox_pannel_V7.2_light.png";
+
+        document.querySelector(".other_action_form .signin_link").addEventListener("click", () => {
+            document.querySelector(".other_action_form").classList.add("form_signin");
+            document.querySelector(".other_action_form .signin_link").style = "display: none;";
+            document.querySelector(".other_action_form .connect_link").style = "display: inline;";
+        });
+
+        document.querySelector(".other_action_form .connect_link").addEventListener("click", () => {
+            document.querySelector(".other_action_form").classList.remove("form_signin");
+            document.querySelector(".other_action_form .signin_link").style = "display: inline;";
+            document.querySelector(".other_action_form .connect_link").style = "display: none;";
+        });
+
+        document.querySelector(".other_action_form .close_link").addEventListener("click", () => {
+            document.querySelector(".other_action_form").classList.remove("form_signin");
+            document.querySelector(".other_action_form .signin_link").style = "display: inline;";
+            document.querySelector(".other_action_form .connect_link").style = "display: none;";
+        });
     } else {
         document.querySelector(".logo").style = "height: 100px;";
         document.querySelector(".logo").src = "assets/img/Proxmox_pannel_V7.2_light.png";
