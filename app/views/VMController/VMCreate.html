@@ -37,8 +37,8 @@
                 <input type="text" name="os" placeholder="OS">
                 <input type="hidden" name="user_" value="{{userId}}">
                 <label>Serveur :</label>
-                <select class="ui fluid inverted dropdown" name="serveur">
-                    <option value="">Server</option>
+                <select class="ui fluid inverted dropdown" required name="serveur">
+                    <option value="">Serveur</option>
                     {% for server in servers %}
 
                     <option value="{{server.id}}">{{server.dnsName}}</option>
