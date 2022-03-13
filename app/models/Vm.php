@@ -52,7 +52,7 @@ class Vm{
 
 	
 	#[ManyToOne()]
-	#[JoinColumn(className: "models\\User_",name: "idUser",nullable: true)]
+	#[JoinColumn(className: "models\\User",name: "idUser",nullable: true)]
 	private $user_;
 
 	
@@ -145,7 +145,7 @@ class Vm{
 	}
 
 
-	public function getUser_(){
+	public function getUser(){
 		return $this->user_;
 	}
 
