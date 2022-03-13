@@ -1137,7 +1137,7 @@ footer a {
 
 	/* 6.2.3 - Formulaire de connexion */
 	.form_container {
-		width: 75%;
+		margin-bottom: 2%;
 	}
 
 	.form_connect {
@@ -1183,17 +1183,36 @@ footer a {
 	.fullscreen_menu .menu {
 		grid-template-columns: repeat(1, 75%);
 		grid-template-rows: repeat(5, auto);
+		justify-content: center;
+	}
+
+	.fullscreen_menu .menu a {
+		margin-bottom: 4%;
 	}
 }
 
 /* 6.4 - Ecran d'une largeur type Tablette/Smartphone */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
+	.form_container {
+		width: 85%;
+	}
+
+	.form_connect {
+		width: 85%;
+		border: none;
+		border-right: none;
+		border-bottom: none;
+	}
+}
+
+/* 6.5 - Ecran d'une largeur type smartphone */
+@media screen and (max-width: 500px) {
 	.form_container {
 		width: 100%;
 	}
 
 	.form_connect {
-		width: 100%;
+		width: 85%;
 		border: none;
 		border-right: none;
 		border-bottom: none;
