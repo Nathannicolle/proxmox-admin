@@ -217,7 +217,7 @@ body{
 	font-weight: bold;
 	grid-template-columns: repeat(2, 20%);
 	grid-template-rows: repeat(2, auto);
-	grid-row-gap: 1%;
+	grid-row-gap: 4%;
 	grid-column-gap: 1%;
 	text-align: center;
 	justify-content: left;

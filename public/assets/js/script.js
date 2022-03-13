@@ -151,6 +151,12 @@ window.addEventListener("load", () => {
         document.querySelector(".logo").src = "assets/img/Proxmox_pannel_V7.2_light.png";
 
         /* Fullscreen menu animations */
+        if(document.querySelectorAll(".fullscreen_menu .menu a").length === 3) {
+            document.querySelector(".fullscreen_menu").style = "grid-template-columns: repeat(3, 20%);";
+        } else if (document.querySelectorAll(".fullscreen_menu .menu a").length === 2) {
+            document.querySelector(".fullscreen_menu").style = "grid-template-columns: repeat(2, 20%);";
+        }
+
         document.querySelectorAll(".fullscreen_menu .menu a").forEach(element => {
             element.addEventListener("mouseover", () => {
                 document.querySelector(".wrapper_" + element.getAttribute("id") + " img").style = "opacity: 1; transform: scale(1.2);";

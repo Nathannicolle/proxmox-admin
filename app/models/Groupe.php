@@ -28,7 +28,7 @@ class Groupe{
 
 	
 
-	#[ManyToMany(targetEntity: "models\\User_",inversedBy: "groupes",cascade:["remove"])]
+	#[ManyToMany(targetEntity: "models\\User",inversedBy: "groupes",cascade:["remove"])]
 	#[JoinTable(name: "usergroups",inverseJoinColumns: ["name"=>"idUser","referencedColumnName"=>"id"])]
 	private $user_s;
 
