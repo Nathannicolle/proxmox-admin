@@ -23,11 +23,10 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController
     protected $footerView = "@activeTheme/main/vFooter.html";
 
     #[Route(path: "/", name: "auth.login")]
-    public function getConnectFrom()
-    {
-        /* $groups = DAO::getAll(Groupe::class);
-        $servers = DAO::getAll(Serveur::class); */
-        $this->loadView("MyAuth/index.html"); // 'groups'=>$groups, 'servers'=>$servers
+    public function getConnectFrom() {
+        // $groups = DAO::getAll(Groupe::class);
+        $servers = DAO::getAll(Serveur::class);
+        $this->loadView("MyAuth/index.html", ['servers'=>$servers]); // 'groups'=>$groups,
     }
 
     protected function terminateMessage(FlashMessage $fMessage)
