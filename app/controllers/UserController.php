@@ -80,7 +80,6 @@ class UserController extends ControllerBase {
         URequest::setValuesToObject($user);
         $user->setPassword(\md5( Urequest::post("password")));
         if (DAO::insert($user)) {
-
             $this->loadView('UserController/InsertionReussi.html');
         } else {
             $this->loadView('UserController/ErreurInsertion.html');
@@ -147,16 +146,5 @@ class UserController extends ControllerBase {
         $this->loadView('UserController/EchecInsertion.html');
     }
 
-    public function hash(){
-        $password='Hj4l|)_df4695,T';
-        echo '<h2>mda5</h2>';
-        echo \md5($password).'<br>';
-        echo \md5('azerty1234');
-        echo '<h2>sha</h2>';
-        echo \sha1($password).'<br>';
-        echo \sha1('azerty1234');
-        echo '<h2>sha-256</h2>';
-        echo \hash('sha256',$password).'<br>';
-        echo \hash('sha256','azerty1234');
-    }
+
 }

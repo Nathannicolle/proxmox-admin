@@ -51,12 +51,12 @@ return array(
 			"config"
 			],
 	"part2"=>[
-			"seo",
 			"translate",
 			"themes",
 			"maintenance",
-			"composer",
-			"mailer"
+			"mailer",
+			"security",
+			"acls"
 			],
-	"style"=>""
+	"style"=>"inverted"
 	);
