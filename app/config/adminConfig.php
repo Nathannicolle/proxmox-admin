@@ -58,5 +58,5 @@ return array(
 			"composer",
 			"mailer"
 			],
-	"style"=>""
+	"style"=>"inverted"
 	);

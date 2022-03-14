@@ -19,6 +19,7 @@
             {% if role == '@ADMIN' or role == '@PROF' %}
             <li><a href="{{path('dashboard.servers')}}" title="Serveurs (Dashboard)"><i class="server icon"></i><span>Les serveurs</span></a></li>
             {% endif %}
+            <li><a href="{{path('dashboard.users')}}" title="Utilisateurs (Dashboard)"><i class="user icon"></i><span>Utilisateurs</span></a></li>
             <li class="minimize_menu"><a class="minimize_link"><i class="caret square left outline icon"></i></a></li>
         </ul>
     </aside>
