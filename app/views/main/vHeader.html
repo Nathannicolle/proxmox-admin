@@ -24,7 +24,7 @@
 					{% if app.session.get('role') != null %}
 						<a href="{{ path('dashboard.home') }}" class="item">Mon espace</a>
 					{% endif %}
-					<a href="#" class="item">Contact</a>
+					<a href="{{ path('main.contactForm') }}" class="item">Contact</a>
 					<div class="item" id="link_connection">{{ _userInfo|raw }}</div>
 					<input type="checkbox" id="chkbox_menu">
 					<label for="chkbox_menu" class="show-menu-btn">
@@ -41,7 +41,7 @@
 							{% if app.session.get('role') != null %}
 								<a href="#">Dashboard</a>
 							{% endif %}
-							<a href="#" id="contact">Contact</a>
+							<a href="{{ path('main.contactForm') }}" id="contact">Contacter</a>
 							<div class="wrapper wrapper_home">
 								<img src="assets/img/home.svg" class="home">
 							</div>
