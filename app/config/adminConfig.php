@@ -1,10 +1,7 @@
 <?php
 return array(
 	"devtools-path"=>"Ubiquity",
-	"info"=>[
-			"routes",
-			"controllers"
-			],
+	"info"=>[],
 	"display-cache-types"=>[
 			"controllers",
 			"models"
@@ -54,18 +51,12 @@ return array(
 			"config"
 			],
 	"part2"=>[
+			"seo",
+			"translate",
+			"themes",
+			"maintenance",
 			"composer",
-			"security",
-			"logs",
-			"mailer",
-			"themes"
+			"mailer"
 			],
-	"style"=>"inverted",
-	"selected-acl-providers"=>[
-			"Ubiquity\\security\\acl\\persistence\\AclCacheProvider"
-			],
-	"activeDb"=>"default",
-	"mailer"=>[
-			"queue-period"=>"now"
-			]
+	"style"=>""
 	);
