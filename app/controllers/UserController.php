@@ -77,10 +77,8 @@ class UserController extends ControllerBase {
     #[Allow(['@ALL'])]
 	public function UserCreate(){
 		$user = new User();
-
         URequest::setValuesToObject($user);
         $user->setPassword(\md5( Urequest::post("password")));
-        var_dump($user->getPassword());
         if (DAO::insert($user)) {
 
             $this->loadView('UserController/InsertionReussi.html');
