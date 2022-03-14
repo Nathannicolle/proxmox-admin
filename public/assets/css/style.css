@@ -7,6 +7,7 @@
    0 - Généralités
    1 - Menu principal
      1.1 - Bouton de connexion/déconnexion
+     1.2 - Fullscreen_menu
    2 - Accueil de la landing page
    	 2.1 - Banière de l'accueil (1ère section de l'accueil)
    	 2.2 - Schéma (2ème section de l'accueil)
@@ -31,9 +32,12 @@
    6 - Responsive zone
      6.1 - Ecran d'une largeur de 1700 px
      6.2 - Ecran d'une largeur type PC portable
-     	 6.2.1 - Menu du dashboard
-     	 6.2.2 - Formulaire de connexion
-     6.3 - Ecran d'une largeur type Tablette/Smartphone
+     	 6.2.1 - Menu principal
+     	 6.2.2 - Menu du dashboard
+     	 6.2.3 - Formulaire de connexion
+     6.3 - Ecran type grande tablette
+     	 6.3.1 - Menu principal
+     6.4 - Ecran d'une largeur type Tablette/Smartphone
    7 - Mention Légales
    8 - Contact
    9 - Page 404
@@ -80,6 +84,10 @@ body{
 	z-index: 5 !important;
 	background-color: #3D3D3D;
 	box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+	margin-left: 0 !important;
+	padding-left: 0 !important;
+	margin-right: 0 !important;
+	padding-right: 0 !important;
 }
 
 #link_connection {
@@ -111,6 +119,7 @@ body{
 	animation: opacity_change 1s;
 	height: 200px;
 	transition: 0.5s ease-in-out;
+	margin-left: 5%;
 }
 
 .logo:hover {
@@ -170,6 +179,109 @@ body{
 	color: black;
 	background-color: white;
 }
+
+/* 1.2 - Fullscreen_menu */
+#chkbox_menu {
+	display: none;
+}
+
+.show-menu-btn {
+	display: none;
+	font-size: 1.8em;
+}
+
+.show-menu-btn:hover {
+	cursor: pointer;
+}
+
+.fullscreen_menu {
+	position: absolute;
+	width: 100% !important;
+	height: 100vh;
+	background-color: black;
+	z-index:-10;
+	color: gray;
+	text-align: right;
+	transform: translateY(-500%);
+	top: 0;
+	transition: 0.5s ease-in-out;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
+.fullscreen_menu .menu {
+	display: grid;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	font-size: 2.4em;
+	font-weight: bold;
+	grid-template-columns: repeat(2, 20%);
+	grid-template-rows: repeat(2, auto);
+	grid-row-gap: 4%;
+	grid-column-gap: 1%;
+	text-align: center;
+	justify-content: left;
+}
+
+.fullscreen_menu .menu a {
+	color: gray;
+	transition: 0.5s;
+	margin-right: 10%;
+	text-decoration: none;
+}
+
+.fullscreen_menu .menu .wrapper {
+	overflow: hidden;
+}
+
+.fullscreen_menu .menu img {
+	position: relative;
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+	opacity: 0.4;
+	transition: 0.6s ease-in-out;
+}
+
+.fullscreen_menu .menu img:hover {
+	cursor: pointer !important;
+	opacity: 1 !important;
+	transform: scale(1.2) !important;
+}
+
+.fullscreen_menu .menu a:last-child {
+	margin-right: 0;
+}
+
+.fullscreen_menu .menu a:hover {
+	color: white !important;
+}
+
+.fullscreen_menu .other_links {
+	margin-top: 1%;
+}
+
+.hide-menu-btn {
+	font-size: 1.8em;
+	margin-right: 3%;
+	color: white;
+	transition: 0.5s ease-in-out;
+}
+
+.hide-menu-btn:hover {
+	cursor: pointer;
+	color: gray;
+}
+
+.fullscreen_menu .close:hover {
+	cursor: pointer;
+}
+
+#chkbox_menu:checked ~ .fullscreen_menu {
+	transform: translateY(0%);
+	z-index: 10;
+}
+
 
 /* 2 - Accueil de la landing page */
 /* 2.1 - Banière de l'accueil (1ère section de l'accueil) */
@@ -425,17 +537,41 @@ body{
 	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
+.form_connect select {
+	margin-bottom: 4% !important;
+	background-color: #161313 !important;
+	border-radius: 35px !important;
+	padding-top: 3% !important;
+	padding-bottom: 3% !important;
+	color: white !important;
+}
+
+.connect_link {
+	display: none;
+}
+
+.close_link {
+	margin-top: 2%;
+	font-size: 1.2em;
+}
+
 /* other_action_form contient la partie avec le lien vers l'insicription dans le formulaire de connexion */
 .other_action_form {
+	display: flex;
+	flex-direction: column;
 	border-radius: 600px 600px 30px 30px / 300px 300px 30px 30px;
 	bottom: 0;
 	position: absolute;
-	background-color: white;
+	background-color: #fbfbee;
 	width: 100%;
 	text-align: center;
 	font-size: 1.4em;
 	padding-top: 4%;
 	padding-bottom: 4%;
+	height: 15%;
+	overflow-y: hidden;
+	align-items: center;
+	transition: 0.6s ease-in-out;
 }
 
 .other_action_form a {
@@ -446,6 +582,12 @@ body{
 
 .other_action_form a:hover {
 	color: #38b6ff;
+	cursor: pointer;
+}
+
+.other_action_form.form_signin {
+	height: 100%;
+	border-radius: 30px 30px 30px 30px / 30px 30px 30px 30px;
 }
 
 /* 4 - Style du dashboard */
@@ -957,13 +1099,27 @@ footer a {
 	.form_connect {
 		width: 75%;
 	}
-
-
 }
 
-/* 6.2 - Ecran d'une largeur type PC portable */
+/* 6.2 - Ecran d'une largeur type PC portable (d'un peu plus que 13 pouces)  */
 @media screen and (max-width: 1300px) {
-	/* 6.2.1 - Menu du dashboard */
+	/* 6.2.1 - Menu principal */
+	.item:not(#link_connection) {
+		display: none !important;
+	}
+
+	#chkbox_menu {
+		display: initial;
+		visibility: hidden;
+	}
+
+	.show-menu-btn {
+		display: flex;
+		font-size: 1.8em;
+		align-items: center;
+	}
+
+	/* 6.2.2 - Menu du dashboard */
 	aside.dashboard_menu ul {
 		margin-left: 0 !important;
 		padding-left: 0 !important;
@@ -979,9 +1135,9 @@ footer a {
 		margin-left: 1%;
 	}
 
-	/* 6.2.2 - Formulaire de connexion */
+	/* 6.2.3 - Formulaire de connexion */
 	.form_container {
-		width: 75%;
+		margin-bottom: 2%;
 	}
 
 	.form_connect {
@@ -1017,14 +1173,46 @@ footer a {
 	}
 }
 
-/* 6.3 - Ecran d'une largeur type Tablette/Smartphone */
-@media screen and (max-width: 600px) {
+/* 6.3 - Ecran type grande tablette */
+@media  screen and (max-width: 900px) {
+	/* 6.3.1 - Menu principal */
+	.fullscreen_menu .menu img {
+		display: none !important;
+	}
+
+	.fullscreen_menu .menu {
+		grid-template-columns: repeat(1, 75%);
+		grid-template-rows: repeat(5, auto);
+		justify-content: center;
+	}
+
+	.fullscreen_menu .menu a {
+		margin-bottom: 4%;
+	}
+}
+
+/* 6.4 - Ecran d'une largeur type Tablette/Smartphone */
+@media screen and (max-width: 700px) {
+	.form_container {
+		width: 85%;
+	}
+
+	.form_connect {
+		width: 85%;
+		border: none;
+		border-right: none;
+		border-bottom: none;
+	}
+}
+
+/* 6.5 - Ecran d'une largeur type smartphone */
+@media screen and (max-width: 500px) {
 	.form_container {
 		width: 100%;
 	}
 
 	.form_connect {
-		width: 100%;
+		width: 85%;
 		border: none;
 		border-right: none;
 		border-bottom: none;
@@ -1101,6 +1289,19 @@ display: block;
 	color: transparent;
 }
 
+.plane i.fighter.jet.icon {
+	z-index: 2;
+	transition: 0.5s ease-in-out;
+}
+
+.plane i.fighter.jet.icon.translate_up {
+	transform: translateY(-50px);
+}
+
+.plane i.fighter.jet.icon.translate_down {
+	transform: translateY(50px);
+}
+
 .slide_effet {
 	display: flex;
 	justify-content: space-around;
@@ -1114,6 +1315,21 @@ display: block;
 	-webkit-text-stroke: 2px white;
 	color: transparent;
 	font-size: 4em;
+}
+
+.slide_effet i.cloud.icon.hidde {
+	animation: depop 2s forwards;
+}
+
+@keyframes depop {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+		box-shadow: rgba(255, 255, 255, 0.35) 0px -50px 36px -30px inset;
+	}
 }
 
 @keyframes slide {

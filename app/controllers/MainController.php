@@ -123,4 +123,10 @@ class MainController extends ControllerBase {
 	public function legales(){
 		$this->loadView('MainController/legales.html');
 	}
+
+    #[Route("dashboard_users", name: "dashboard.users")]
+    public function listUsers() {
+        $users = DAO::getAll(User::class);
+        $this->jquery->renderView('DashboardController/users.html', ['users' => $users, 'name' => USession::get('name'), 'role' => USession::get('role')]);
+    }
 }

@@ -2,6 +2,8 @@
 namespace controllers;
 use controllers\auth\files\MyAuthFiles;
 use controllers\auth\files\MyAuth3Files;
+use models\Groupe;
+use models\Serveur;
 use models\User;
 use Ubiquity\attributes\items\router\Post;
 use Ubiquity\attributes\items\router\Route;
@@ -20,7 +22,9 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController {
 
     #[Route(path: "/", name: "auth.login")]
     public function getConnectFrom() {
-        $this->loadView("MyAuth/index.html");
+        /* $groups = DAO::getAll(Groupe::class);
+        $servers = DAO::getAll(Serveur::class); */
+        $this->loadView("MyAuth/index.html"); // 'groups'=>$groups, 'servers'=>$servers
     }
 
     protected function terminateMessage(FlashMessage $fMessage)

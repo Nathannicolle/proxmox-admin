@@ -67,7 +67,6 @@ class UserController extends ControllerBase {
 	#[Get(path: "/createForm",name: "user.createForm")]
     #[Allow(['@ALL'])]
 	public function UserCreateForm(){
-
         $groups = DAO::getAll(Groupe::class);
         $servers = DAO::getAll(Serveur::class);
 		$this->loadView('UserController/UsercreateForm.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'groups'=>$groups, 'servers'=>$servers]);
@@ -89,28 +88,31 @@ class UserController extends ControllerBase {
 	#[Get(path: "/modifyForm/{id}",name: "user.modifyForm")]
 	public function UserModifyForm($id){
 
-        //$user = $this->repo->byId($id, false);
         $user=DAO::getById(User::class,$id,['serveurs']);
-        //$serveurs=DAO::getAll(Serveur::class,'id= ?',false, [$id]);
         $serverSelects=$user->getServeurs();
-        var_dump($serverSelects); //$user->getServeurs()
         $servers = DAO::getAll(Serveur::class);
-        echo "<br><br>";
-        var_dump($user);
 		$this->loadView('UserController/UserModifyForm.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'servers'=>$servers, 'serverSelects'=>$serverSelects, 'user'=>$user]);
 	}
 
 	#[Post(path: "/modify",name: "user.modify")]
 	public function UserModify(){
         $user = $this->repo->byId(URequest::post('id'));
-        var_dump($user->getServeurs());
         if ($user) {
 
             URequest::setValuesToObject($user);
-            var_dump($user);
-            var_dump($user->getGroupes());
-            var_dump($user->getServeurs());
-            $this->repo->save($user);
+            if (URequest::post('groupes') and URequest::post('serveurs') == null) {
+
+                $myGroups=DAO::getAllByIds(Groupe::class,URequest::post('groupes'));
+                $user->setGroupes($myGroups);
+
+            } elseif (URequest::post('groupes') == null and URequest::post('serveurs')) {
+
+                $myServers=DAO::getAllByIds(Serveur::class,URequest::post('serveurs'));
+                $user->setServeurs($myServers);
+
+            }
+            $this->repo->save($user,true);
+            UResponse::header('location', "/dashboard_profile/");
 
         }
 	}
@@ -126,12 +128,8 @@ class UserController extends ControllerBase {
 	#[Get(path: "/groupForm/{id}",name: "user.userGroupForm")]
 	public function UserGroupForm($id){
 
-        //$user = $this->repo->byId($id, false);
         $user=DAO::getById(User::class,$id,['groupes']);
         $groupeSelects=$user->getGroupes();
-        //var_dump($serverSelects); //$user->getServeurs()
-        //echo "<br><br>";
-        //var_dump($user);
         $groupes = DAO::getAll(Groupe::class);
 		$this->loadView('UserController/UserGroupForm.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'groupes'=>$groupes, 'groupeSelects'=>$groupeSelects, 'user'=>$user]);
 

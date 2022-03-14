@@ -146,9 +146,59 @@ window.addEventListener("load", () => {
                 });
             }
         });
+    } else if (window.location.pathname.match("/login")) {
+        document.querySelector(".logo").style = "height: 100px;";
+        document.querySelector(".logo").src = "assets/img/Proxmox_pannel_V7.2_light.png";
+
+        document.querySelector(".other_action_form .signin_link").addEventListener("click", () => {
+            document.querySelector(".other_action_form").classList.add("form_signin");
+            document.querySelector(".other_action_form .signin_link").style = "display: none;";
+            document.querySelector(".other_action_form .connect_link").style = "display: inline;";
+        });
+
+        document.querySelector(".other_action_form .connect_link").addEventListener("click", () => {
+            document.querySelector(".other_action_form").classList.remove("form_signin");
+            document.querySelector(".other_action_form .signin_link").style = "display: inline;";
+            document.querySelector(".other_action_form .connect_link").style = "display: none;";
+        });
+
+        document.querySelector(".other_action_form .close_link").addEventListener("click", () => {
+            document.querySelector(".other_action_form").classList.remove("form_signin");
+            document.querySelector(".other_action_form .signin_link").style = "display: inline;";
+            document.querySelector(".other_action_form .connect_link").style = "display: none;";
+        });
     } else {
         document.querySelector(".logo").style = "height: 100px;";
         document.querySelector(".logo").src = "assets/img/Proxmox_pannel_V7.2_light.png";
+
+        /* Fullscreen menu animations */
+        if(document.querySelectorAll(".fullscreen_menu .menu a").length === 3) {
+            document.querySelector(".fullscreen_menu").style = "grid-template-columns: repeat(3, 20%);";
+        } else if (document.querySelectorAll(".fullscreen_menu .menu a").length === 2) {
+            document.querySelector(".fullscreen_menu").style = "grid-template-columns: repeat(2, 20%);";
+        }
+
+        document.querySelectorAll(".fullscreen_menu .menu a").forEach(element => {
+            element.addEventListener("mouseover", () => {
+                document.querySelector(".wrapper_" + element.getAttribute("id") + " img").style = "opacity: 1; transform: scale(1.2);";
+            });
+
+            element.addEventListener("mouseleave", () => {
+                document.querySelector(".wrapper_" + element.getAttribute("id") + " img").style = "opacity: 0.4; transform: scale(1);";
+            });
+        });
+
+        document.querySelectorAll(".wrapper").forEach(element => {
+            let splited_classes = element.getAttribute("class").split(" ");
+            let splitted_class_name = splited_classes[1].split("_");
+            element.addEventListener("mouseover", () => {
+                document.getElementById(splitted_class_name[1]).style = "color: white;";
+            });
+
+            element.addEventListener("mouseleave", () => {
+                document.getElementById(splitted_class_name[1]).style = "color: gray;";
+            });
+        });
     }
 
     if(typeof document.querySelector("div.container_404") !== 'undefined') {
@@ -161,17 +211,29 @@ window.addEventListener("load", () => {
             }
         });
 
-        if(plane.style.animationPlayState === 'running') {
-            document.addEventListener('keydown', (event) => {
-                if(event.key === "ArrowUp" || event.key === "Up" || event.key === "KeyZ") {
-                    alert("up");
-                    plane.style = "transform: translateY('-50px') !important;";
-                } else if (event.key === "ArrowDown" || event.key === "Down" || event.key === "KeyS") {
-                    alert("down");
-                    plane.style = "transform: translateY('50px') !important;";
-                }
+        document.querySelectorAll(".slide_effet i").forEach((element) => {
+            element.addEventListener("click", () => {
+                element.classList.add("hidde");
             });
-        }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if(event.key === "ArrowUp" || event.key === "Up" || event.key === "KeyZ") {
+                document.querySelector("i.fighter.jet.icon").classList.remove("translate_down");
+                document.querySelector("i.fighter.jet.icon").classList.add("translate_up");
+                console.log("up");
+            } else if (event.key === "ArrowDown" || event.key === "Down" || event.key === "KeyS") {
+                document.querySelector("i.fighter.jet.icon").classList.remove("translate_up");
+                document.querySelector("i.fighter.jet.icon").classList.add("translate_down");
+                console.log("down");
+            } else if (event.key === " ") {
+                if(plane.style.animationPlayState === 'running') {
+                    plane.style.animationPlayState = 'paused';
+                } else if(plane.style.animationPlayState === 'paused') {
+                    plane.style.animationPlayState = 'running';
+                }
+            }
+        });
     }
 });
 

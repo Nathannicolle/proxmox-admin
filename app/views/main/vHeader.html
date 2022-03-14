@@ -4,7 +4,7 @@
 {% block header %}
 	<base href="{{config['siteUrl']}}">
 	<meta charset="UTF-8">
-	<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+	<link rel="icon" href="assets/img/favicon.ico" type="image/ico">
 	<title>proxmox-admin</title>
 
 {% endblock %}
@@ -26,6 +26,35 @@
 					{% endif %}
 					<a href="#" class="item">Contact</a>
 					<div class="item" id="link_connection">{{ _userInfo|raw }}</div>
+					<input type="checkbox" id="chkbox_menu">
+					<label for="chkbox_menu" class="show-menu-btn">
+						<i class="hamburger icon"></i>
+					</label>
+					<div class="fullscreen_menu">
+						<div class="other_links">
+							<label for="chkbox_menu" class="hide-menu-btn">
+								<i class="times icon"></i>
+							</label>
+						</div>
+						<div class="menu">
+							<a href="{{ path('home') }}" id="home">Accueil</a>
+							{% if app.session.get('role') != null %}
+								<a href="#">Dashboard</a>
+							{% endif %}
+							<a href="#" id="contact">Contact</a>
+							<div class="wrapper wrapper_home">
+								<img src="assets/img/home.svg" class="home">
+							</div>
+							{% if app.session.get('role') != null %}
+								<div class="wrapper wrapper_contact">
+									<img src="assets/img/contact_us.jpg">
+								</div>
+							{% endif %}
+							<div class="wrapper wrapper_contact">
+								<img src="assets/img/contact_us.jpg">
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
