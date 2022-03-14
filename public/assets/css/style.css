@@ -1181,8 +1181,8 @@ footer a {
 	}
 
 	.fullscreen_menu .menu {
-		grid-template-columns: repeat(1, 75%);
-		grid-template-rows: repeat(5, auto);
+		grid-template-columns: repeat(1, 75%) !important;
+		grid-template-rows: repeat(5, auto) !important;
 		justify-content: center;
 	}
 

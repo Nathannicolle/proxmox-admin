@@ -39,15 +39,15 @@
 						<div class="menu">
 							<a href="{{ path('home') }}" id="home">Accueil</a>
 							{% if app.session.get('role') != null %}
-								<a href="#">Dashboard</a>
+								<a href="{{ path('dashboard') }}" id="dashboard">Dashboard</a>
 							{% endif %}
 							<a href="{{ path('main.contactForm') }}" id="contact">Contacter</a>
 							<div class="wrapper wrapper_home">
 								<img src="assets/img/home.svg" class="home">
 							</div>
 							{% if app.session.get('role') != null %}
-								<div class="wrapper wrapper_contact">
-									<img src="assets/img/contact_us.jpg">
+								<div class="wrapper wrapper_dashboard">
+									<img src="assets/img/dashboard.jpg">
 								</div>
 							{% endif %}
 							<div class="wrapper wrapper_contact">

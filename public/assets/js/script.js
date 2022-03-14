@@ -66,7 +66,39 @@ window.addEventListener("load", () => {
         });
 
         document.querySelector("footer").style.display = "block";
-    } else if(window.location.pathname.match("/dashboard") || window.location.pathname.match("/dashboard_[a-zA-Z]{0,8}") ||  window.location.pathname.match("/oneVM") || window.location.pathname.match("/oneServer") || window.location.pathname.match('/createForm') || window.location.pathname.match('/modifyForm') || window.location.pathname.match('/groupeModifyForm')) {
+
+        /* Fullscreen menu animations */
+        if(window.innerWidth >= 900) {
+            if (document.querySelectorAll(".fullscreen_menu .menu a").length === 3) {
+                document.querySelector(".fullscreen_menu .menu").style = "grid-template-columns: repeat(3, 20%) !important;";
+            } else if (document.querySelectorAll(".fullscreen_menu .menu a").length === 2) {
+                document.querySelector(".fullscreen_menu .menu").style = "grid-template-columns: repeat(2, 20%) !important;";
+            }
+        }
+
+        document.querySelectorAll(".fullscreen_menu .menu a").forEach(element => {
+            element.addEventListener("mouseover", () => {
+                document.querySelector(".wrapper_" + element.getAttribute("id") + " img").style = "opacity: 1; transform: scale(1.2);";
+            });
+
+            element.addEventListener("mouseleave", () => {
+                document.querySelector(".wrapper_" + element.getAttribute("id") + " img").style = "opacity: 0.4; transform: scale(1);";
+            });
+        });
+
+
+        document.querySelectorAll(".wrapper").forEach(element => {
+            let splited_classes = element.getAttribute("class").split(" ");
+            let splitted_class_name = splited_classes[1].split("_");
+            element.addEventListener("mouseover", () => {
+                document.getElementById(splitted_class_name[1]).style = "color: white;";
+            });
+
+            element.addEventListener("mouseleave", () => {
+                document.getElementById(splitted_class_name[1]).style = "color: gray;";
+            });
+        });
+    } else if(window.location.pathname.match("/dashboard") || window.location.pathname.match("/dashboard_[a-zA-Z]{0,8}") ||  window.location.pathname.match("/oneVM") || window.location.pathname.match("/oneServer") || window.location.pathname.match('/createForm') || window.location.pathname.match('/modifyForm') || window.location.pathname.match('/groupeModifyForm') | window.location.pathname.match('/user/droitForm/{0,9}/')) {
         document.querySelector(".ui.basic.inverted.segment.main_menu").style = "display: none !important;";
         document.querySelector(".page_container").style = "margin-top: 0; padding-bottom:0;";
         $(".subcategory").click(function () {
@@ -173,9 +205,9 @@ window.addEventListener("load", () => {
 
         /* Fullscreen menu animations */
         if(document.querySelectorAll(".fullscreen_menu .menu a").length === 3) {
-            document.querySelector(".fullscreen_menu").style = "grid-template-columns: repeat(3, 20%);";
+            document.querySelector(".fullscreen_menu .menu").style = "grid-template-columns: repeat(3, 20%) !important;";
         } else if (document.querySelectorAll(".fullscreen_menu .menu a").length === 2) {
-            document.querySelector(".fullscreen_menu").style = "grid-template-columns: repeat(2, 20%);";
+            document.querySelector(".fullscreen_menu .menu").style = "grid-template-columns: repeat(2, 20%) !important;";
         }
 
         document.querySelectorAll(".fullscreen_menu .menu a").forEach(element => {
