@@ -31,9 +31,15 @@
                 <select class="ui fluid inverted dropdown" name="role">
                     <option value="">Rôle</option>
                     <option disabled selected value="{{byId.role}}">Rôle</option>
+                    {% if role == '@ADMIN' %}
                     <option value="@ADMIN">@ADMIN</option>
                     <option value="@PROF">@PROF</option>
                     <option value="@ETUDIANT">@ETUDIANT</option>
+                    {% endif %}
+                    {% if role == '@PROF' %}
+                    <option value="@PROF">@PROF</option>
+                    <option value="@ETUDIANT">@ETUDIANT</option>
+                    {% endif %}
                 </select>
 
                 <input type = "hidden" name = "id" value="{{byId.id}}"/>

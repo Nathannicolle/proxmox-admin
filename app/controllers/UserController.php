@@ -78,7 +78,13 @@ class UserController extends ControllerBase {
 	public function UserCreate(){
 		$user = new User();
         URequest::setValuesToObject($user);
-        if (DAO::insert($user)) {
+        if (URequest::post('serveurs')) {
+
+            $myServers=DAO::getAllByIds(Serveur::class,URequest::post('serveurs'));
+            $user->setServeurs($myServers);
+
+        }
+        if (DAO::insert($user,true)) {
             $this->loadView('UserController/InsertionReussi.html');
         } else {
             $this->loadView('UserController/ErreurInsertion.html');
