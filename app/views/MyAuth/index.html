@@ -1,7 +1,8 @@
 <!--View associated to index action of MyAuth controller -->
 <div class="page_form">
     <div class="form_container">
-        <form class="ui form ui inverted form form_connect" action="{{path('myAuth.connect')}}" method="post">
+        <form class="ui form ui inverted form form_connect" action="{{path('myAuth.connect')}}" method="post" id="connection">
+            {{ csrf('connection') }}
             <label>Email :</label>
             <input type="email" name="email" placeholder="Email">
             <label>Mot de passe :</label>
@@ -24,7 +25,7 @@
                     {% endfor %}
                 </select>
                 <input type="hidden" name="role" placeholder="Rôle" value="@ETUDIANT">
-                <button>Créer une VM</button>
+                <button>S'incrire</button>
             </form>
             <a class="close_link"><i class="times icon"></i></a>
         </div>

@@ -8,7 +8,6 @@
     <div class="ui label">
         <a href="{{path('dashboard.home')}}"><i class="chart line icon"></i> {{ connected | raw }}</a>
     </div>
-    &nbsp;
     {% endblock %}
     {% block _logoutButton %}
     <a href="{{authURL}}/terminate" class="ui black button ajax _logout"><!-- data-target="{{bodySelector}}" -->
