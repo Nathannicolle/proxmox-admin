@@ -249,7 +249,4 @@ window.addEventListener("load", () => {
     }
 });
 
-$('.ui.fluid.dropdown')
-    .dropdown({
-
-    });
+$('select.dropdown').dropdown();
