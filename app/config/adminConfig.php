@@ -55,8 +55,6 @@ return array(
 			"themes",
 			"maintenance",
 			"composer",
-			"security",
-			"mailer"
 			],
 	"style"=>"inverted"
 	);
