@@ -504,11 +504,30 @@ body{
 	background-image: none;*/
 }
 
-.form_add select {
-	padding-top: 0 !important;
-	padding-bottom: 0 !important;
-	margin-top: 0 !important;
-	margin-bottom: 0 !important;
+.ui.dropdown.selection {
+	background-color: #161313;
+	border-radius: 35px !important;
+	color: gray !important;
+}
+
+.ui.dropdown.selection.multiple {
+	background-color: #161313;
+	border-radius: 35px !important;
+	color: gray !important;
+}
+
+.ui.dropdown .menu > .item {
+	background-color: #161313;
+	color: gray;
+}
+
+.ui.dropdown .menu > .item:hover {
+	background-color: rgba(22, 19, 19, 0.8);
+	color: white;
+}
+
+.dropdown.icon {
+	color: gray;
 }
 
 .form_add label:last-child {
@@ -535,15 +554,6 @@ body{
 	cursor: pointer;
 	background-color: #372f2f;
 	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-
-.form_connect select {
-	margin-bottom: 4% !important;
-	background-color: #161313 !important;
-	border-radius: 35px !important;
-	padding-top: 3% !important;
-	padding-bottom: 3% !important;
-	color: white !important;
 }
 
 .connect_link {
@@ -644,7 +654,7 @@ body{
 }
 
 /* 4.1.2 - Dropdown avec le rôle de l'utilisateur et le bouton de déconnexion */
-.dropdown {
+.dropdown_dashboard {
 	display: none;
 	position: absolute;
 	top: 90%;
@@ -657,11 +667,11 @@ body{
 	transition: 0.8s ease-in-out;
 }
 
-.dropdown:hover {
+.dropdown_dashboard:hover {
 	display: block;
 }
 
-.dropdown::before {
+.dropdown_dashboard::before {
 	content: "";
 	position: absolute;
 	right: 50%;
@@ -676,11 +686,11 @@ body{
 	z-index: 20;
 }
 
-.header_info:hover + .dropdown {
+.header_info:hover + .dropdown_dashboard {
 	display: block;
 }
 
-.dropdown a.ui.inverted.red.button {
+.dropdown_dashboard a.ui.inverted.red.button {
 	margin-top: 5%;
 }
 
@@ -793,6 +803,7 @@ aside.dashboard_menu ul li a:hover::after {
 .dashboard_content {
 	margin-left: 13vw;
 	padding-top: 5%;
+	padding-right: 2%;
 }
 
 /* 4.4 - Page perso de l'utilisateur */
@@ -960,7 +971,7 @@ a.ui.inverted.green.button {
 .card_container {
 	display: grid;
 	grid-template-columns: repeat(4, 25%);
-	grid-row-gap: 20px;
+	grid-row-gap: 10px;
 	grid-column-gap: 20px;
 }
 
@@ -994,10 +1005,6 @@ a.ui.inverted.green.button {
 
 .card_VM ul {
 	margin-top: 0;
-}
-
-.card_VM.oneElement {
-	margin-right: 1%;
 }
 
 /* 4.6.1 - Boutons pour voir plus d'informations sur l'élément */
