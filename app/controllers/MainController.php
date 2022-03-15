@@ -2,6 +2,8 @@
 namespace controllers;
 use mail\InformationMail;
 use models\User;
+use PHPMV\ProxmoxApi;
+use PHPMV\ProxmoxMaster;
 use Ubiquity\attributes\items\router\Post;
 use Ajax\php\ubiquity\JsUtils;
 use models\Groupe;
@@ -13,9 +15,11 @@ use Ubiquity\attributes\items\router\Get;
 use \Ubiquity\attributes\items\router\Route;
 use Ubiquity\controllers\auth\AuthController;
 use Ubiquity\controllers\auth\WithAuthTrait;
+use Ubiquity\controllers\Router;
 use Ubiquity\mailer\MailerManager;
 use Ubiquity\orm\DAO;
 use Ubiquity\security\acl\controllers\AclControllerTrait;
+use Ubiquity\utils\http\URequest;
 use Ubiquity\utils\http\USession;
 
 /* This is the controller for main routes (such as index) */
@@ -78,7 +82,33 @@ class MainController extends ControllerBase {
     #[Route("dashboard_servers", name: "dashboard.servers")]
     public function listServers() {
         $servers = DAO::getAll(Serveur::class);
+
+        $frm=$this->jquery->semantic()->htmlForm('frm-server');
+        // Vérification que les champs contiennent bien quelque chose
+        $frm->addExtraFieldRule('name','empty');
+        $frm->addExtraFieldRule('login','empty');
+
+        // Vérification de la validité de l'adresse IP
+        $frm->addExtraFieldRule('ip','regExp','invalid ipV4 address','^(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}$');
         $this->jquery->renderView('DashboardController/serveurs.html', ['serveurs' => $servers, 'name' => USession::get('name'), 'role' => USession::get('role')]);
+    } // $this->jquery->postFormOnClick('#serveur_connexion',Router::path('serveur.show'),'form-server','#response',['hasLoader'=>'internal']);
+
+    #[Post("server_list", name:"server.show")]
+    public function showServerList() {
+        $api=new ProxmoxApi(
+            URequest::post('server','servers1.sts-sio-caen.info'),
+            URequest::post('login','sio1a'),
+            URequest::post('password','sio1a'));
+        $vms=$api->getVMs();
+        $dt=$this->jquery->semantic()->dataTable('vms',\stdClass::class,$vms);
+        $dt->setFields(ProxmoxMaster::VM_FIELDS);
+        $dt->setHasCheckboxes(true);
+        $dt->fieldAsLabel('status','server',attributes: ['jsCallback'=>function($lbl,$instance){
+            if($instance->status=='running'){
+                $lbl->addClass('green');
+            }
+        }]);
+        $this->jquery->renderView('DashboardController/serveurs.html', ['name' => USession::get('name'), 'role' => USession::get('role')]);
     }
 
     #[Get("oneServer/{id}", name: "dashboard.oneServer")]

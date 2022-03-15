@@ -49,12 +49,13 @@
                         <input placeholder="Password" type="password" name="password">
                     </div>
                 </div>
-                <div class="ui submit button inverted">Connection</div>
+                <div class="ui submit button inverted">Création</div><div class="ui submit button inverted" id="serveur_connexion">Connection</div>
             </form>
         </div>
-        <div class="ui segment inverted" id="response">
-        </div>
         {% endif %}
+        <div class="ui segment inverted" id="response">
+            {{ q['vms']|raw }}
+        </div>
         {% if serveurs %}
             <div class="card_container">
                 {% for server in serveurs %}
