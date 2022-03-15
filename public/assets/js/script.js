@@ -211,6 +211,7 @@ window.addEventListener("load", () => {
 
         // -- Fullscreen menu animations and grid disposition -- //
         fullscreenMenu();
+
     }
 
     if(typeof document.querySelector("div.container_404") !== 'undefined') {
@@ -247,7 +248,4 @@ window.addEventListener("load", () => {
     }
 });
 
-$('.ui.fluid.dropdown')
-    .dropdown({
-
-    });
+$('select.dropdown').dropdown();

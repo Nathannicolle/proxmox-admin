@@ -4,7 +4,7 @@
             <li><a href="{{path('home')}}">Accueil</a></li>
             <li><a href="#">Tableau de bord</a></li>
             <li class="header_info"><a href="{{path('dashboard.profile')}}"><i class="user icon"></i> {{name}}</a></li>
-            <div class="dropdown">
+            <div class="dropdown_dashboard">
                 <span>Rôle : {{role}}<br></span>
                 <a href="/login/terminate" class="ui inverted red button"><i class="sign out alternate icon"></i> Déconnexion</a>
             </div>
@@ -33,7 +33,7 @@
                 <p><b>VM(s) ({{VMs|length}}) :</b></p>
                 <ul class="list_VM_server list_foreign_elements">
                     {% for VM in VMs %}
-                        <li><input type="checkbox" class="delete_VM"><a href="{{path('dashboard.oneVM', [VM.id])}}">{{VM.name}}</a></li>
+                        <li><a href="{{path('dashboard.oneVM', [VM.id])}}">{{VM.name}}</a></li>
                     {% endfor %}
                 </ul>
             {% else %}
