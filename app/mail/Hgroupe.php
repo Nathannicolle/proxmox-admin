@@ -2,8 +2,9 @@
 namespace mail;
 
 use Ubiquity\mailer\MailerManager;
+use Ubiquity\utils\http\USession;
 
- /**
+/**
   * Mailer Hgroupe
   */
 class Hgroupe extends \Ubiquity\mailer\AbstractMail {
@@ -24,8 +25,10 @@ class Hgroupe extends \Ubiquity\mailer\AbstractMail {
 	 */
 	protected function initialize(){
 		$this->subject = 'Message title';
-        $mail= $_SESSION['name'];
-        $this->from($mail);
+        if(USession::exists('name')) {
+            $mail = $_SESSION['name'];
+            $this->from($mail);
+        }
         $this->to(MailerManager::loadConfig()['from']??'from@organization');
 	}
 

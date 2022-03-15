@@ -107,7 +107,7 @@ class MainController extends ControllerBase {
 	#[Route(path: "Main/contact",name: "main.contactForm")]
     #[Allow("@ALL")]
 	public function contactForm(){
-        $this->loadView('MainController/contactForm.html');
+        $this->loadView('MainController/contactForm.php');
 	}
 
     #[POST(path: "Main/contact",name: "main.contact")]
