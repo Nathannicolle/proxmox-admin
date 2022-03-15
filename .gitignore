@@ -2,6 +2,7 @@
 vendor/
 app/cache/
 app/logs/
+app/config
 app/config/services.php
 app/config/config.php
 app/config/config.old.php

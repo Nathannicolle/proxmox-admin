@@ -13,13 +13,13 @@
     <aside class="dashboard_menu">
         <a href="{{path('home')}}"><img src="assets/img/Proxmox_pannel_V7.2_light.png" alt="logo proxmox pannel"/></a>
         <ul>
-            <li><a href="{{path('dashboard.home')}}" class="link_active" title="Accueil (Dashboard)"><i class="home icon"></i><span>Accueil</span></a></li>
+            <li><a href="{{path('dashboard.home')}}" title="Accueil (Dashboard)"><i class="home icon"></i><span>Accueil</span></a></li>
             <li><a href="{{path('dashboard.VM')}}" title="VM (Dashboard)"><i class="laptop icon"></i><span>Mes VM</span></a></li>
             <li><a href="{{path('dashboard.groups')}}" title="Groupes (Dashboard)"><i class="users icon"></i><span>Mes groupes</span></a></li>
             {% if role == '@ADMIN' or role == '@PROF' %}
             <li><a href="{{path('dashboard.servers')}}" title="Serveurs (Dashboard)"><i class="server icon"></i><span>Les serveurs</span></a></li>
             {% endif %}
-            <li><a href="{{path('dashboard.users')}}" title="Utilisateurs (Dashboard)"><i class="user icon"></i><span>Utilisateurs</span></a></li>
+            <li><a href="{{path('dashboard.users')}}" title="Utilisateurs (Dashboard)" class="link_active"><i class="user icon"></i><span>Utilisateurs</span></a></li>
             <li class="minimize_menu"><a class="minimize_link"><i class="caret square left outline icon"></i></a></li>
         </ul>
     </aside>
@@ -29,7 +29,7 @@
             <form class="ui form ui inverted form form_connect form_edit" action="{{ path('user.modify') }}" method="post">
 
                 <label>Droit :</label>
-                <select class="ui fluid inverted dropdown" name="role">
+                <select name="role">
                     <option value="">Rôle</option>
                     <option disabled selected value="{{byId.role}}">Rôle</option>
                     {% if role == '@ADMIN' %}

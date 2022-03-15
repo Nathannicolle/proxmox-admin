@@ -75,25 +75,26 @@ class UserController extends ControllerBase {
 
 	#[Post(path: "/create",name: "user.create")]
     #[Allow(['@ALL'])]
-	public function UserCreate(){
-		$user = new User();
+	public function UserCreate()
+    {
+        $user = new User();
         URequest::setValuesToObject($user);
-        $user->setPassword(password_hash(Urequest::post("password"),  PASSWORD_DEFAULT));
-        if (DAO::insert($user)) {
+        $user->setPassword(password_hash(Urequest::post("password"), PASSWORD_DEFAULT));
 
+        if (DAO::insert($user)) {
             if (URequest::post('serveurs')) {
                 $myServers = DAO::getAllByIds(Serveur::class, URequest::post('serveurs'));
                 $user->setServeurs($myServers);
             }
-        }
-        $user->setPassword(\md5( Urequest::post("password")));
-        if (DAO::insert($user,true)) {
+            //$user->setPassword(\md5( Urequest::post("password")));
+            if (DAO::insert($user, true)) {
 
-            $this->loadView('UserController/InsertionReussi.html');
-        } else {
-            $this->loadView('UserController/ErreurInsertion.html');
+                $this->loadView('UserController/InsertionReussi.html');
+            } else {
+                $this->loadView('UserController/ErreurInsertion.html');
+            }
         }
-	}
+    }
 
 	#[Get(path: "/modifyForm/{id}",name: "user.modifyForm")]
 	public function UserModifyForm($id){
