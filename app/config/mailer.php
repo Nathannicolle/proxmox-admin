@@ -4,7 +4,7 @@ return array(
 	"port"=>587,
 	"auth"=>true,
 	"user"=>"luc.papillon@sts-sio-caen.info",
-	"password"=>"PCe25TcfR6bvKkR",
+	"password"=>"91XVsUU*",
 	"protocol"=>"smtp",
 	"CharSet"=>"utf-8",
 	"ns"=>"mail",
