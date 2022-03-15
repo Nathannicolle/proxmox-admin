@@ -26,7 +26,34 @@
     <div class="dashboard_content">
         <h1>Liste des serveurs ({{serveurs|length}})</h1>
         {% if role == '@ADMIN' or role == '@PROF' %}
-            <a href="{{path('serveur.serveurCreateForm')}}" class="ui inverted green button">+ Ajouter un serveur</a>
+        <div class="ui segment inverted">
+            <h3>Se connecter à un serveur</h3>
+            <form class="ui form inverted" name="frm-server" id="frm-server" method="post" action="{{ path('server.show') }}">
+                <div class="two fields">
+                    <div class="field">
+                        <label>Server name</label>
+                        <input placeholder="Server name" type="text" name="name" id="name" value="">
+                    </div>
+                    <div class="field">
+                        <label>Login</label>
+                        <input placeholder="Login" type="text" name="login">
+                    </div>
+                </div>
+                <div class="two fields">
+                    <div class="field">
+                        <label>Ip address</label>
+                        <input placeholder="0.0.0.0" type="text" name="ip" id="ip" value="">
+                    </div>
+                    <div class="field">
+                        <label>Password</label>
+                        <input placeholder="Password" type="password" name="password">
+                    </div>
+                </div>
+                <div class="ui submit button inverted">Connection</div>
+            </form>
+        </div>
+        <div class="ui segment inverted" id="response">
+        </div>
         {% endif %}
         {% if serveurs %}
             <div class="card_container">
