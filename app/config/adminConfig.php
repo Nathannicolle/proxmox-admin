@@ -54,9 +54,14 @@ return array(
 			"translate",
 			"themes",
 			"maintenance",
+
 			"mailer",
 			"security",
-			"acls"
+			"acls",
+
+			"composer",
+			"security"
+
 			],
 	"style"=>"inverted"
 	);

@@ -19,6 +19,7 @@
             {% if role == '@ADMIN' or role == '@PROF' %}
             <li><a href="{{path('dashboard.servers')}}" title="Serveurs (Dashboard)"><i class="server icon"></i><span>Les serveurs</span></a></li>
             {% endif %}
+            <li><a href="{{path('dashboard.users')}}" title="Utilisateurs (Dashboard)"><i class="user icon"></i><span>Utilisateurs</span></a></li>
             <li class="minimize_menu"><a class="minimize_link"><i class="caret square left outline icon"></i></a></li>
         </ul>
     </aside>
@@ -31,9 +32,15 @@
                 <select class="ui fluid inverted dropdown" name="role">
                     <option value="">Rôle</option>
                     <option disabled selected value="{{byId.role}}">Rôle</option>
+                    {% if role == '@ADMIN' %}
                     <option value="@ADMIN">@ADMIN</option>
                     <option value="@PROF">@PROF</option>
                     <option value="@ETUDIANT">@ETUDIANT</option>
+                    {% endif %}
+                    {% if role == '@PROF' %}
+                    <option value="@PROF">@PROF</option>
+                    <option value="@ETUDIANT">@ETUDIANT</option>
+                    {% endif %}
                 </select>
 
                 <input type = "hidden" name = "id" value="{{byId.id}}"/>

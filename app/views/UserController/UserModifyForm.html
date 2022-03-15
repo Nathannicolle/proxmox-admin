@@ -19,6 +19,7 @@
             {% if role == '@ADMIN' or role == '@PROF' %}
             <li><a href="{{path('dashboard.servers')}}" title="Serveurs (Dashboard)"><i class="server icon"></i><span>Les serveurs</span></a></li>
             {% endif %}
+            <li><a href="{{path('dashboard.users')}}" title="Utilisateurs (Dashboard)"><i class="user icon"></i><span>Utilisateurs</span></a></li>
             <li class="minimize_menu"><a class="minimize_link"><i class="caret square left outline icon"></i></a></li>
         </ul>
     </aside>
@@ -28,7 +29,7 @@
             <form class="ui form ui inverted form form_connect form_edit" action="{{ path('user.modify') }}" method="post">
                 <label>Email :</label>
                 <input type="text" name="login" placeholder="Email" value="{{user.login}}">
-                <label>Mot de passe : {{user.serveurs[0]}}</label>
+                <label>Mot de passe :</label>
                 <input type="password" name="password" placeholder="Mot de passe" value="{{user.password}}">
 
                 <label>Serveurs :</label>

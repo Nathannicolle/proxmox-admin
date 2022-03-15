@@ -52,5 +52,6 @@ return array(
 						throw new \Exception($message);
 						break;
 				}
-			}
+			},
+	"encryption-key"=>"68d9859fb01a4bba8751815a1a0369fc"
 	);

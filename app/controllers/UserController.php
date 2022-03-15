@@ -78,8 +78,17 @@ class UserController extends ControllerBase {
 	public function UserCreate(){
 		$user = new User();
         URequest::setValuesToObject($user);
-        $user->setPassword(\md5( Urequest::post("password")));
+        $user->setPassword(password_hash(Urequest::post("password"),  PASSWORD_DEFAULT));
         if (DAO::insert($user)) {
+
+            if (URequest::post('serveurs')) {
+                $myServers = DAO::getAllByIds(Serveur::class, URequest::post('serveurs'));
+                $user->setServeurs($myServers);
+            }
+        }
+        $user->setPassword(\md5( Urequest::post("password")));
+        if (DAO::insert($user,true)) {
+
             $this->loadView('UserController/InsertionReussi.html');
         } else {
             $this->loadView('UserController/ErreurInsertion.html');
