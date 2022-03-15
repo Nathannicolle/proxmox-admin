@@ -4,14 +4,14 @@ app/cache/
 app/logs/
 # app/config
 
-# app/config/adminConfig.php
-# app/config/config.php
-# app/config/config.old.php
-# app/config/bootstrap.php
-# app/config/mailer.php
-# app/config/preloader.config.php
-# app/config/preloader.script.php
-# app/config/services.php
+app/config/adminConfig.php
+app/config/config.php
+app/config/config.old.php
+app/config/bootstrap.php
+app/config/mailer.php
+app/config/preloader.config.php
+app/config/preloader.script.php
+app/config/services.php
 
 app/controllers/IndexController.php
 public/.htaccess
