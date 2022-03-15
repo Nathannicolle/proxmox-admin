@@ -6,6 +6,7 @@ app/logs/
 
 app/controllers/IndexController.php
 public/.htaccess
+app/config/
 
 # Eclipse
 .settings/
