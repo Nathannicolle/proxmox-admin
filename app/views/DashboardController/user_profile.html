@@ -27,8 +27,8 @@
         <h1>Votre profil - {{name}}</h1>
         <div class="card_profile">
             <h2 class="user_picture"><i class="user icon"></i></h2>
+            <p><a href="{{path('user.modifyForm', [user_id])}}" class="ui inverted primary button"><i class="pen icon"></i></a></p>
             <div class="user_content">
-                <p class="p_profile"><a href="{{path('user.modifyForm', [user_id])}}" class="ui inverted primary button"><i class="pen icon"></i></a></p><p></p>
                 <p class="p_profile"><span class="var_data"><b>Nom d'utilisateur/Email :</b> {{name}}</span></p>
                 <p class="p_profile"><span class="var_data"><b>Rôle :</b> {{role}}</span></p>
                 {% if groups %}
@@ -39,7 +39,7 @@
                             <li class="p_profile"><a href="{{path('dashboard.groups')}}">{{group.name}}</a></li>
                         {% endfor %}
                     </ul>
-                    <p><a href="{{path('user.userGroupForm', [user_id])}}" class="ui inverted primary button"><i class="users icon"></i></a></p>
+                    <p class="link_group"><a href="{{path('user.userGroupForm', [user_id])}}" class="ui inverted primary button"><i class="users icon"></i></a></p>
                 </div>
                 {% else %}
                     <div class="group">

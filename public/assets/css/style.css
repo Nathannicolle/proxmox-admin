@@ -868,6 +868,10 @@ aside.dashboard_menu ul li a:hover::after {
 	color: gray;
 }
 
+.link_group {
+	margin-left: 15%;
+}
+
 /* 4.5 - Accueil du Dashboard */
 .time {
 	text-align: center;
@@ -1055,6 +1059,8 @@ a.ui.inverted.green.button {
 .list_foreign_elements li a:hover {
 	background-color: #1b1c1d;
 }
+
+
 
 /* 5 - Pied de page */
 footer {

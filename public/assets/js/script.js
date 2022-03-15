@@ -142,8 +142,8 @@ window.addEventListener("load", () => {
 
         // reduced menu on certain width
         if(window.innerWidth <= 900) {
-            $(".minimize_menu i").removeClass("fa-caret-square-left");
-            $(".minimize_menu i").addClass("fa-caret-square-right");
+            $(".minimize_menu i").removeClass("right");
+            $(".minimize_menu i").addClass("left");
             document.querySelector("aside.dashboard_menu").style = "width: 5vw !important;";
             document.querySelector("aside.dashboard_menu ul").style = "margin-left: 0 !important; padding-left: 0 !important;";
             document.querySelectorAll("aside.dashboard_menu li a").forEach(element => {
