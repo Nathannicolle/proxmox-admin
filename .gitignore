@@ -2,10 +2,10 @@
 vendor/
 app/cache/
 app/logs/
-app/config
-app/config/services.php
-app/config/config.php
-app/config/config.old.php
+# app/config
+# app/config/services.php
+# app/config/config.php
+# app/config/config.old.php
 app/controllers/IndexController.php
 public/.htaccess
 
