@@ -106,6 +106,7 @@ class UserController extends ControllerBase {
 	#[Post(path: "/modify",name: "user.modify")]
 	public function UserModify(){
         $user = $this->repo->byId(URequest::post('id'));
+        $paswordSave = $user->getPassword();
         if ($user) {
 
             URequest::setValuesToObject($user);
@@ -119,6 +120,15 @@ class UserController extends ControllerBase {
                 $myServers=DAO::getAllByIds(Serveur::class,URequest::post('serveurs'));
                 $user->setServeurs($myServers);
 
+            }
+            if (URequest::post('password')) {
+                if (URequest::post('password') == '' or URequest::post('password') != URequest::post('passwordConfirme')) {
+                    $user->setPassword($paswordSave);
+                    echo "test1";
+                } elseif (URequest::post('password') == URequest::post('passwordConfirme')) {
+                    $user->setPassword(password_hash(Urequest::post("password"), PASSWORD_DEFAULT));
+                    echo "test2";
+                }
             }
             $this->repo->save($user,true);
             UResponse::header('location', "/dashboard_profile/");
