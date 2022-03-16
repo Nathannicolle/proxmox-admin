@@ -4,6 +4,7 @@ use Ajax\JsUtils;
 use models\Groupe;
 use models\Serveur;
 use models\User;
+use models\User_;
 use models\Vm;
 use Ubiquity\attributes\items\acl\Allow;
 use Ubiquity\attributes\items\router\Post;
@@ -48,7 +49,7 @@ class UserController extends ControllerBase {
     }
 
     public function initialize() {
-        $this->repo??=new ViewRepository($this, User::class);
+        $this->repo??=new ViewRepository($this, User_::class);
         if (! URequest::isAjax()) {
             $this->loadView($this->headerView);
         }
@@ -77,7 +78,7 @@ class UserController extends ControllerBase {
     #[Allow(['@ALL'])]
 	public function UserCreate()
     {
-        $user = new User();
+        $user = new User_();
         URequest::setValuesToObject($user);
         $user->setPassword(password_hash(Urequest::post("password"), PASSWORD_DEFAULT));
 
@@ -97,7 +98,7 @@ class UserController extends ControllerBase {
 	#[Get(path: "/modifyForm/{id}",name: "user.modifyForm")]
 	public function UserModifyForm($id){
 
-        $user=DAO::getById(User::class,$id,['serveurs']);
+        $user=DAO::getById(User_::class,$id,['serveurs']);
         $serverSelects=$user->getServeurs();
         $servers = DAO::getAll(Serveur::class);
 		$this->loadView('UserController/UserModifyForm.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'servers'=>$servers, 'serverSelects'=>$serverSelects, 'user'=>$user]);
@@ -158,7 +159,7 @@ class UserController extends ControllerBase {
 	#[Get(path: "/groupForm/{id}",name: "user.userGroupForm")]
 	public function UserGroupForm($id){
 
-        $user=DAO::getById(User::class,$id,['groupes']);
+        $user=DAO::getById(User_::class,$id,['groupes']);
         $groupeSelects=$user->getGroupes();
         $groupes = DAO::getAll(Groupe::class);
 		$this->loadView('UserController/UserGroupForm.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'groupes'=>$groupes, 'groupeSelects'=>$groupeSelects, 'user'=>$user]);

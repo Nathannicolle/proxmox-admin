@@ -4,7 +4,7 @@ use controllers\auth\files\MyAuthFiles;
 use controllers\auth\files\MyAuth3Files;
 use models\Groupe;
 use models\Serveur;
-use models\User;
+use models\User_;
 use Ubiquity\attributes\items\router\Post;
 use Ubiquity\attributes\items\router\Route;
 use Ubiquity\controllers\auth\AuthFiles;
@@ -86,7 +86,7 @@ class MyAuth extends \Ubiquity\controllers\auth\AuthController
     {
         if (URequest::isPost() && !URequest::isCrossSite() && UCsrfHttp::isValidPost('connection')) { // Vérifications de sécurité
             $login = URequest::post($this->_getLoginInputName());
-            $user = DAO::getOne(User::class, 'login= :login', false, ['login' => $login]); // On récupère l'utilisateur dont le login correspond à celui entré dans le formulaire
+            $user = DAO::getOne(User_::class, 'login= :login', false, ['login' => $login]); // On récupère l'utilisateur dont le login correspond à celui entré dans le formulaire
             if (isset($user) && !empty($user) && password_verify(URequest::post($this->_getPasswordInputName()), $user->getPassword())) {
                 $id = $user->getId();
                 $name = $user->getLogin();
