@@ -89,15 +89,17 @@ class MainController extends ControllerBase {
         $frm->addExtraFieldRule('login','empty');
 
         // Vérification de la validité de l'adresse IP
-        $frm->addExtraFieldRule('ip','regExp','invalid ipV4 address','^(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}$');
+        $frm->addExtraFieldRule('IPAddress','regExp','invalid ipV4 address','^(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}$');
         $frm->setValidationParams(['on'=>'blur','inline'=>true]);
-        $frm->setSubmitParams(Router::path('test.show'),'#response',['hasLoader'=>false]);
+
+        // $frm->setSubmitParams(Router::path('serveur.show'),'#response',['hasLoader'=>false]);
+
         $this->jquery->click('.submit','$("#frm-server").submit()');
-        $this->jquery->jsonOn('change','#name',Router::path('test.resolveIp',[]), parameters:['attr'=>'value']);
+        $this->jquery->jsonOn('change','#DnsName',Router::path('test.resolveIp',[]), parameters:['attr'=>'value']);
         $this->jquery->postFormOnClick('#serveur_connexion',Router::path('serveur.show'),'frm-server','#response',['hasLoader'=>'internal']);
         $this->jquery->postFormOnClick('#serveur_add',Router::path('serveur.serveurCreate'),'frm-server','#response',['hasLoader'=>'internal']);
         $this->jquery->renderView('DashboardController/serveurs.html', ['serveurs' => $servers, 'name' => USession::get('name'), 'role' => USession::get('role')]);
-    } // $this->jquery->postFormOnClick('#serveur_connexion',Router::path('serveur.show'),'form-server','#response',['hasLoader'=>'internal']);
+    }
 
     #[Post("server_list", name:"server.show")]
     public function showServerList() {

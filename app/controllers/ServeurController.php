@@ -72,11 +72,21 @@ class ServeurController extends ControllerBase{
         URequest::setValuesToObject($serveur);
 
         if (DAO::insert($serveur)) {
-            UResponse::header('location', '/');
+            UResponse::header('location', '/serveur/serverCreateResponseOk');
         } else {
             UResponse::header('location', '/');
         }
 	}
+
+    #[Route("/serverCreateResponseOk", name:"server.response")]
+    public function serverCreateResponseOk() {
+        $this->jquery->renderView('ServeurController/ServerResponseOk.html');
+    }
+
+    #[Route("/serverCreateResponseError", name:"server.response")]
+    public function serverCreateResponseError() {
+        $this->jquery->renderView('ServeurController/ServerResponseError.html');
+    }
 
 	#[Get(path: "/modifyForm/{id}",name: "serveur.serveurModifyForm")]
 	public function ServeurModifyForm($id){
