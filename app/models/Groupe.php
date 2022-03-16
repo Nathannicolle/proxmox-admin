@@ -27,71 +27,59 @@ class Groupe{
 	private $vms;
 
 	
-
-	#[ManyToMany(targetEntity: "models\\User",inversedBy: "groupes",cascade:["remove"])]
+	#[ManyToMany(targetEntity: "models\\User_",inversedBy: "groupes")]
 	#[JoinTable(name: "usergroups",inverseJoinColumns: ["name"=>"idUser","referencedColumnName"=>"id"])]
 	private $user_s;
-
 
 	 public function __construct(){
 		$this->vms = [];
 		$this->user_s = [];
 	}
 
-
 	public function getId(){
 		return $this->id;
 	}
-
 
 	public function setId($id){
 		$this->id=$id;
 	}
 
-
 	public function getName(){
 		return $this->name;
 	}
-
 
 	public function setName($name){
 		$this->name=$name;
 	}
 
-
 	public function getVms(){
 		return $this->vms;
 	}
 
-
 	public function setVms($vms){
 		$this->vms=$vms;
 	}
-
 
 	 public function addToVms($vm){
 		$this->vms[]=$vm;
 		$vm->setGroupe($this);
 	}
 
-
 	public function getUser_s(){
 		return $this->user_s;
 	}
-
 
 	public function setUser_s($user_s){
 		$this->user_s=$user_s;
 	}
 
-
 	 public function addUser_($user_){
 		$this->user_s[]=$user_;
 	}
 
-
 	 public function __toString(){
 		return $this->id.'';
 	}
+
 
 }

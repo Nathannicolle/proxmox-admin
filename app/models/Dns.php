@@ -35,59 +35,49 @@ class Dns{
 	#[JoinColumn(className: "models\\Serveur",name: "idServer")]
 	private $serveur;
 
-
 	public function getId(){
 		return $this->id;
 	}
-
 
 	public function setId($id){
 		$this->id=$id;
 	}
 
-
 	public function getIpAddress(){
 		return $this->ipAddress;
 	}
-
 
 	public function setIpAddress($ipAddress){
 		$this->ipAddress=$ipAddress;
 	}
 
-
 	public function getPort(){
 		return $this->port;
 	}
-
 
 	public function setPort($port){
 		$this->port=$port;
 	}
 
-
 	public function getDnsName(){
 		return $this->dnsName;
 	}
-
 
 	public function setDnsName($dnsName){
 		$this->dnsName=$dnsName;
 	}
 
-
 	public function getServeur(){
 		return $this->serveur;
 	}
-
 
 	public function setServeur($serveur){
 		$this->serveur=$serveur;
 	}
 
-
 	 public function __toString(){
 		return $this->id.'';
 	}
+
 
 }

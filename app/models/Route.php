@@ -38,69 +38,57 @@ class Route{
 	#[JoinColumn(className: "models\\Serveur",name: "idServer")]
 	private $serveur;
 
-
 	public function getId(){
 		return $this->id;
 	}
-
 
 	public function setId($id){
 		$this->id=$id;
 	}
 
-
 	public function getPortOrigin(){
 		return $this->portOrigin;
 	}
-
 
 	public function setPortOrigin($portOrigin){
 		$this->portOrigin=$portOrigin;
 	}
 
-
 	public function getPortDest(){
 		return $this->portDest;
 	}
-
 
 	public function setPortDest($portDest){
 		$this->portDest=$portDest;
 	}
 
-
 	public function getHostDest(){
 		return $this->hostDest;
 	}
-
 
 	public function setHostDest($hostDest){
 		$this->hostDest=$hostDest;
 	}
 
-
 	public function getOrder_(){
 		return $this->order_;
 	}
-
 
 	public function setOrder_($order_){
 		$this->order_=$order_;
 	}
 
-
 	public function getServeur(){
 		return $this->serveur;
 	}
-
 
 	public function setServeur($serveur){
 		$this->serveur=$serveur;
 	}
 
-
 	 public function __toString(){
 		return $this->id.'';
 	}
+
 
 }
