@@ -670,16 +670,16 @@
         },
         {
             "name": "phpmv/php-mv-ui",
-            "version": "2.4.5",
+            "version": "2.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpMv/phpMv-UI.git",
-                "reference": "75e3a18fd48edfc52a2d566f18ef3444948dff22"
+                "reference": "906736911ae3f1fe5b1360240e561638f64dff4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpMv/phpMv-UI/zipball/75e3a18fd48edfc52a2d566f18ef3444948dff22",
-                "reference": "75e3a18fd48edfc52a2d566f18ef3444948dff22",
+                "url": "https://api.github.com/repos/phpMv/phpMv-UI/zipball/906736911ae3f1fe5b1360240e561638f64dff4e",
+                "reference": "906736911ae3f1fe5b1360240e561638f64dff4e",
                 "shasum": ""
             },
             "require": {
@@ -730,9 +730,9 @@
             ],
             "support": {
                 "issues": "https://github.com/phpMv/phpMv-UI/issues",
-                "source": "https://github.com/phpMv/phpMv-UI/tree/2.4.5"
+                "source": "https://github.com/phpMv/phpMv-UI/tree/2.4.6"
             },
-            "time": "2022-01-05T00:34:09+00:00"
+            "time": "2022-03-16T00:33:50+00:00"
         },
         {
             "name": "phpmv/php-ssh-proxmox",
