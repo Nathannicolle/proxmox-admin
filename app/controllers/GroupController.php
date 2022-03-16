@@ -74,9 +74,9 @@ class GroupController extends ControllerBase{
         URequest::setValuesToObject($group);
 
         if (DAO::insert($group)) {
-            UResponse::header('location', '/');
+            UResponse::header('location', '/dashboard_groups/');
         } else {
-            UResponse::header('location', '/');
+            UResponse::header('location', '/dashboard_groups/');
         }
 	}
 
@@ -97,7 +97,7 @@ class GroupController extends ControllerBase{
             URequest::setValuesToObject($group);
             $this->repo->save($group);
         }
-        UResponse::header('location', '/');
+        UResponse::header('location', '/dashboard_groups/');
 	}
 
     #[Get(path: "/Delete/{id}",name: "groupe.Delete")]

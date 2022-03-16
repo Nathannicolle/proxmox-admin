@@ -72,9 +72,9 @@ class ServeurController extends ControllerBase{
         URequest::setValuesToObject($serveur);
 
         if (DAO::insert($serveur)) {
-            UResponse::header('location', '/');
+            UResponse::header('location', '/dashboard_servers/');
         } else {
-            UResponse::header('location', '/');
+            UResponse::header('location', '/dashboard_servers/');
         }
 	}
 
@@ -98,6 +98,6 @@ class ServeurController extends ControllerBase{
 
         }
 
-        UResponse::header('location', '/');
+        UResponse::header('location', '/dashboard_servers/');
 	}
 }
