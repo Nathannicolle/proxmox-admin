@@ -43,15 +43,15 @@
 							{% endif %}
 							<a href="{{ path('main.contactForm') }}" id="contact">Contacter</a>
 							<div class="wrapper wrapper_home">
-								<img src="assets/img/home.svg" class="home">
+								<a href="{{ path('home') }}"><img src="assets/img/home.svg" class="home"></a>
 							</div>
 							{% if app.session.get('role') != null %}
 								<div class="wrapper wrapper_dashboard">
-									<img src="assets/img/dashboard.jpg">
+									<a href="{{ path('dashboard') }}"><img src="assets/img/dashboard.jpg"></a>
 								</div>
 							{% endif %}
 							<div class="wrapper wrapper_contact">
-								<img src="assets/img/contact_us.jpg">
+								<a href="{{ path('main.contactForm') }}"><img src="assets/img/contact_us.jpg"></a>
 							</div>
 						</div>
 					</div>

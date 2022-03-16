@@ -110,25 +110,36 @@ class UserController extends ControllerBase {
         if ($user) {
 
             URequest::setValuesToObject($user);
-            if (URequest::post('groupes') and URequest::post('serveurs') == null) {
+            if (URequest::post('login')) {
 
-                $myGroups=DAO::getAllByIds(Groupe::class,URequest::post('groupes'));
-                $user->setGroupes($myGroups);
+                if (URequest::post('serveurs')) {
 
-            } elseif (URequest::post('groupes') == null and URequest::post('serveurs')) {
+                    $myServers=DAO::getAllByIds(Serveur::class,URequest::post('serveurs'));
+                    $user->setServeurs($myServers);
 
-                $myServers=DAO::getAllByIds(Serveur::class,URequest::post('serveurs'));
-                $user->setServeurs($myServers);
+                } elseif (URequest::post('serveurs') == null) {
 
-            }
-            if (URequest::post('password')) {
-                if (URequest::post('password') == '' or URequest::post('password') != URequest::post('passwordConfirme')) {
-                    $user->setPassword($paswordSave);
-                    echo "test1";
-                } elseif (URequest::post('password') == URequest::post('passwordConfirme')) {
-                    $user->setPassword(password_hash(Urequest::post("password"), PASSWORD_DEFAULT));
-                    echo "test2";
+                    $user->setServeurs([]);
+
                 }
+            } elseif (!URequest::post('rôle') and !URequest::post('login')) {
+
+                if (URequest::post('groupes')) {
+
+                    $myGroups=DAO::getAllByIds(Groupe::class,URequest::post('groupes'));
+                    $user->setGroupes($myGroups);
+
+                } elseif (URequest::post('groupes') == null) {
+
+                    $user->setGroupes([]);
+
+                }
+            }
+
+            if (URequest::post('password') == '' or URequest::post('password') != URequest::post('passwordConfirme')) {
+                $user->setPassword($paswordSave);
+            } elseif (URequest::post('password') == URequest::post('passwordConfirme')) {
+                $user->setPassword(password_hash(Urequest::post("password"), PASSWORD_DEFAULT));
             }
             $this->repo->save($user,true);
             UResponse::header('location', "/dashboard_profile/");

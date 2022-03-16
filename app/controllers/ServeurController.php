@@ -63,9 +63,7 @@ class ServeurController extends ControllerBase{
 
 	#[Get(path: "/createForm",name: "serveur.serveurCreateForm")]
 	public function ServeurCreateForm(){
-		
 		$this->loadView('ServeurController/ServeurCreateForm.html', ['name' => USession::get('name'), 'role' => USession::get('role'),]);
-
 	}
 
 	#[Post(path: "/create",name: "serveur.serveurCreate")]
