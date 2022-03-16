@@ -1,7 +1,7 @@
 <?php
 namespace controllers;
 use mail\InformationMail;
-use models\User;
+use models\User_;
 use PHPMV\ProxmoxApi;
 use PHPMV\ProxmoxMaster;
 use Ubiquity\attributes\items\router\Post;
@@ -49,7 +49,7 @@ class MainController extends ControllerBase {
         $user_id = USession::get('user_id');
         $vm = DAO::getAll(Vm::class, 'idUser = :idUser', false, ['idUser' => $user_id]);
         $servers = DAO::getAll(Serveur::class);
-        $user = DAO::getById(User::class, USession::get('user_id'),['groupes']);
+        $user = DAO::getById(User_::class, USession::get('user_id'),['groupes']);
         $groupes= $user->getGroupes();
         $this->jquery->renderView('DashboardController/index.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'vms' => $vm, 'groups' => $groupes, 'serveurs' => $servers]);
     }
@@ -74,7 +74,7 @@ class MainController extends ControllerBase {
 
     #[Route("dashboard_groups", name: "dashboard.groups")]
     public function listGroups() {
-        $user = DAO::getById(User::class, USession::get('user_id'),['groupes']);
+        $user = DAO::getById(User_::class, USession::get('user_id'),['groupes']);
         $groupes= $user->getGroupes();
         $this->jquery->renderView('DashboardController/groups.html', ['groups' => $groupes, 'name' => USession::get('name'), 'role' => USession::get('role')]);
     }
@@ -134,7 +134,7 @@ class MainController extends ControllerBase {
 
     #[Route("dashboard_profile", name: "dashboard.profile")]
     public function dashboardProfile() {
-        $user = DAO::getById(User::class, USession::get('user_id'),['groupes']);
+        $user = DAO::getById(User_::class, USession::get('user_id'),['groupes']);
         $groupes= $user->getGroupes();
         $this->jquery->renderView('DashboardController/user_profile.html', ['name' => USession::get('name'), 'role' => USession::get('role'), 'user_id' => USession::get('user_id'), 'groups' => $groupes]);
     }
@@ -170,7 +170,7 @@ class MainController extends ControllerBase {
 
     #[Route("dashboard_users", name: "dashboard.users")]
     public function listUsers() {
-        $users = DAO::getAll(User::class);
+        $users = DAO::getAll(User_::class);
         $this->jquery->renderView('DashboardController/users.html', ['users' => $users, 'name' => USession::get('name'), 'role' => USession::get('role')]);
     }
 }
