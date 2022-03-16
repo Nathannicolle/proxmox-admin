@@ -889,6 +889,16 @@ a.ui.inverted.green.button {
 	margin-bottom: 1%;
 }
 
+.element_add {
+	background-color: #68cb00;
+	color: black;
+	padding: 1%;
+	width: 50%;
+	border-radius: 10px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	margin-bottom: 1%;
+}
+
 .no_element_found {
 	background-color: #e0a94f;
 	color: black;
@@ -923,6 +933,10 @@ a.ui.inverted.green.button {
 .not_allowed {
 	background-color: #982c2c;
 	color: white;
+}
+
+.no_element_found.error {
+	background-color: #982c2c;
 }
 
 /* 4.5.1 - Catégories de l'accueil (VMs/Groupe/Serveur) (Ce sont les 'barres' sur lesquels on peut cliquer pour afficher ou cacher les éléments d'une catégorie) */
