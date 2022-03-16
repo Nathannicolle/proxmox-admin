@@ -988,7 +988,7 @@ a.ui.inverted.green.button {
 /* 4.6 - Cards qui contienent les infos des VM/Groupes/Serveurs */
 .card_container {
 	display: grid;
-	grid-template-columns: repeat(4, 25%);
+	grid-template-columns: repeat(4, 24%);
 	grid-row-gap: 10px;
 	grid-column-gap: 20px;
 }
