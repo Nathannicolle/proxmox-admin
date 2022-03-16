@@ -96,7 +96,7 @@ class MainController extends ControllerBase {
 
         $this->jquery->click('.submit','$("#frm-server").submit()');
         $this->jquery->jsonOn('change','#DnsName',Router::path('test.resolveIp',[]), parameters:['attr'=>'value']);
-        $this->jquery->postFormOnClick('#serveur_connexion',Router::path('serveur.show'),'frm-server','#response',['hasLoader'=>'internal']);
+        $this->jquery->postFormOnClick('#serveur_connexion',Router::path('server.show'),'frm-server','#response',['hasLoader'=>'internal']);
         $this->jquery->postFormOnClick('#serveur_add',Router::path('serveur.serveurCreate'),'frm-server','#response',['hasLoader'=>'internal']);
         $this->jquery->renderView('DashboardController/serveurs.html', ['serveurs' => $servers, 'name' => USession::get('name'), 'role' => USession::get('role')]);
     }
@@ -109,6 +109,10 @@ class MainController extends ControllerBase {
             URequest::post('password','sio1a'));
         $vms=$api->getVMs();
         $dt=$this->jquery->semantic()->dataTable('vms',\stdClass::class,$vms);
+        $dt->setClass("ui table inverted");
+        $dt->setIdentifierFunction(function($i,$o){
+            return $o->vmid.'||'.$o->name;
+        });
         $dt->setFields(ProxmoxMaster::VM_FIELDS);
         $dt->setHasCheckboxes(true);
         $dt->fieldAsLabel('status','server',attributes: ['jsCallback'=>function($lbl,$instance){
@@ -116,8 +120,10 @@ class MainController extends ControllerBase {
                 $lbl->addClass('green');
             }
         }]);
-        $this->jquery->renderView('DashboardController/serveurs.html', ['name' => USession::get('name'), 'role' => USession::get('role')]);
+        $this->jquery->renderView('ServeurController/ServerList.html', ['name' => USession::get('name'), 'role' => USession::get('role')]);
     }
+
+
 
     #[Get("oneServer/{id}", name: "dashboard.oneServer")]
     public function oneServer($id) {
