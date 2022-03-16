@@ -79,10 +79,10 @@ class VMController extends ControllerBase{
         $VM = new Vm();
         URequest::setValuesToObject($VM);
         if (DAO::insert($VM)) {
-            UResponse::header('location', '/');
+            UResponse::header('location', '/dashboard_VM/');
 
         } else {
-            UResponse::header('location', '/');
+            UResponse::header('location', '/dashboard_VM/');
         }
     }
 
@@ -106,7 +106,7 @@ class VMController extends ControllerBase{
             URequest::setValuesToObject($VM);
             $this->repo->save($VM);
         }
-        UResponse::header('location', '/');
+        UResponse::header('location', '/dashboard_VM/');
     }
 
     #[Get(path: "/groupeModifyForm/{id}",name: "vm.VMGroupeModifyForm")]

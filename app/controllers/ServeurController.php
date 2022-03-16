@@ -74,7 +74,7 @@ class ServeurController extends ControllerBase{
         if (DAO::insert($serveur)) {
             UResponse::header('location', '/serveur/serverCreateResponseOk');
         } else {
-            UResponse::header('location', '/');
+            UResponse::header('location', '/dashboard_servers/');
         }
 	}
 
@@ -108,6 +108,6 @@ class ServeurController extends ControllerBase{
 
         }
 
-        UResponse::header('location', '/');
+        UResponse::header('location', '/dashboard_servers/');
 	}
 }
