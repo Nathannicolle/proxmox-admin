@@ -35,18 +35,34 @@
                 <p><b>OS : </b>{{OS}}</p>
                 <p> <a href="{{path('vm.VMModifyForm', [VM_Id])}}" class="ui inverted primary button"><i class="pen icon"></i> Modifier</a>
                     <a href="{{path('vm.VMGroupeModifyForm', [VM_Id])}}" class="ui inverted primary button"><i class="users icon"></i> Groupe</a>
-                    <a href="{{path('vm.VMDelete', [VM_Id])}}" onclick="confirmer()" class="ui inverted red button"><i class="delete icon"></i> Supprimer</a></p>
 
-                <button >Supprimer</button>
+                    <button onclick="AfficherMasquer()" class="ui inverted red button confirme"><i class="delete icon"></i> Supprimer</button></p>
 
-               <script> function confirmer(){
-                var res = confirm("Êtes-vous sûr de vouloir supprimer?");
-                if(res){
-                // Mettez ici la logique de suppression
+             <div class="error no_element_found hidden" id="afficher">
+                 <h3>Etes-vous sur de vouloir supprimer la VM?</h3>
+                    <a href="{{path('vm.VMDelete', [VM_Id])}}" class="href">Confirmer</a>
+                    <button onclick="fermer()" class="href">Annuler</button>
+             </div>
+ <script>
+                function AfficherMasquer()
+                {
+                    divInfo = document.getElementById('afficher');
+                    if (divInfo.style.display == 'none')
+                        divInfo.style.display = 'block';
+                    else
+                        divInfo.style.display = 'none';
+
                 }
-                }</script>
+                function fermer()
+                {
+                    divInfo = document.getElementById('afficher');
+                    if (divInfo.style.display == 'none')
+                        divInfo.style.display = 'block';
+                    else
+                        divInfo.style.display = 'none';
 
-
+                }
+                </script>
             </div>
         {% else %}
             <div class="no_element_found not_allowed">
