@@ -2,10 +2,11 @@
 namespace mail;
 
 use models\User;
+use Ubiquity\attributes\items\router\Post;
+use Ubiquity\attributes\items\router\Route;
 use Ubiquity\mailer\MailerManager;
 use Ubiquity\orm\DAO;
-
-
+use Ubiquity\utils\http\USession;
 
 
 /**
@@ -27,12 +28,16 @@ class Hconnect extends \Ubiquity\mailer\AbstractMail {
 	 * {@inheritdoc}
 	 * @see \Ubiquity\mailer\AbstractMail::initialize()
 	 */
-
-	protected function initialize(){
+    #[Route(path: "Mail/Hconnect",name: "Mail.Hconnect")]
+	public function initialize(){
         $this->subject = 'Message title';
-        $mail= $_SESSION['name'];
-        $this->from($mail);
+        if(USession::exists('name')) {
+            $mail = $_SESSION['name'];
+            $this->from($mail);
+        }
         $this->to(MailerManager::loadConfig()['from']??'from@organization');
+        $this->loadView('mailer/Hconnect.html');
+
 	}
 
 	/**

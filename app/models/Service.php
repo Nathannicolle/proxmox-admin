@@ -24,50 +24,42 @@ class Service{
 	#[OneToMany(mappedBy: "service",className: "models\\Vmservices")]
 	private $vmservicess;
 
-
 	 public function __construct(){
 		$this->vmservicess = [];
 	}
-
 
 	public function getId(){
 		return $this->id;
 	}
 
-
 	public function setId($id){
 		$this->id=$id;
 	}
-
 
 	public function getService(){
 		return $this->service;
 	}
 
-
 	public function setService($service){
 		$this->service=$service;
 	}
-
 
 	public function getVmservicess(){
 		return $this->vmservicess;
 	}
 
-
 	public function setVmservicess($vmservicess){
 		$this->vmservicess=$vmservicess;
 	}
-
 
 	 public function addToVmservicess($vmservice){
 		$this->vmservicess[]=$vmservice;
 		$vmservice->setService($this);
 	}
 
-
 	 public function __toString(){
 		return $this->id.'';
 	}
+
 
 }

@@ -1368,3 +1368,15 @@ display: block;
 		transform: translateX(100%);
 	}
 }
+
+/*--  Page d'aide  --*/
+.aide{
+text-align: center;
+	margin-top: 3%;
+}
+
+.help:hover{
+	background-color: #02a545;
+	color: white;
+	border-color: #027a33;
+}
