@@ -2,6 +2,8 @@
 vendor/
 app/cache/
 app/logs/
+app/models/
+
 # app/config
 
 app/controllers/IndexController.php
