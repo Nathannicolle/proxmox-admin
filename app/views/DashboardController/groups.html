@@ -28,52 +28,54 @@
         {% if role == '@ADMIN' or role == '@PROF' %}
             <a href="{{path('group.groupCreateForm')}}" class="ui inverted green button">+ Ajouter un groupe</a>
         {% endif %}
-            {% if groups %}
-                <div class="card_container">
-                    {% for group in groups %}
-                        <div class="card_VM">
-                            <h1><i class="users icon"></i></h1>
-                            <p><b>Nom du groupe :</b> {{ group.name }}</p>
+        {% if groups %}
+            <div class="card_container">
+                {% for group in groups %}
+                    <div class="card_VM">
+                        <h1><i class="users icon"></i></h1>
+                        <p><b>Nom du groupe :</b> {{ group.name }}</p>
+                        {% if role == '@ADMIN' or role == '@PROF' %}
                             <div><a href="{{path('group.groupModifyForm', [group.id])}}" class="ui inverted primary button"><i class="pen icon"></i> Modifier</a>
-                            <button onclick="AfficherMasquer()" class="ui inverted red button confirme"><i class="delete icon"></i> Supprimer</button></p>
+                                <button onclick="AfficherMasquer()" class="ui inverted red button confirme"><i class="delete icon"></i> Supprimer</button></p>
 
-                            <div class="error no_element_found hidden" id="afficher">
-                                <h3>Etes-vous sur de vouloir supprimer le groupe?</h3>
-                                <a href="{{path('groupe.Delete', [group.id])}}" class="href">Confirmer</a>
-                                <button onclick="fermer()" class="href">Annuler</button>
+                                <div class="error no_element_found hidden" id="afficher">
+                                    <h3>Etes-vous sur de vouloir supprimer le groupe?</h3>
+                                    <a href="{{path('groupe.Delete', [group.id])}}" class="href">Confirmer</a>
+                                    <button onclick="fermer()" class="href">Annuler</button>
+                                </div>
+                                <script>
+                                    function AfficherMasquer()
+                                    {
+                                        divInfo = document.getElementById('afficher');
+                                        if (divInfo.style.display == 'none')
+                                            divInfo.style.display = 'block';
+                                        else
+                                            divInfo.style.display = 'none';
+
+                                    }
+                                    function fermer()
+                                    {
+                                        divInfo = document.getElementById('afficher');
+                                        if (divInfo.style.display == 'none')
+                                            divInfo.style.display = 'block';
+                                        else
+                                            divInfo.style.display = 'none';
+
+                                    }
+                                </script>
+
+
+
                             </div>
-                            <script>
-                                function AfficherMasquer()
-                                {
-                                    divInfo = document.getElementById('afficher');
-                                    if (divInfo.style.display == 'none')
-                                        divInfo.style.display = 'block';
-                                    else
-                                        divInfo.style.display = 'none';
-
-                                }
-                                function fermer()
-                                {
-                                    divInfo = document.getElementById('afficher');
-                                    if (divInfo.style.display == 'none')
-                                        divInfo.style.display = 'block';
-                                    else
-                                        divInfo.style.display = 'none';
-
-                                }
-                            </script>
-
-
-
-                        </div>
-                        </div>
-                    {% endfor %}
-
+                        {% endif %}
+                    </div>
+                {% endfor %}
             {% else %}
-                <div class="no_element_found">
-                    <h2><i class="grin beam sweat outline icon"></i> Vous ne faites partie d'aucun groupe...</h2>
-                </div>
+            <div class="no_element_found">
+                <h2><i class="grin beam sweat outline icon"></i> Vous ne faites partie d'aucun groupe...</h2>
+            </div>
             {% endif %}
+        </div>
     </div>
 </div>
 {{ script_foot|raw }}

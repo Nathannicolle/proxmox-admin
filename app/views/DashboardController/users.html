@@ -34,14 +34,14 @@
                 <p><b>Rôle : </b> {{ user.role }} </p>
                 <div>
                     {% if role == '@ADMIN' and user.role == '@ADMIN' %}
-
+                        <a href="{{path('user.userGroupForm', [user.id])}}" class="ui inverted primary button"><i class="users icon"></i> Groupes</a>
                     {% elseif role == '@PROF' and (user.role == '@ADMIN' or user.role == '@PROF') %}
 
                     {% elseif role == '@ETUDIANT' and (user.role == '@ADMIN' or user.role == '@PROF' or user.role == '@ETUDIANT') %}
 
                     {% else %}
-                    <a href="{{path('user.userDroitForm', [user.id])}}" class="ui inverted primary button"><i class="pen icon"></i> Rôle</a>
-                    <a href="{{path('user.userGroupForm', [user.id])}}" class="ui inverted primary button"><i class="users icon"></i> Groupes</a>
+                        <a href="{{path('user.userDroitForm', [user.id])}}" class="ui inverted primary button"><i class="pen icon"></i> Rôle</a>
+                        <a href="{{path('user.userGroupForm', [user.id])}}" class="ui inverted primary button"><i class="users icon"></i> Groupes</a>
                     {% endif %}
                 </div>
             </div>
