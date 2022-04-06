@@ -6,9 +6,9 @@ app/models/
 
 # app/config
 
-app/controllers/IndexController.php
-public/.htaccess
-app/config/*
+# app/controllers/IndexController.php
+# public/.htaccess
+# app/config/*
 
 # Eclipse
 .settings/
