@@ -48,102 +48,84 @@ class User_{
 	#[JoinTable(name: "userservers",joinColumns: ["name"=>"id","referencedColumnName"=>"id"],inverseJoinColumns: ["name"=>"id_1","referencedColumnName"=>"id"])]
 	private $serveurs;
 
-
 	 public function __construct(){
 		$this->vms = [];
 		$this->groupes = [];
 		$this->serveurs = [];
 	}
 
-
 	public function getId(){
 		return $this->id;
 	}
-
 
 	public function setId($id){
 		$this->id=$id;
 	}
 
-
 	public function getLogin(){
 		return $this->login;
 	}
-
 
 	public function setLogin($login){
 		$this->login=$login;
 	}
 
-
 	public function getPassword(){
 		return $this->password;
 	}
-
 
 	public function setPassword($password){
 		$this->password=$password;
 	}
 
-
 	public function getRole(){
 		return $this->role;
 	}
-
 
 	public function setRole($role){
 		$this->role=$role;
 	}
 
-
 	public function getVms(){
 		return $this->vms;
 	}
 
-
 	public function setVms($vms){
 		$this->vms=$vms;
 	}
-
 
 	 public function addToVms($vm){
 		$this->vms[]=$vm;
 		$vm->setUser_($this);
 	}
 
-
 	public function getGroupes(){
 		return $this->groupes;
 	}
-
 
 	public function setGroupes($groupes){
 		$this->groupes=$groupes;
 	}
 
-
 	 public function addGroupe($groupe){
 		$this->groupes[]=$groupe;
 	}
-
 
 	public function getServeurs(){
 		return $this->serveurs;
 	}
 
-
 	public function setServeurs($serveurs){
 		$this->serveurs=$serveurs;
 	}
-
 
 	 public function addServeur($erveur){
 		$this->serveurs[]=$erveur;
 	}
 
-
 	 public function __toString(){
 		return $this->login.'';
 	}
+
 
 }

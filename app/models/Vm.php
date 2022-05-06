@@ -127,7 +127,6 @@ class Vm{
 		$this->serveur=$serveur;
 	}
 
-
 	public function getUser_(){
 		return $this->user_;
 	}
