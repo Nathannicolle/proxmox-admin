@@ -59,69 +59,86 @@ class Vm{
 	#[OneToMany(mappedBy: "vm",className: "models\\Vmservices")]
 	private $vmservicess;
 
+
 	 public function __construct(){
 		$this->vmservicess = [];
 	}
+
 
 	public function getId(){
 		return $this->id;
 	}
 
+
 	public function setId($id){
 		$this->id=$id;
 	}
+
 
 	public function getNumber(){
 		return $this->number;
 	}
 
+
 	public function setNumber($number){
 		$this->number=$number;
 	}
+
 
 	public function getName(){
 		return $this->name;
 	}
 
+
 	public function setName($name){
 		$this->name=$name;
 	}
+
 
 	public function getIp(){
 		return $this->ip;
 	}
 
+
 	public function setIp($ip){
 		$this->ip=$ip;
 	}
+
 
 	public function getSshPort(){
 		return $this->sshPort;
 	}
 
+
 	public function setSshPort($sshPort){
 		$this->sshPort=$sshPort;
 	}
+
 
 	public function getOs(){
 		return $this->os;
 	}
 
+
 	public function setOs($os){
 		$this->os=$os;
 	}
+
 
 	public function getGroupe(){
 		return $this->groupe;
 	}
 
+
 	public function setGroupe($groupe){
 		$this->groupe=$groupe;
 	}
 
+
 	public function getServeur(){
 		return $this->serveur;
 	}
+
 
 	public function setServeur($serveur){
 		$this->serveur=$serveur;
@@ -131,29 +148,30 @@ class Vm{
 		return $this->user_;
 	}
 
+
 	public function setUser_($user_){
 		$this->user_=$user_;
 	}
+
 
 	public function getVmservicess(){
 		return $this->vmservicess;
 	}
 
+
 	public function setVmservicess($vmservicess){
 		$this->vmservicess=$vmservicess;
 	}
+
 
 	 public function addToVmservicess($vmservice){
 		$this->vmservicess[]=$vmservice;
 		$vmservice->setVm($this);
 	}
 
+
 	 public function __toString(){
 		return $this->id.'';
-	}
-
-	public function getUser(){
-		return $this->user_;
 	}
 
 }

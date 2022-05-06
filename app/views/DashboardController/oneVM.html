@@ -17,7 +17,7 @@
             <li><a href="{{path('dashboard.VM')}}" title="VM (Dashboard)" class="link_active"><i class="laptop icon"></i><span>Mes VM</span></a></li>
             <li><a href="{{path('dashboard.groups')}}" title="Groupes (Dashboard)"><i class="users icon"></i><span>Mes groupes</span></a></li>
             {% if role == '@ADMIN' or role == '@PROF' %}
-                <li><a href="{{path('dashboard.servers')}}" title="Serveurs (Dashboard)"><i class="server icon"></i><span>Les serveurs</span></a></li>
+            <li><a href="{{path('dashboard.servers')}}" title="Serveurs (Dashboard)"><i class="server icon"></i><span>Les serveurs</span></a></li>
             {% endif %}
             <li><a href="{{path('dashboard.users')}}" title="Utilisateurs (Dashboard)"><i class="user icon"></i><span>Utilisateurs</span></a></li>
             <li class="minimize_menu"><a class="minimize_link"><i class="caret square left outline icon"></i></a></li>
@@ -25,25 +25,25 @@
     </aside>
     <div class="dashboard_content">
         {% if VM_Id %}
-            <div class="card_VM oneElement">
-                <h1><i class="desktop icon"></i></h1>
-                <h1>VM N°{{VM_Number}}</h1>
-                <p><b>Numéro de VM : </b> {{VM_Number}}</p>
-                <p><b>Nom : </b>{{VM_Name}}</p>
-                <p><b>Adresse IP : </b>{{VM_IP}}</p>
-                <p><b>Port SSH : </b>{{Port_SSH}}</p>
-                <p><b>OS : </b>{{OS}}</p>
-                <p> <a href="{{path('vm.VMModifyForm', [VM_Id])}}" class="ui inverted primary button"><i class="pen icon"></i> Modifier</a>
-                    <a href="{{path('vm.VMGroupeModifyForm', [VM_Id])}}" class="ui inverted primary button"><i class="users icon"></i> Groupe</a>
+        <div class="card_VM oneElement">
+            <h1><i class="desktop icon"></i></h1>
+            <h1>VM N°{{VM_Number}}</h1>
+            <p><b>Numéro de VM : </b> {{VM_Number}}</p>
+            <p><b>Nom : </b>{{VM_Name}}</p>
+            <p><b>Adresse IP : </b>{{VM_IP}}</p>
+            <p><b>Port SSH : </b>{{Port_SSH}}</p>
+            <p><b>OS : </b>{{OS}}</p>
+            <p> <a href="{{path('vm.VMModifyForm', [VM_Id])}}" class="ui inverted primary button"><i class="pen icon"></i> Modifier</a>
+                <a href="{{path('vm.VMGroupeModifyForm', [VM_Id])}}" class="ui inverted primary button"><i class="users icon"></i> Groupe</a>
 
-                    <button onclick="AfficherMasquer()" class="ui inverted red button confirme"><i class="delete icon"></i> Supprimer</button></p>
+                <button onclick="AfficherMasquer()" class="ui inverted red button confirme"><i class="delete icon"></i> Supprimer</button></p>
 
-             <div class="error no_element_found hidden" id="afficher">
-                 <h3>Etes-vous sur de vouloir supprimer la VM?</h3>
-                    <a href="{{path('vm.VMDelete', [VM_Id])}}" class="href">Confirmer</a>
-                    <button onclick="fermer()" class="href">Annuler</button>
-             </div>
- <script>
+            <div class="error no_element_found hidden" id="afficher">
+                <h3>Etes-vous sur de vouloir supprimer la VM?</h3>
+                <a href="{{path('vm.VMDelete', [VM_Id])}}" class="href">Confirmer</a>
+                <button onclick="fermer()" class="href">Annuler</button>
+            </div>
+            <script>
                 function AfficherMasquer()
                 {
                     divInfo = document.getElementById('afficher');
@@ -62,12 +62,12 @@
                         divInfo.style.display = 'none';
 
                 }
-                </script>
-            </div>
+            </script>
+        </div>
         {% else %}
-            <div class="no_element_found not_allowed">
-                <h2><i class="ban icon"></i> Accès non autorisé à la VM</h2>
-            </div>
+        <div class="no_element_found not_allowed">
+            <h2><i class="ban icon"></i> Accès non autorisé à la VM</h2>
+        </div>
         {% endif %}
     </div>
 </div>

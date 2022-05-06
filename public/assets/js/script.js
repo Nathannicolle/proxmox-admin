@@ -245,6 +245,39 @@ window.addEventListener("load", () => {
                     plane.style.animationPlayState = 'running';
                 }
             }
+
+            switch (event.key) {
+                case "&" :
+                    document.querySelector("i.fighter.jet.icon").style = "-webkit-text-stroke: 2px red;";
+                    break;
+                case "é" :
+                    document.querySelector("i.fighter.jet.icon").style = "-webkit-text-stroke: 2px green;";
+                    break;
+                case '"' :
+                    document.querySelector("i.fighter.jet.icon").style = "-webkit-text-stroke: 2px blue;";
+                    break;
+                case "'" :
+                    document.querySelector("i.fighter.jet.icon").style = "-webkit-text-stroke: 2px cyan;";
+                    break;
+                case "(" :
+                    document.querySelector("i.fighter.jet.icon").style = "-webkit-text-stroke: 2px orange;";
+                    break;
+                case "-" :
+                    document.querySelector("i.fighter.jet.icon").style = "-webkit-text-stroke: 2px yellow;";
+                    break;
+                case "è" :
+                    document.querySelector("i.fighter.jet.icon").style = "-webkit-text-stroke: 2px purple;";
+                    break;
+                case "_" :
+                    document.querySelector("i.fighter.jet.icon").style = "-webkit-text-stroke: 2px #ff3399;";
+                    break;
+                case "ç" :
+                    document.querySelector("i.fighter.jet.icon").style = "-webkit-text-stroke: 2px black;";
+                    break;
+                case "à" :
+                    document.querySelector("i.fighter.jet.icon").style = "-webkit-text-stroke: 2px white;";
+                    break;
+            }
         });
     }
 });
