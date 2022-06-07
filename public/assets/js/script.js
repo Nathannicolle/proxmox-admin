@@ -104,7 +104,7 @@ window.addEventListener("load", () => {
         // -- Fullscreen menu animations and grid disposition -- //
         fullscreenMenu();
 
-    } else if(window.location.pathname.match("/dashboard") || window.location.pathname.match("/dashboard_[a-zA-Z]{0,8}") ||  window.location.pathname.match("/oneVM") || window.location.pathname.match("/oneServer") || window.location.pathname.match('/createForm') || window.location.pathname.match('/modifyForm') || window.location.pathname.match('/groupeModifyForm') || window.location.pathname.match('/user/[a-zA-Z]{0,10}')) {
+    } else if(window.location.pathname.match("/dashboard") || window.location.pathname.match("/dashboard_[a-zA-Z]{0,8}") ||  window.location.pathname.match("/oneVM") || window.location.pathname.match("/oneServer") || window.location.pathname.match('/createForm') || window.location.pathname.match('/modifyForm') || window.location.pathname.match('/groupeModifyForm') || window.location.pathname.match('/user/[a-zA-Z]{0,10}') || window.location.pathname.match('/VMDelete/')) {
         document.querySelector(".ui.basic.inverted.segment.main_menu").style = "display: none !important;";
         document.querySelector(".page_container").style = "margin-top: 0; padding-bottom:0;";
         $(".subcategory").click(function () {
