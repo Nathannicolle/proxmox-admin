@@ -39,7 +39,9 @@
                             <li class="p_profile"><a href="{{path('dashboard.groups')}}">{{group.name}}</a></li>
                         {% endfor %}
                     </ul>
-                    <p class="link_group"><a href="{{path('user.userGroupForm', [user_id])}}" class="ui inverted primary button"><i class="users icon"></i></a></p>
+                    {% if role == '@ADMIN' or role == '@PROF' %}
+                        <p class="link_group"><a href="{{path('user.userGroupForm', [user_id])}}" class="ui inverted primary button"><i class="users icon"></i></a></p>
+                    {% endif %}
                 </div>
                 {% else %}
                     <div class="group">
@@ -47,7 +49,9 @@
                         <div class="no_element_found no_element_profile">
                             <h2><i class="grin beam sweat outline icon"></i> Vous ne faites partie d'aucun groupe...</h2>
                         </div>
-                        <p><a href="{{path('user.userGroupForm', [user_id])}}" class="ui inverted primary button"><i class="users icon"></i></a></p>
+                        {% if role == '@ADMIN' or role == '@PROF' %}
+                            <p><a href="{{path('user.userGroupForm', [user_id])}}" class="ui inverted primary button"><i class="users icon"></i></a></p>
+                        {% endif %}
                     </div>
                 {% endif %}
             </div>
