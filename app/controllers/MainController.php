@@ -65,7 +65,7 @@ class MainController extends ControllerBase {
     public function oneVM($id) {
         $oneVM = DAO::getOne(Vm::class, 'Id = :id_vm AND idUser = :id_user', false, ['id_vm' => $id, 'id_user' => USession::get("user_id")]);
         if($oneVM !== null) {
-            $this->jquery->renderView('DashboardController/oneVM.html', ['VM_Id' => $oneVM->getId(), 'VM_Number' => $oneVM->getNumber(), 'VM_Name' => $oneVM->getName(), 'VM_IP' => $oneVM->getIp(), 'Port_SSH' => $oneVM->getSshPort(), 'OS' => $oneVM->getOs(), 'Utilisateurs' => $oneVM->getUser(), 'group_vm' => $oneVM->getGroupe(), 'name' => USession::get('name'), 'role' => USession::get('role')]);
+            $this->jquery->renderView('DashboardController/oneVM.html', ['VM_Id' => $oneVM->getId(), 'VM_Number' => $oneVM->getNumber(), 'VM_Name' => $oneVM->getName(), 'VM_IP' => $oneVM->getIp(), 'Port_SSH' => $oneVM->getSshPort(), 'OS' => $oneVM->getOs(), 'Utilisateurs' => $oneVM->getUser_(), 'group_vm' => $oneVM->getGroupe(), 'name' => USession::get('name'), 'role' => USession::get('role')]);
         } else {
             $vm = DAO::getAll(Vm::class, 'idUser = :idUser', false, ['idUser' => USession::get('user_id')]);    
             $this->jquery->renderView('DashboardController/VM.html', ['vms' => $vm, 'name' => USession::get('name'), 'role' => USession::get('role')]);
